@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import granny from "../assets/granny.png";
+import granny from "assets/granny.png";
 
 const Wrapper = styled.div`
   position: fixed;

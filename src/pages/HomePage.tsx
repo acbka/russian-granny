@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components/macro";
-import NavBar from "components/NavBar";
-import backgroundImage from "../assets/background.jpeg";
+import Navbar from "components/Navbar";
+import backgroundImage from "assets/background.jpeg";
+import Footer from "components/Footer";
 
 const Wrapper = styled.section`
   margin-top: 110px;
+  height: 100%;
 `;
 const Main = styled.section`
   padding: 100px 50px 120px 50px;
@@ -40,7 +42,7 @@ const Discount = styled.div`
 const HomePage = () => {
   return (
     <Wrapper>
-      <NavBar />
+      <Navbar />
       <Main>
         <MainTitle>Delivery of delicious Russian dishes</MainTitle>
         <SubTitle>
@@ -51,7 +53,8 @@ const HomePage = () => {
           <p>$10 discount</p>
           <p>for the first order</p>
         </Discount>
-      </Main>
+        </Main>
+        <Footer />
     </Wrapper>
   );
 };
