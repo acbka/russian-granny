@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   display: flex;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
   padding: 10px 30px;
+  background: #fff;
 `;
 const Logo = styled.div`
   display: flex;

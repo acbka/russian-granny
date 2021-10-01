@@ -12,10 +12,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   color: var(--color-main);
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.7);
   background: linear-gradient(
-        rgba(220, 220, 220, 0.6),
-        rgba(220, 220, 220, 0.9)
+        rgba(255, 255, 255, 0.6),
+        rgba(220, 220, 220, 0.3)
       )
       0 0 / cover,
     url(${footer}) center no-repeat;
