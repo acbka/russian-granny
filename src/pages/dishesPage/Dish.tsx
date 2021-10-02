@@ -32,6 +32,7 @@ const Info = styled.ul`
   padding: 25px;
   & > li {
     line-height: 1.5rem;
+    text-transform: capitalize;
   }
 `;
 const Title = styled.h4`
@@ -43,7 +44,7 @@ const Title = styled.h4`
 const SubTitle = styled.h5`
   font-size: 1.2rem;
   font-weight: bold;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 `;
 const ButtonWrap = styled.div`
   text-align: center;

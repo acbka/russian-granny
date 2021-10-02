@@ -1,10 +1,10 @@
-import HomePage from "pages/HomePage";
-import Dishes from "pages/dishes/Dishes";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import dishes from "api/dishes.json";
 import { useAppDispatch } from "api/store";
 import { setDishes } from "api/dishesSlice";
+import HomePage from "pages/HomePage";
+import Dishes from "pages/dishesPage/Dishes";
 import SetsPage from "pages/setsPage/SetsPage";
 import OrderPage from "pages/OrderPage";
 

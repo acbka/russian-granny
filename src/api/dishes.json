@@ -241,7 +241,7 @@
     "id": 207,
     "category": "Mains",
     "name": "Cutlet",
-    "ingredients": ["minced pork", "minced beef", "minced beef", "onion"],
+    "ingredients": ["minced pork", "minced beef", "onion"],
     "pict": "cutlet.jpg",
     "dairyFree": true,
     "beefFree": false,
