@@ -12,7 +12,11 @@ type DishPropsType = {
   removeDish: () => void;
 };
 
-const Card = styled.div`
+type CardPropsType = {
+  isShadow: boolean;
+};
+
+const Card = styled.div<CardPropsType>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -23,7 +27,8 @@ const Card = styled.div`
   background-clip: border-box;
   border-radius: 0.4rem;
   overflow: hidden;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: ${(props) =>
+    props.isShadow ? "none" : "0 0.5rem 1rem rgba(0, 0, 0, 0.15)"};
   margin: 30px 15px;
 `;
 
@@ -61,7 +66,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
 `;
 
 const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
@@ -70,7 +75,13 @@ const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
     <li key={index}>{item}</li>
   ));
   return (
-    <Card>
+    <Card
+      isShadow={
+        dishesInOrder.filter((item) => item.category === dish.category)
+          .length >= categories[dish.category].count &&
+        !dishesInOrder.find((item) => item.id === dish.id)
+      }
+    >
       <div>
         <Image src={`/dishes/${dish.pict}`} alt={dish.name} />
         <Info>
