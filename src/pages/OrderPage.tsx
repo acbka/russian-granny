@@ -26,17 +26,17 @@ const Title = styled.h1`
   letter-spacing: 4px;
 `;
 
-const SetsPage = () => {
+const OrderPage = () => {
   const dishes = useSelector(selectDishes);
 
   return (
     <Wrapper>
       <Header />
-      <Title>Dishes' Sets </Title>
+      <Title>Order </Title>
       <Main></Main>
       <Footer />
     </Wrapper>
   );
 };
 
-export default SetsPage;
+export default OrderPage;

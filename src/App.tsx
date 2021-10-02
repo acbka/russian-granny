@@ -6,6 +6,7 @@ import dishes from "api/dishes.json";
 import { useAppDispatch } from "api/store";
 import { setDishes } from "api/dishesSlice";
 import SetsPage from "pages/SetsPage";
+import OrderPage from "pages/OrderPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -15,9 +16,12 @@ function App() {
       <Switch>
         <Route path="/dishes/:category">
           <Dishes />
-           </Route>
-           <Route path="/sets">
+        </Route>
+        <Route path="/sets">
           <SetsPage />
+        </Route>
+        <Route path="/order">
+          <OrderPage />
         </Route>
         <Route exact path="/">
           <HomePage />

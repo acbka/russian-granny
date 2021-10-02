@@ -57,7 +57,7 @@ const DropDownMenuItem = styled.span`
   }
   cursor: pointer;
 `;
-const MenuBasket= styled.span`
+const MenuBasket = styled.span`
   display: flex;
   align-items: center;
 `;
@@ -78,7 +78,7 @@ const Header = () => {
           Dishes
         </DropDownMenuItem>
         <MenuItem to="/sets">Sets</MenuItem>
-        <MenuItem to="/cart">
+        <MenuItem to="/order">
           <MenuBasket
             onMouseEnter={() => setonHover(true)}
             onMouseLeave={() => setonHover(false)}
