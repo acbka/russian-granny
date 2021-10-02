@@ -1,5 +1,5 @@
-import { categories } from "common/constants";
 import React from "react";
+import { categories } from "common/constants";
 import styled from "styled-components/macro";
 import DropDownMenuItem from "./DropDownMenuItem";
 

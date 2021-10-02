@@ -3,6 +3,7 @@ import styled, { css } from "styled-components/macro";
 import granny from "assets/granny.png";
 import { Link } from "react-router-dom";
 import DropDownMenu from "./DropDownMenu";
+import Basket from "components/Basket";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -34,6 +35,11 @@ const Title = styled.p`
   font-size: 1.8rem;
   font-weight: 600;
 `;
+
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+`;
 const Item = css`
   padding: 15px;
   color: var(--color-main);
@@ -51,24 +57,40 @@ const DropDownMenuItem = styled.span`
   }
   cursor: pointer;
 `;
+const MenuBasket= styled.span`
+  display: flex;
+  align-items: center;
+`;
 
 const Header = () => {
   const [isOpen, setisOpen] = useState(false);
+  const [onHover, setonHover] = useState(false);
+
   return (
     <Wrapper>
       <Logo>
         <LogoImg src={granny} alt="logo" />
         <Title>Russian Granny</Title>
       </Logo>
-      <nav>
+      <Nav>
         <MenuItem to="/">Home</MenuItem>
         <DropDownMenuItem onClick={() => setisOpen(!isOpen)}>
           Dishes
         </DropDownMenuItem>
         <MenuItem to="/sets">Sets</MenuItem>
-        <MenuItem to="/cart">Cart</MenuItem>
-      </nav>
-        {isOpen && <DropDownMenu setIsOpen={() => setisOpen(!isOpen)} />}
+        <MenuItem to="/cart">
+          <MenuBasket
+            onMouseEnter={() => setonHover(true)}
+            onMouseLeave={() => setonHover(false)}
+          >
+            <Basket
+              color={onHover ? "var(--color-second)" : "var(--color-main)"}
+            />
+            Cart
+          </MenuBasket>
+        </MenuItem>
+      </Nav>
+      {isOpen && <DropDownMenu setIsOpen={() => setisOpen(!isOpen)} />}
     </Wrapper>
   );
 };

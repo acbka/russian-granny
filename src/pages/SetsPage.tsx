@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import styled from "styled-components/macro";
 import Footer from "components/Footer";
 import { selectDishes } from "api/dishesSlice";
@@ -26,27 +26,15 @@ const Title = styled.h1`
   letter-spacing: 4px;
 `;
 
-type Params = {
-  category: string;
-};
-const Dishes = () => {
-  const dishes = useSelector(selectDishes);
-  const selectDish = (value: dishInterface) => {};
-  const { category } = useParams<Params>();
-  const list = dishes
-    .filter((item) => item.category.toLowerCase() === category)
-    .map((item, index) => (
-      <Dish key={index} dish={item} addDish={() => selectDish(item)} />
-    ));
-
-  return (
-    <Wrapper>
+const SetsPage = () => {
+   const dishes = useSelector(selectDishes);
+   
+   return ( <Wrapper>
       <Header />
-      <Title>{category.charAt(0).toUpperCase() + category.slice(1)} </Title>
-      <Main>{list}</Main>
+      <Title>Dishes' Sets </Title>
+      <Main></Main>
       <Footer />
-    </Wrapper>
-  );
-};
+    </Wrapper>)
+}
 
-export default Dishes;
+export default SetsPage
