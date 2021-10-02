@@ -1,5 +1,5 @@
 import HomePage from "pages/HomePage";
-import SoupsPage from "pages/SoupsPage";
+import Dishes from "pages/Dishes";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import dishes from "api/dishes.json";
@@ -13,9 +13,9 @@ function App() {
     <Router>
       <Switch>
         <Route path="/soups">
-          <SoupsPage />
+          <Dishes />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <HomePage />
         </Route>
       </Switch>

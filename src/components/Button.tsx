@@ -9,14 +9,15 @@ type ButtonPropsType = {
 };
 
 const StyledButton = styled.button`
-  width: 100%;
-  height: 30px;
+  width: 150px;
+  height: 42px;
   text-align: center;
   font-family: inherit;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   color: #fff;
+  font-size: 1.1rem;
   background: var(--color-main);
   box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17),
     inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15),

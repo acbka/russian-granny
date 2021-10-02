@@ -11,7 +11,6 @@ const dishesSlice = createSlice({
   reducers: {
     setDishes: (state, { payload }) => {
       state.dishes = payload;
-      console.log("dd", state.dishes);
     },
   },
 });
