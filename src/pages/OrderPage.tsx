@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
 import Footer from "components/Footer";
-import { selectDishes } from "api/dishesSlice";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router";
-import { dishInterface } from "common/dishInterface";
+// import { selectDishes } from "api/dishesSlice";
+// import { useSelector } from "react-redux";
 import Header from "components/header/Header";
 
 const Wrapper = styled.main`
@@ -26,7 +24,7 @@ const Title = styled.h1`
 `;
 
 const OrderPage = () => {
-  const dishes = useSelector(selectDishes);
+//   const dishes = useSelector(selectDishes);
 
   return (
     <Wrapper>

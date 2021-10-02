@@ -1,7 +1,7 @@
 [
   {
     "id": 101,
-    "category": "Soups",
+    "category": "soups",
     "name": "Shchi",
     "ingredients": ["fermented cabbage", "pork", "potato"],
     "pict": "shchi.jpg",
@@ -15,7 +15,7 @@
   },
   {
     "id": 102,
-    "category": "Soups",
+    "category": "soups",
     "name": "Borscht",
     "ingredients": [
       "beef",
@@ -36,7 +36,7 @@
   },
   {
     "id": 103,
-    "category": "Soups",
+    "category": "soups",
     "name": "Solyanka",
     "ingredients": [
       "beef",
@@ -57,7 +57,7 @@
   },
   {
     "id": 104,
-    "category": "Soups",
+    "category": "soups",
     "name": "Okroshka",
     "ingredients": ["sausage", "cucumber", "potato", "dill", "sour cream"],
     "pict": "okroshka.jpg",
@@ -71,7 +71,7 @@
   },
   {
     "id": 105,
-    "category": "Soups",
+    "category": "soups",
     "name": "Rassolnik",
     "ingredients": ["beef", "pickled cucumber", "pearl barley"],
     "pict": "rassolnik.jpg",
@@ -85,7 +85,7 @@
   },
   {
     "id": 106,
-    "category": "Soups",
+    "category": "soups",
     "name": "Sorrel Soup",
     "ingredients": ["beef", "sorrel", "potato", "boiled eggs", "sour cream"],
     "pict": "sorrelSoup.jpg",
@@ -99,7 +99,7 @@
   },
   {
     "id": 107,
-    "category": "Soups",
+    "category": "soups",
     "name": "Ukha",
     "ingredients": ["fish", "carrot", "potato", "onion"],
     "pict": "ukha.jpg",
@@ -113,7 +113,7 @@
   },
   {
     "id": 108,
-    "category": "Soups",
+    "category": "soups",
     "name": "Frikadeller Soup",
     "ingredients": ["minced beef", "potato", "vermicelli", "onion"],
     "pict": "frikadellerSoup.jpg",
@@ -127,7 +127,7 @@
   },
   {
     "id": 109,
-    "category": "Soups",
+    "category": "soups",
     "name": "Kharcho",
     "ingredients": ["beef", "rice", "cherry plum", "chopped walnuts"],
     "pict": "kharcho.jpg",
@@ -141,7 +141,7 @@
   },
   {
     "id": 110,
-    "category": "Soups",
+    "category": "soups",
     "name": "Pea Soup",
     "ingredients": ["smoked ham ribs", "peas", "potato"],
     "pict": "peaSoup.jpg",
@@ -155,7 +155,7 @@
   },
   {
     "id": 201,
-    "category": "Mains",
+    "category": "mains",
     "name": "Beef Stroganoff",
     "ingredients": ["beef", "sour cream", "onion"],
     "pict": "beefStroganoff.jpg",
@@ -169,7 +169,7 @@
   },
   {
     "id": 202,
-    "category": "Mains",
+    "category": "mains",
     "name": "Chicken Kiev",
     "ingredients": ["chicken", "butter", "dill"],
     "pict": "chickenKiev.jpg",
@@ -183,7 +183,7 @@
   },
   {
     "id": 203,
-    "category": "Mains",
+    "category": "mains",
     "name": "Pozharsky Cutlet",
     "ingredients": ["chicken", "butter"],
     "pict": "pozharskyCutlet.jpg",
@@ -197,7 +197,7 @@
   },
   {
     "id": 204,
-    "category": "Mains",
+    "category": "mains",
     "name": "Veal Orloff",
     "ingredients": ["veal", "mushrooms", "onion", "cheese", "mornay sauce"],
     "pict": "vealOrloff.jpg",
@@ -211,7 +211,7 @@
   },
   {
     "id": 205,
-    "category": "Mains",
+    "category": "mains",
     "name": "Cabbage Rolls",
     "ingredients": ["beef", "cabbage", "rice", "tomato paste"],
     "pict": "cabbageRolls.jpg",
@@ -225,7 +225,7 @@
   },
   {
     "id": 206,
-    "category": "Mains",
+    "category": "mains",
     "name": "Aspic",
     "ingredients": ["pork", "beef", "chicken", "meat broth"],
     "pict": "aspic.jpg",
@@ -239,7 +239,7 @@
   },
   {
     "id": 207,
-    "category": "Mains",
+    "category": "mains",
     "name": "Cutlet",
     "ingredients": ["minced pork", "minced beef", "onion"],
     "pict": "cutlet.jpg",
@@ -253,7 +253,7 @@
   },
   {
     "id": 208,
-    "category": "Mains",
+    "category": "mains",
     "name": "Chicken Tabaka",
     "ingredients": ["сhicken"],
     "pict": "chickenTabaka.jpg",
@@ -267,7 +267,7 @@
   },
   {
     "id": 209,
-    "category": "Mains",
+    "category": "mains",
     "name": "Greek-Style Fish",
     "ingredients": ["fish fillet", " carrot", "onion", "tomato paste"],
     "pict": "greekStyleFish.jpg",
@@ -281,7 +281,7 @@
   },
   {
     "id": 210,
-    "category": "Mains",
+    "category": "mains",
     "name": "Veal Milanese",
     "ingredients": ["veal", "eggs"],
     "pict": "vealMilanese.jpg",
@@ -295,7 +295,7 @@
   },
   {
     "id": 211,
-    "category": "Mains",
+    "category": "mains",
     "name": "Gefilte Fish",
     "ingredients": ["pike", "eggs", "onion"],
     "pict": "gefilteFish.jpg",
@@ -309,7 +309,7 @@
   },
   {
     "id": 301,
-    "category": "Sides",
+    "category": "sides",
     "name": "Mashed Potato",
     "ingredients": ["potato", "butter", "milk"],
     "pict": "mashedPotato.jpg",
@@ -323,7 +323,7 @@
   },
   {
     "id": 302,
-    "category": "Sides",
+    "category": "sides",
     "name": "Rice",
     "ingredients": ["rice"],
     "pict": "rice.jpg",
@@ -337,7 +337,7 @@
   },
   {
     "id": 303,
-    "category": "Sides",
+    "category": "sides",
     "name": "Buckwheat Porridge",
     "ingredients": ["buckwheat"],
     "pict": "buckwheatPorridge.jpg",
@@ -351,7 +351,7 @@
   },
   {
     "id": 304,
-    "category": "Sides",
+    "category": "sides",
     "name": "Macaroni",
     "ingredients": ["pasta"],
     "pict": "macaroni.jpg",
@@ -365,7 +365,7 @@
   },
   {
     "id": 305,
-    "category": "Sides",
+    "category": "sides",
     "name": "Braised Cabbage",
     "ingredients": ["cabbage", "carrot", "onion"],
     "pict": "braisedCabbage.jpg",
@@ -379,7 +379,7 @@
   },
   {
     "id": 306,
-    "category": "Sides",
+    "category": "sides",
     "name": "Couscous",
     "ingredients": ["semolina", "carrot", "capsicum", "zucchini"],
     "pict": "couscous.jpg",
@@ -393,7 +393,7 @@
   },
   {
     "id": 401,
-    "category": "Salads",
+    "category": "salads",
     "name": "Vinegret",
     "ingredients": [
       "potato",
@@ -415,7 +415,7 @@
   },
   {
     "id": 402,
-    "category": "Salads",
+    "category": "salads",
     "name": "Olivier Salad",
     "ingredients": [
       "potato",
@@ -437,7 +437,7 @@
   },
   {
     "id": 403,
-    "category": "Salads",
+    "category": "salads",
     "name": "Mimosa Salad",
     "ingredients": [
       "canned fish",
@@ -458,7 +458,7 @@
   },
   {
     "id": 404,
-    "category": "Salads",
+    "category": "salads",
     "name": "Dressed Herring",
     "ingredients": [
       "pickled fish",
@@ -480,7 +480,7 @@
   },
   {
     "id": 405,
-    "category": "Salads",
+    "category": "salads",
     "name": "Caesar Salad",
     "ingredients": [
       "romaine lettuce",
@@ -501,7 +501,7 @@
   },
   {
     "id": 406,
-    "category": "Salads",
+    "category": "salads",
     "name": "Greek Salad",
     "ingredients": ["tomato", "cucumber", "feta", "onion", "olives"],
     "pict": "greekSalad.jpg",
@@ -515,7 +515,7 @@
   },
   {
     "id": 501,
-    "category": "Desserts",
+    "category": "desserts",
     "name": "Blini",
     "ingredients": ["milk", "flour", "sugar"],
     "pict": "blini.jpg",
@@ -529,7 +529,7 @@
   },
   {
     "id": 502,
-    "category": "Desserts",
+    "category": "desserts",
     "name": "Oladyi",
     "ingredients": ["kefir", "flour", "sugar"],
     "pict": "oladyi.jpg",
@@ -543,7 +543,7 @@
   },
   {
     "id": 503,
-    "category": "Desserts",
+    "category": "desserts",
     "name": "Pirozhki",
     "ingredients": ["milk", "flour", "sugar", "seasonal fruit"],
     "pict": "pirozhki.jpg",
@@ -557,7 +557,7 @@
   },
   {
     "id": 504,
-    "category": "Desserts",
+    "category": "desserts",
     "name": "Syrniki",
     "ingredients": ["cottage cheese ", "flour", "eggs", "sugar"],
     "pict": "syrniki.jpg",
@@ -571,7 +571,7 @@
   },
   {
     "id": 505,
-    "category": "Desserts",
+    "category": "desserts",
     "name": "Vatrushka",
     "ingredients": ["milk", "flour", "sugar", "cottage cheese", "raisins"],
     "pict": "vatrushka.jpg",
@@ -585,7 +585,7 @@
   },
   {
     "id": 506,
-    "category": "Desserts",
+    "category": "desserts",
     "name": "Apple Pie",
     "ingredients": ["apple", "flour", "sugar", "eggs"],
     "pict": "applePie.jpg",

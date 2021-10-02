@@ -1,11 +1,17 @@
-import { setType } from "common/setType";
-import React from "react";
+import React, {useState} from "react";
+import { dishInterface } from "common/dishInterface";
+import { categories } from "common/constants";
+import Card from "./Card"
 
 type SetPropsType = {
-   set: setType
-}
+  set: dishInterface[]
+};
 
-const Set = ({set}:SetPropsType) => {
+const Set = ({ set }: SetPropsType) => {
+
+   
+   
+
   return <></>;
 };
 export default Set;

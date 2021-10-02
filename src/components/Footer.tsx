@@ -20,6 +20,7 @@ const Wrapper = styled.div`
       0 0 / cover,
     url(${footer}) center no-repeat;
   padding: 5px 150px;
+  z-index: 100;
 `;
 const LogoText = styled.div`
   font-size: 3rem;

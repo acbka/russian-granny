@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import Footer from "components/Footer";
-import { selectDishes } from "api/dishesSlice";
+import { selectDishes } from "api/selectors";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router";
 import { dishInterface } from "common/dishInterface";
 import Header from "components/header/Header";
+import Set from "./Set";
 
 const Wrapper = styled.main`
   margin: 110px 0 120px 0;
@@ -27,12 +27,24 @@ const Title = styled.h1`
 
 const SetsPage = () => {
   const dishes = useSelector(selectDishes);
+  const [sets, setSets] = useState<dishInterface[][]>([]);
+
+  useEffect(() => {
+    let tempSets: dishInterface[][] = [];
+    for (let i = 1; i <= 4; i++) {
+      let set = dishes.filter((dish) => dish.sets.includes(i));
+      tempSets = [...sets, set];
+    }
+    setSets(tempSets);
+  }, []);
+
+  const setsList = sets.map((item, index) => <Set key={index} set={item} />);
 
   return (
     <Wrapper>
       <Header />
       <Title>Dishes' Sets </Title>
-      <Main></Main>
+      <Main>{setsList}</Main>
       <Footer />
     </Wrapper>
   );

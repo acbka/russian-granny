@@ -1,11 +1,15 @@
-import { dishInterface } from "common/dishInterface";
-import Button from "components/Button";
 import React from "react";
 import styled from "styled-components/macro";
+import { dishInterface } from "common/dishInterface";
+import { useSelector } from "react-redux";
+import { selectDishesInOrder } from "api/selectors";
+import Button from "components/Button";
+import { categories } from "common/constants";
 
 type DishPropsType = {
   dish: dishInterface;
   addDish: () => void;
+  removeDish: () => void;
 };
 
 const Card = styled.div`
@@ -50,8 +54,18 @@ const ButtonWrap = styled.div`
   text-align: center;
   padding-bottom: 30px;
 `;
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.5);
+`;
 
-const Dish = ({ dish, addDish }: DishPropsType) => {
+const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
+  const dishesInOrder = useSelector(selectDishesInOrder);
   const ingredientsList = dish.ingredients.map((item, index) => (
     <li key={index}>{item}</li>
   ));
@@ -66,8 +80,17 @@ const Dish = ({ dish, addDish }: DishPropsType) => {
         </Info>
       </div>
       <ButtonWrap>
-        <Button title="Add to order" handleClick={addDish} />
+        {dishesInOrder.find((item) => item.id === dish.id) ? (
+          <Button title="Remove" handleClick={removeDish} />
+        ) : (
+          <Button title="Add to order" handleClick={addDish} />
+        )}
       </ButtonWrap>
+      {dishesInOrder.filter((item) => item.category === dish.category).length >=
+        categories[dish.category].count &&
+        !dishesInOrder.find((item) => item.id === dish.id) && (
+          <Overlay></Overlay>
+        )}
     </Card>
   );
 };

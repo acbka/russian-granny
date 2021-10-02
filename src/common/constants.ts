@@ -1,4 +1,11 @@
-export const categories = {
+export type categoriesType = {
+   [key: string]: {
+     color: string;
+     count: number;
+   };
+ };
+ 
+export const categories:categoriesType = {
   soups: {
     color: "#c9a8f7",
     count: 2,
@@ -20,3 +27,4 @@ export const categories = {
     count: 1,
   },
 };
+

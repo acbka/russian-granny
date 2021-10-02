@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
   padding: 10px 30px;
   background: #fff;
-  z-index: 5;
+  z-index: 100;
 `;
 const Logo = styled.div`
   height: 100%;
