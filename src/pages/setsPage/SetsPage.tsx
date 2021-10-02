@@ -4,7 +4,6 @@ import Footer from "components/Footer";
 import { selectDishes } from "api/dishesSlice";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-import Dish from "./Dish";
 import { dishInterface } from "common/dishInterface";
 import Header from "components/header/Header";
 
