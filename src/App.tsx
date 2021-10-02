@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/soups">
+        <Route path="/dishes/:category">
           <Dishes />
         </Route>
         <Route exact path="/">

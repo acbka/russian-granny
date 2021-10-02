@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components/macro";
+import React, { useState } from "react";
+import styled, { css } from "styled-components/macro";
 import granny from "assets/granny.png";
 import { Link } from "react-router-dom";
+import DropDownMenu from "./DropDownMenu";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -33,14 +34,26 @@ const Title = styled.p`
   font-size: 1.8rem;
   font-weight: 600;
 `;
+const Item = css`
+  padding: 15px;
+  color: var(--color-main);
+  font-size: 1.2rem;
+  font-weight: 500;
+`;
 const MenuItem = styled(Link)`
-padding: 15px;
-color: var(--color-main);
-font-size: 1.2rem;
-font-weight: 500;
-`
+  ${Item}
+`;
+const DropDownMenuItem = styled.span`
+  ${Item}
+  position: relative;
+  & :hover {
+    color: var(--color-second);
+  }
+  cursor: pointer;
+`;
 
-const Navbar = () => {
+const Header = () => {
+  const [isOpen, setisOpen] = useState(false);
   return (
     <Wrapper>
       <Logo>
@@ -49,12 +62,15 @@ const Navbar = () => {
       </Logo>
       <nav>
         <MenuItem to="/">Home</MenuItem>
-        <MenuItem to="/soups" >Dishes</MenuItem>
-        <MenuItem to="/sets" >Sets</MenuItem>
-        <MenuItem to="/cart" >Cart</MenuItem>
+        <DropDownMenuItem onClick={() => setisOpen(!isOpen)}>
+          Dishes
+        </DropDownMenuItem>
+        <MenuItem to="/sets">Sets</MenuItem>
+        <MenuItem to="/cart">Cart</MenuItem>
       </nav>
+        {isOpen && <DropDownMenu setIsOpen={() => setisOpen(!isOpen)} />}
     </Wrapper>
   );
 };
 
-export default Navbar;
+export default Header;

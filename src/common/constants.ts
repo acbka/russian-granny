@@ -1,0 +1,22 @@
+export const categories = {
+  soups: {
+    color: "#c9a8f7",
+    count: 2,
+  },
+  mains: {
+    color: "#f7f3ad",
+    count: 2,
+  },
+  sides: {
+    color: "#b3f9b3",
+    count: 2,
+  },
+  salads: {
+    color: "#ffc0cb",
+    count: 1,
+  },
+  desserts: {
+    color: "#a0e8f7",
+    count: 1,
+  },
+};

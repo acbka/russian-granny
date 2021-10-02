@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Navbar from "components/Navbar";
+import Header from "components/header/Header";
 import backgroundImage from "assets/background.jpeg";
 import pelmeni from "assets/pelmeni.jpeg";
 import food from "assets/food.jpeg";
@@ -110,7 +110,7 @@ const PaymentSection = styled.section`
 const HomePage = () => {
   return (
     <Wrapper>
-      <Navbar />
+      <Header />
       <Main>
         <MainTitle>Delivery of delicious Russian dishes</MainTitle>
         <SubTitle>
