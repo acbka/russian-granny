@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 import Header from "components/header/Header";
 import backgroundImage from "assets/background.jpeg";
 import pelmeni from "assets/pelmeni.jpeg";
@@ -8,11 +9,11 @@ import zakaz from "assets/zakaz.jpg";
 import Footer from "components/Footer";
 
 const Wrapper = styled.main`
-  margin: 110px 0 120px 0;
+  margin-top: 110px;
   font-size: 1.1rem;
 `;
 const Main = styled.section`
-  padding: 100px 50px 120px 50px;
+  padding: 100px 50px 70px 50px;
   background: center right url(${backgroundImage});
 `;
 const MainTitle = styled.h1`
@@ -106,6 +107,9 @@ const PaymentSection = styled.section`
     color: var(--color-main);
   }
 `;
+const StyledLink = styled(Link)`
+  color: var(--color-main);
+`;
 
 const HomePage = () => {
   return (
@@ -172,17 +176,38 @@ const HomePage = () => {
             The order costs $79.99 and includes 8 dishes with a total weight of
             8 kg:
           </Paragraph>
-          <li>2 soups 1 litre each</li>
-          <li>2 main dishes 1kg each</li>
-          <li>2 side dishes 1kg each</li>
-          <li>1 salad 1kg</li>
-          <li>1 dessert 1kg</li>
+          <li>
+            <span>2 </span>
+            <StyledLink to="/dishes/soups">soups</StyledLink>{" "}
+            <span>1 litre each</span>{" "}
+          </li>
+          <li>
+            <span>2 </span>
+            <StyledLink to="/dishes/soups">main</StyledLink>{" "}
+            <span>1 kg each</span>{" "}
+          </li>
+          <li>
+            <span>2 </span>
+            <StyledLink to="/dishes/sides">side dishes</StyledLink>{" "}
+            <span>1 kg each</span>{" "}
+          </li>
+          <li>
+            <span>1 </span>
+            <StyledLink to="/dishes/salads">salad</StyledLink> <span>1 kg</span>{" "}
+          </li>
+          <li>
+            <span>1 </span>
+            <StyledLink to="/dishes/desserts">dessert</StyledLink>{" "}
+            <span>1 kg</span>{" "}
+          </li>
           <Paragraph>
             This volume of food is enough for one person for approximately 4-5
             days.
           </Paragraph>
           <Paragraph>
-            We prepare some dish sets to help you make a choice.
+            <span>We prepare some </span>
+            <StyledLink to="/sets">dish sets</StyledLink>{" "}
+            <span>to help you make a choice.</span>
           </Paragraph>
         </Info>
         <ImgWrap>

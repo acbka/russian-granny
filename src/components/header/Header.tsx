@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   background: #fff;
   z-index: 100;
 `;
-const Logo = styled.div`
+const Logo = styled(Link)`
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -68,7 +68,7 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Logo>
+      <Logo to="/">
         <LogoImg src={granny} alt="logo" />
         <Title>Russian Granny</Title>
       </Logo>

@@ -12,21 +12,21 @@ import { dishInterface } from "common/dishInterface";
 import { categories } from "common/constants";
 
 const Wrapper = styled.main`
-  margin: 110px 0 120px 0;
+  margin-top: 110px;
   font-size: 1.1rem;
 `;
 const Main = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 20px 40px 40px 40px;
+  padding: 1.25rem 2.5rem 2.5rem 2.5rem;
 `;
 const Title = styled.h1`
   text-align: center;
   font-size: 3rem;
-  padding-top: 40px;
+  padding-top: 2.5rem;
   color: var(--color-main);
-  letter-spacing: 4px;
+  letter-spacing: .25rem;
 `;
 
 type Params = {

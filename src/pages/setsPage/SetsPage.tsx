@@ -8,7 +8,11 @@ import Header from "components/header/Header";
 import Set from "./Set";
 
 const Wrapper = styled.main`
-  margin: 110px 0 120px 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 110px;
   font-size: 1.1rem;
 `;
 const Main = styled.section`

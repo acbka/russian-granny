@@ -5,7 +5,7 @@ import { categories } from "common/constants";
 
 type CardPropsType = {
   dishes: dishInterface[];
-  category?: string;
+  children?: React.ReactNode;
 };
 
 type CardWrapPropsType = {
@@ -21,7 +21,7 @@ const Wrapper = styled.div<CardWrapPropsType>`
   color: ${(props) => props.color};
 `;
 
-const Card = ({ dishes }: CardPropsType) => {
+const Card = ({ dishes, children }: CardPropsType) => {
   const category = dishes[0].category;
   const list = dishes.map((item, index) => (
     <div key={index}>

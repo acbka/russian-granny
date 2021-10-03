@@ -21,7 +21,7 @@ const Card = styled.div<CardPropsType>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 255px;
+  max-width: 16rem;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -29,7 +29,7 @@ const Card = styled.div<CardPropsType>`
   overflow: hidden;
   box-shadow: ${(props) =>
     props.isShadow ? "none" : "0 0.5rem 1rem rgba(0, 0, 0, 0.15)"};
-  margin: 30px 15px;
+  margin: 1.875rem 1rem;
 `;
 
 const Image = styled.img`
@@ -38,7 +38,7 @@ const Image = styled.img`
 const Info = styled.ul`
   justify-self: start;
   list-style-type: none;
-  padding: 25px;
+  padding: 1.56rem;
   & > li {
     line-height: 1.5rem;
     text-transform: capitalize;
@@ -48,16 +48,16 @@ const Title = styled.h4`
   font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: normal;
-  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
 `;
 const SubTitle = styled.h5`
   font-size: 1.2rem;
   font-weight: bold;
-  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
 `;
 const ButtonWrap = styled.div`
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 1.875rem;
 `;
 const Overlay = styled.div`
   position: absolute;
@@ -66,7 +66,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
 `;
 
 const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {

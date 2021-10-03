@@ -4,8 +4,8 @@ import footer from "assets/footer.jpeg";
 import granny from "assets/granny.png";
 
 const Wrapper = styled.div`
-  position: fixed;
-  bottom: 0;
+  /* position: fixed;
+  bottom: 0; */
   width: 100%;
   height: 120px;
   display: flex;

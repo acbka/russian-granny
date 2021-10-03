@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { dishInterface } from "common/dishInterface";
 import { categories } from "common/constants";
-import Card from "./Card"
+import Card from "../../components/Card"
 
 type SetPropsType = {
   set: dishInterface[]
