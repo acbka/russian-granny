@@ -7,6 +7,7 @@ import HomePage from "pages/HomePage";
 import Dishes from "pages/dishesPage/Dishes";
 import SetsPage from "pages/setsPage/SetsPage";
 import OrderPage from "pages/OrderPage";
+import ContactFormPage from "pages/ContactFormPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/order">
           <OrderPage />
+        </Route>
+        <Route path="/form">
+          <ContactFormPage />
         </Route>
         <Route exact path="/">
           <HomePage />

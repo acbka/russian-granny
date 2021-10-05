@@ -3,9 +3,7 @@ import styled from "styled-components/macro";
 import footer from "assets/footer.jpeg";
 import granny from "assets/granny.png";
 
-const Wrapper = styled.div`
-  /* position: fixed;
-  bottom: 0; */
+const Wrapper = styled.footer`
   width: 100%;
   height: 120px;
   display: flex;

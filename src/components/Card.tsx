@@ -12,7 +12,7 @@ type CardWrapPropsType = {
   color: string;
 };
 
-const Wrapper = styled.div<CardWrapPropsType>`
+const Wrapper = styled.header<CardWrapPropsType>`
   border-style: solid;
   border-width: 2px;
   border-radius: 7px;
@@ -22,6 +22,7 @@ const Wrapper = styled.div<CardWrapPropsType>`
 `;
 
 const Card = ({ dishes, children }: CardPropsType) => {
+   console.log(dishes)
   const category = dishes[0].category;
   const list = dishes.map((item, index) => (
     <div key={index}>
@@ -32,7 +33,7 @@ const Card = ({ dishes, children }: CardPropsType) => {
 
   return (
     <Wrapper color={categories[category].color}>
-      <h1>{category}</h1>
+      <h2>{category}</h2>
       {list}
     </Wrapper>
   );

@@ -5,8 +5,8 @@ import { useDispatch } from "react-redux";
 
 export type DishesStateType = {
   dishes: {
-      dishes: dishInterface[];
-      dishesInOrder: dishInterface[]
+    dishes: dishInterface[];
+    dishesInOrder: dishInterface[];
   };
 };
 

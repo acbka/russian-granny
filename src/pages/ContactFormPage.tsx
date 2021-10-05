@@ -1,9 +1,7 @@
+import Footer from "components/Footer";
+import Header from "components/header/Header";
 import React from "react";
 import styled from "styled-components/macro";
-import Footer from "components/Footer";
-import { selectDishesInOrder } from "api/selectors";
-import { useSelector } from "react-redux";
-import Header from "components/header/Header";
 
 const Wrapper = styled.main`
   display: flex;
@@ -27,18 +25,16 @@ const Title = styled.h1`
   letter-spacing: 4px;
 `;
 
-const OrderPage = () => {
-   const dishes = useSelector(selectDishesInOrder);
-   // console.log(dishes)
-
+const ContactFormPage = () => {
   return (
     <Wrapper>
       <Header />
-      <Title>Order </Title>
-      <Main></Main>
+        <Main>
+           <Title>Contact details</Title>
+      </Main>
       <Footer />
     </Wrapper>
   );
 };
 
-export default OrderPage;
+export default ContactFormPage;
