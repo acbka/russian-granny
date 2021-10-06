@@ -1,11 +1,11 @@
 export type categoriesType = {
-   [key: string]: {
-     color: string;
-     count: number;
-   };
- };
- 
-export const categories:categoriesType = {
+  [key: string]: {
+    color: string;
+    count: number;
+  };
+};
+
+export const categories: categoriesType = {
   soups: {
     color: "#c9a8f7",
     count: 2,
@@ -28,3 +28,16 @@ export const categories:categoriesType = {
   },
 };
 
+// export type formDataType = {
+//    [key:string]: string
+// }
+
+export const initialData= {
+  name: "",
+  email: "",
+  address: "",
+  suburb: "",
+  phone: "",
+  date: "",
+  payment: "",
+};

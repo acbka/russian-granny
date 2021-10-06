@@ -13,7 +13,7 @@ const Wrapper = styled.main`
   font-size: 1.1rem;
 `;
 const Main = styled.section`
-  padding: 100px 50px 70px 50px;
+  padding: 100px 50px 20px 50px;
   background: center right url(${backgroundImage});
 `;
 const MainTitle = styled.h1`
@@ -25,7 +25,7 @@ const SubTitle = styled.p`
   width: 60%;
   font-size: 1.8rem;
   text-align: left;
-  margin: 50px;
+  margin: 3.125rem;
   line-height: 2.5rem;
 `;
 const Discount = styled.div`
@@ -37,7 +37,7 @@ const Discount = styled.div`
   background-color: var(--color-main);
   width: 230px;
   height: 100px;
-  margin-left: 50px;
+  margin: 5.625rem 3.125rem;
   color: #fff;
   font-size: 1.1rem;
   line-height: 1.5rem;

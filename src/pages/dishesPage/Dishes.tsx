@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components/macro";
 import { selectDishes, selectDishesInOrder } from "api/selectors";
 import { useAppDispatch } from "api/store";
 import { addDishToOrder, removeDishFromOrder } from "api/dishesSlice";
