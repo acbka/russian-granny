@@ -1,44 +1,14 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Footer from "components/Footer";
 import { selectDishesInOrder } from "api/selectors";
 import { useSelector } from "react-redux";
-import Header from "components/header/Header";
-
-const Wrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-  padding-top: 110px;
-  font-size: 1.1rem;
-`;
-const Main = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px 40px 40px 40px;
-`;
-const Title = styled.h1`
-  text-align: center;
-  font-size: 3rem;
-  padding-top: 40px;
-  color: var(--color-main);
-  letter-spacing: 4px;
-`;
+import Layout from "components/Layout";
 
 const OrderPage = () => {
-   const dishes = useSelector(selectDishesInOrder);
-   // console.log(dishes)
+  const dishes = useSelector(selectDishesInOrder);
+  // console.log(dishes)
 
-  return (
-    <Wrapper>
-      <Header />
-      <Title>Order </Title>
-      <Main></Main>
-      <Footer />
-    </Wrapper>
-  );
+  return <Layout title="Order"></Layout>;
 };
 
 export default OrderPage;

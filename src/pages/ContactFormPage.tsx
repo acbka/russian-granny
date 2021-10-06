@@ -1,22 +1,7 @@
-import Footer from "components/Footer";
-import Header from "components/header/Header";
 import React from "react";
 import styled from "styled-components/macro";
+import Layout from "components/Layout";
 
-const Wrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-  padding-top: 110px;
-  font-size: 1.1rem;
-`;
-const Main = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px 40px 40px 40px;
-`;
 const Title = styled.h1`
   text-align: center;
   font-size: 3rem;
@@ -27,13 +12,9 @@ const Title = styled.h1`
 
 const ContactFormPage = () => {
   return (
-    <Wrapper>
-      <Header />
-        <Main>
-           <Title>Contact details</Title>
-      </Main>
-      <Footer />
-    </Wrapper>
+    <Layout title="Contact Details">
+     
+    </Layout>
   );
 };
 
