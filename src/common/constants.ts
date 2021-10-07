@@ -32,12 +32,12 @@ export const categories: categoriesType = {
 //    [key:string]: string
 // }
 
-export const initialData= {
+export const initialData = {
   name: "",
   email: "",
   address: "",
   suburb: "",
   phone: "",
-  date: "",
-  payment: "",
+  date: Date(),
+  payment: "cash"
 };

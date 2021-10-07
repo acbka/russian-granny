@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-import styled from "styled-components/macro";
 import Layout from "components/Layout";
 import Input from "components/Input";
 import { initialData } from "common/constants";
 import RadioInput from "components/RadioInput";
 
-const Form = styled.form`
-  min-width: 300px;
-`;
-
 const ContactFormPage = () => {
   const [formData, setFormData] = useState(initialData);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const updateData = (fieldName: string) => (value: string) => {
     setFormData({
@@ -19,6 +13,7 @@ const ContactFormPage = () => {
       [fieldName]: value,
     });
   };
+   console.log({formData})
   return (
     <Layout title="Contact Details">
       <form>
@@ -59,21 +54,21 @@ const ContactFormPage = () => {
         <Input
           label="Delivery date"
           type="date"
-          value=""
+          value="formData.date"
           handleChange={updateData("date")}
         />
         <RadioInput
           name="payment"
           label="Cash"
           value="cash"
-          checked={true}
+          checked={formData.payment==="cash"}
           handleChange={updateData("payment")}
         />
         <RadioInput
           name="payment"
           label="PayPal"
-          value="payPal"
-          checked={false}
+          value="paypal"
+          checked={formData.payment==="paypal"}
           handleChange={updateData("payment")}
         />
       </form>
