@@ -23,7 +23,7 @@ const ContactFormPage = () => {
     setminDate(new Date(firstDate).toISOString().split("T")[0]);
     setmaxDate(new Date(lastDate).toISOString().split("T")[0]);
   }, []);
-  console.log({formData})
+  console.log({ formData });
   return (
     <Layout title="Contact Details">
       <form>
@@ -64,7 +64,6 @@ const ContactFormPage = () => {
         <Input
           label="Delivery date"
           type="date"
-          value="formData.date"
           minDate={minDate}
           maxDate={maxDate}
           handleChange={updateData("date")}
