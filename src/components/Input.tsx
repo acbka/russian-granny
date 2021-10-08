@@ -6,6 +6,8 @@ type InputPropsType = {
   name?: string;
   label: string;
   value: string;
+  minDate?: string;
+  maxDate?: string;
   placeholder?: string;
   handleChange: (arg: string) => void;
 };
@@ -31,7 +33,9 @@ const Input = ({
   label,
   type,
   value,
-  name,
+   name,
+   minDate,
+   maxDate,
   placeholder,
   handleChange,
 }: InputPropsType) => {
@@ -46,7 +50,9 @@ const Input = ({
         name={name}
         type={type}
         value={value}
-        placeholder={placeholder}
+           placeholder={placeholder}
+           min={minDate}
+           max={maxDate}
         onChange={inputData}
       />
     </Wrapper>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "components/Layout";
 import Input from "components/Input";
 import { initialData } from "common/constants";
@@ -6,6 +6,8 @@ import RadioInput from "components/RadioInput";
 
 const ContactFormPage = () => {
   const [formData, setFormData] = useState(initialData);
+  const [minDate, setminDate] = useState("");
+  const [maxDate, setmaxDate] = useState("");
 
   const updateData = (fieldName: string) => (value: string) => {
     setFormData({
@@ -13,7 +15,15 @@ const ContactFormPage = () => {
       [fieldName]: value,
     });
   };
-   console.log({formData})
+
+  useEffect(() => {
+    const today = +new Date();
+    const firstDate = new Date(today + 2 * 1000 * 60 * 60 * 24);
+    const lastDate = new Date(today + 9 * 1000 * 60 * 60 * 24);
+    setminDate(new Date(firstDate).toISOString().split("T")[0]);
+    setmaxDate(new Date(lastDate).toISOString().split("T")[0]);
+  }, []);
+  console.log({formData})
   return (
     <Layout title="Contact Details">
       <form>
@@ -55,20 +65,22 @@ const ContactFormPage = () => {
           label="Delivery date"
           type="date"
           value="formData.date"
+          minDate={minDate}
+          maxDate={maxDate}
           handleChange={updateData("date")}
         />
         <RadioInput
           name="payment"
           label="Cash"
           value="cash"
-          checked={formData.payment==="cash"}
+          checked={formData.payment === "cash"}
           handleChange={updateData("payment")}
         />
         <RadioInput
           name="payment"
           label="PayPal"
           value="paypal"
-          checked={formData.payment==="paypal"}
+          checked={formData.payment === "paypal"}
           handleChange={updateData("payment")}
         />
       </form>

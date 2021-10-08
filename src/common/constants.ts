@@ -32,12 +32,14 @@ export const categories: categoriesType = {
 //    [key:string]: string
 // }
 
+const date = new Date().toISOString().split("T")[0]
+
 export const initialData = {
   name: "",
   email: "",
   address: "",
   suburb: "",
   phone: "",
-  date: Date(),
+  date: date,
   payment: "cash"
 };
