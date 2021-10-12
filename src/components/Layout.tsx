@@ -8,7 +8,7 @@ type LayoutPropsType = {
   children?: ReactNode;
 };
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,7 +16,7 @@ const Wrapper = styled.main`
   padding-top: 110px;
   font-size: 1.1rem;
 `;
-const Main = styled.section`
+const Main = styled.main`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
