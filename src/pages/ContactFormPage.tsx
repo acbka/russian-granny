@@ -14,7 +14,7 @@ const Wrap = styled.section`
 `;
 
 const ContactFormPage = () => {
-  const [formData, setFormData] = useState(initialData);
+  const [userData, setUserData] = useState(initialData);
   const [minDate, setminDate] = useState("");
   const [maxDate, setmaxDate] = useState("");
   const emailTemplate =
@@ -22,8 +22,8 @@ const ContactFormPage = () => {
   const history = useHistory();
 
   const updateData = (fieldName: string) => (value: string) => {
-    setFormData({
-      ...formData,
+    setUserData({
+      ...userData,
       [fieldName]: value,
     });
   };
@@ -36,7 +36,7 @@ const ContactFormPage = () => {
     setmaxDate(new Date(lastDate).toISOString().split("T")[0]);
   }, []);
 
-  console.log({ formData });
+  console.log({ userData });
 
   return (
     <Layout title="Contact Details">
@@ -87,14 +87,14 @@ const ContactFormPage = () => {
             name="payment"
             label="Cash"
             value="cash"
-            checked={formData.payment === "cash"}
+            checked={userData.payment === "cash"}
             handleChange={updateData("payment")}
           />
           <RadioInput
             name="payment"
             label="PayPal"
             value="paypal"
-            checked={formData.payment === "paypal"}
+            checked={userData.payment === "paypal"}
             handleChange={updateData("payment")}
           />
         </form>
