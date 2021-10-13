@@ -13,9 +13,11 @@ import FinalPage from "pages/FinalPage";
 import { setSets } from "api/setsSlice";
 
 function App() {
-  const dispatch = useAppDispatch();
+   const dispatch = useAppDispatch();
+   
   dispatch(setDishes(dishes));
   dispatch(setSets(sets));
+
   return (
     <Router>
       <Switch>

@@ -23,12 +23,12 @@ const Dishes = () => {
       <Dish
         key={index}
         dish={item}
-        addDish={() => selectDish(item)}
+        addDish={() => addDish(item)}
         removeDish={() => removeDish(item)}
       />
     ));
 
-  const selectDish = (value: dishType) => {
+  const addDish = (value: dishType) => {
     if (
       dishesInOrder.filter((item) => item.category === value.category).length <
       categories[value.category].count
