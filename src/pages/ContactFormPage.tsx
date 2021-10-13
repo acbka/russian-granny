@@ -17,8 +17,8 @@ const ContactFormPage = () => {
   const [userData, setUserData] = useState(initialData);
   const [minDate, setminDate] = useState("");
   const [maxDate, setmaxDate] = useState("");
-  const emailTemplate =
-    /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+//   const emailTemplate =
+//     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
   const history = useHistory();
 
   const updateData = (fieldName: string) => (value: string) => {
@@ -37,6 +37,11 @@ const ContactFormPage = () => {
   }, []);
 
   console.log({ userData });
+
+   const validateUserData = () => {
+     
+    history.push("./final");
+  };
 
   return (
     <Layout title="Contact Details">
@@ -98,10 +103,7 @@ const ContactFormPage = () => {
             handleChange={updateData("payment")}
           />
         </form>
-        <Button
-          title="continue to checkout"
-          handleClick={() => history.push("./final")}
-        />
+        <Button title="continue to checkout" handleClick={validateUserData} />
       </Wrap>
     </Layout>
   );

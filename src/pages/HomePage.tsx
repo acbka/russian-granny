@@ -12,7 +12,7 @@ const Wrapper = styled.main`
   margin-top: 110px;
   font-size: 1.1rem;
 `;
-const Main = styled.section`
+const MainSection = styled.section`
   padding: 100px 50px 20px 50px;
   background: center right url(${backgroundImage});
 `;
@@ -21,7 +21,7 @@ const MainTitle = styled.h1`
   font-size: 3rem;
   text-align: center;
 `;
-const SubTitle = styled.p`
+const SubTitle = styled.h3`
   width: 60%;
   font-size: 1.8rem;
   text-align: left;
@@ -115,7 +115,7 @@ const HomePage = () => {
   return (
     <Wrapper>
       <Header />
-      <Main>
+      <MainSection>
         <MainTitle>Delivery of delicious Russian dishes</MainTitle>
         <SubTitle>
           The best service for the cooking of delicious home-made food with free
@@ -125,7 +125,7 @@ const HomePage = () => {
           <p>$10 discount</p>
           <p>for the first order</p>
         </Discount>
-      </Main>
+      </MainSection>
       <Section>
         <ImgWrap>
           <img src={pelmeni} alt="pelmeni" />

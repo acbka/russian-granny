@@ -1,14 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { dishInterface } from "common/dishInterface";
 
 type initialStateType = {
-  dishes: dishInterface[];
-  dishesInOrder: dishInterface[];
+  sets: [];
 };
 
 const initialState: initialStateType = {
-  dishes: [],
-  dishesInOrder: [],
+  sets: [],
 };
 
 const dishesSlice = createSlice({
