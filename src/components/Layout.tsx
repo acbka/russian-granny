@@ -27,7 +27,7 @@ const Title = styled.h1`
   font-size: 3rem;
   padding-top: 2.5rem;
   color: var(--color-main);
-  letter-spacing: .25rem;
+  letter-spacing: 0.25rem;
 `;
 
 const Layout = ({ title, children }: LayoutPropsType) => {

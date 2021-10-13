@@ -1,5 +1,7 @@
 export type setType = {
   name: string;
-  dishes: number[];
+  dishes: {
+    [category: string]: number[];
+  };
   selected: boolean;
 };

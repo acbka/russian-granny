@@ -1,31 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setType } from "common/setType";
 
 type initialStateType = {
-  sets: [];
+  sets: setType[];
 };
 
 const initialState: initialStateType = {
   sets: [],
 };
 
-const dishesSlice = createSlice({
-  name: "dishes",
+const setsSlice = createSlice({
+  name: "sets",
   initialState,
   reducers: {
-    setDishes: (state, { payload }) => {
-      state.dishes = payload;
-    },
-    addDishToOrder: (state, { payload }) => {
-      state.dishesInOrder.push(payload as dishInterface);
-    },
-    removeDishFromOrder: (state, { payload }) => {
-      const index = state.dishesInOrder.findIndex(item=>item.id === payload.id);
-      state.dishesInOrder.splice(index, 1);
+    setSets: (state, { payload }) => {
+      state.sets = payload;
     },
   },
 });
 
-export const { setDishes, addDishToOrder, removeDishFromOrder } =
-  dishesSlice.actions;
+export const { setSets } = setsSlice.actions;
 
-export default dishesSlice.reducer;
+export default setsSlice.reducer;

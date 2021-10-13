@@ -1,22 +1,46 @@
 [
   {
     "name": "Set 1",
-    "dishes": [102, 103, 205, 207, 302, 303, 402, 506],
+    "dishes": {
+      "soups": [102, 103],
+      "mains": [205, 207],
+      "sides": [302, 303],
+      "salads": [402],
+      "desserts": [506]
+    },
     "selected": false
   },
   {
     "name": "Set 2",
-    "dishes": [101, 107, 209, 202, 302, 305, 402, 504],
+    "dishes": {
+      "soups": [101, 107],
+      "mains": [209, 202],
+      "sides": [302, 305],
+      "salads": [402],
+      "desserts": [504]
+    },
     "selected": false
   },
   {
     "name": "Set 3",
-    "dishes": [109, 105, 201, 203, 301, 306, 406, 505],
+    "dishes": {
+      "soups": [109, 105],
+      "mains": [201, 203],
+      "sides": [301, 306],
+      "salads": [406],
+      "desserts": [505]
+    },
     "selected": false
   },
   {
     "name": "Set 4",
-    "dishes": [102, 108, 205, 208, 303, 304, 404, 506],
+    "dishes": {
+      "soups": [102, 108],
+      "mains": [205, 208],
+      "sides": [303, 304],
+      "salads": [404],
+      "desserts": [506]
+    },
     "selected": false
   }
 ]

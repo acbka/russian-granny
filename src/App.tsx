@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import dishes from "api/dishes.json";
+import sets from "api/sets.json";
 import { useAppDispatch } from "api/store";
 import { setDishes } from "api/dishesSlice";
 import HomePage from "pages/HomePage";
@@ -9,10 +10,12 @@ import SetsPage from "pages/setsPage/SetsPage";
 import OrderPage from "pages/OrderPage";
 import ContactFormPage from "pages/ContactFormPage";
 import FinalPage from "pages/FinalPage";
+import { setSets } from "api/setsSlice";
 
 function App() {
   const dispatch = useAppDispatch();
   dispatch(setDishes(dishes));
+  dispatch(setSets(sets));
   return (
     <Router>
       <Switch>
