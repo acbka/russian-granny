@@ -20,14 +20,9 @@ const dishesSlice = createSlice({
     setDishes: (state, { payload }) => {
       state.dishes = payload;
     },
-    addDishToOrder: (state, { payload }) => {
-      state.dishesInOrder.push(payload as dishType);
-    },
-    removeDishFromOrder: (state, { payload }) => {
-      const index = state.dishesInOrder.findIndex(
-        (item) => item.id === payload.id
-      );
-      state.dishesInOrder.splice(index, 1);
+    changeSelectedValue: (state, { payload }) => {
+      const index = state.dishes.findIndex((dish) => dish.id === payload.id);
+      state.dishes.splice(index, 1, payload);
     },
     getDishById: (state, { payload }) => {
       const dish = state.dishes.find((item) => item.id === payload);
@@ -36,7 +31,7 @@ const dishesSlice = createSlice({
   },
 });
 
-export const { setDishes, addDishToOrder, removeDishFromOrder, getDishById } =
+export const { setDishes, changeSelectedValue, getDishById } =
   dishesSlice.actions;
 
 export default dishesSlice.reducer;

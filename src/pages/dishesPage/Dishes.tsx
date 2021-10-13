@@ -1,7 +1,7 @@
 import React from "react";
-import { selectDishes, selectDishesInOrder } from "api/selectors";
+import { selectDishes } from "api/selectors";
 import { useAppDispatch } from "api/store";
-import { addDishToOrder, removeDishFromOrder } from "api/dishesSlice";
+import { changeSelectedValue } from "api/dishesSlice";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Dish from "./Dish";
@@ -15,7 +15,6 @@ type Params = {
 const Dishes = () => {
   const dispatch = useAppDispatch();
   const dishes = useSelector(selectDishes);
-  const dishesInOrder = useSelector(selectDishesInOrder);
   const { category } = useParams<Params>();
   const list = dishes
     .filter((item) => item.category.toLowerCase() === category)
@@ -28,16 +27,19 @@ const Dishes = () => {
       />
     ));
 
-  const addDish = (value: dishType) => {
+  const addDish = (dish: dishType) => {
     if (
-      dishesInOrder.filter((item) => item.category === value.category).length <
-      categories[value.category].count
-    )
-      dispatch(addDishToOrder(value));
+      dishes.filter((item) => item.selected && item.category === dish.category)
+        .length < categories[dish.category].count
+    ) {
+      const tempDish = { ...dish, selected: true };
+      dispatch(changeSelectedValue(tempDish));
+    }
   };
 
-  const removeDish = (value: dishType) => {
-    dispatch(removeDishFromOrder(value));
+  const removeDish = (dish: dishType) => {
+    const tempDish = { ...dish, selected: false };
+    dispatch(changeSelectedValue(tempDish));
   };
 
   return (

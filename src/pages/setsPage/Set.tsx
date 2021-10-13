@@ -6,7 +6,7 @@ import { setType } from "common/types";
 import { useDispatch, useSelector } from "react-redux";
 import { selectDishes } from "api/selectors";
 import Button from "components/Button";
-import { addDishToOrder, removeDishFromOrder } from "api/dishesSlice";
+import { changeSelectedValue } from "api/dishesSlice";
 
 type SetPropsType = {
   set: setType;
@@ -52,11 +52,11 @@ const Set = ({ set }: SetPropsType) => {
   ));
 
   const addSet = () => {
-    dishesSet.flat(1).forEach((dish) => dispatch(addDishToOrder(dish)));
+    dishesSet.flat(1).forEach((dish) => dispatch(changeSelectedValue(dish)));
     setIsOrder(true);
   };
   const removeSet = () => {
-    dishesSet.flat(1).forEach((dish) => dispatch(removeDishFromOrder(dish)));
+    dishesSet.flat(1).forEach((dish) => dispatch(changeSelectedValue(dish)));
     setIsOrder(false);
   };
 

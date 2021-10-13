@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { dishType } from "common/types";
 import { useSelector } from "react-redux";
-import { selectDishesInOrder } from "api/selectors";
+import { selectDishes } from "api/selectors";
 import Button from "components/Button";
 import { categories } from "common/constants";
 
@@ -70,16 +70,17 @@ const Overlay = styled.div`
 `;
 
 const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
-  const dishesInOrder = useSelector(selectDishesInOrder);
+  const dishes = useSelector(selectDishes);
   const ingredientsList = dish.ingredients.map((item, index) => (
     <li key={index}>{item}</li>
   ));
+
   return (
     <Card
       isShadow={
-        dishesInOrder.filter((item) => item.category === dish.category)
-          .length >= categories[dish.category].count &&
-        !dishesInOrder.find((item) => item.id === dish.id)
+        dishes.filter(
+          (item) => item.selected && item.category === dish.category
+        ).length >= categories[dish.category].count && !dish.selected
       }
     >
       <div>
@@ -91,17 +92,15 @@ const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
         </Info>
       </div>
       <ButtonWrap>
-        {dishesInOrder.find((item) => item.id === dish.id) ? (
+        {dish.selected ? (
           <Button title="Remove" handleClick={removeDish} />
         ) : (
           <Button title="Add to order" handleClick={addDish} />
         )}
       </ButtonWrap>
-      {dishesInOrder.filter((item) => item.category === dish.category).length >=
-        categories[dish.category].count &&
-        !dishesInOrder.find((item) => item.id === dish.id) && (
-          <Overlay></Overlay>
-        )}
+      {dishes.filter((item) => item.selected && item.category === dish.category)
+        .length >= categories[dish.category].count &&
+        !dish.selected && <Overlay></Overlay>}
     </Card>
   );
 };
