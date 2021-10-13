@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { dishInterface } from "common/dishInterface";
+import { dishType } from "common/types";
 import { useSelector } from "react-redux";
 import { selectDishesInOrder } from "api/selectors";
 import Button from "components/Button";
 import { categories } from "common/constants";
 
 type DishPropsType = {
-  dish: dishInterface;
+  dish: dishType;
   addDish: () => void;
   removeDish: () => void;
 };

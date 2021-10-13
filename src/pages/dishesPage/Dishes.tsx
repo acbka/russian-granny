@@ -5,7 +5,7 @@ import { addDishToOrder, removeDishFromOrder } from "api/dishesSlice";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Dish from "./Dish";
-import { dishInterface } from "common/dishInterface";
+import { dishType } from "common/types";
 import { categories } from "common/constants";
 import Layout from "components/Layout";
 
@@ -28,7 +28,7 @@ const Dishes = () => {
       />
     ));
 
-  const selectDish = (value: dishInterface) => {
+  const selectDish = (value: dishType) => {
     if (
       dishesInOrder.filter((item) => item.category === value.category).length <
       categories[value.category].count
@@ -36,7 +36,7 @@ const Dishes = () => {
       dispatch(addDishToOrder(value));
   };
 
-  const removeDish = (value: dishInterface) => {
+  const removeDish = (value: dishType) => {
     dispatch(removeDishFromOrder(value));
   };
 

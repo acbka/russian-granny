@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { dishInterface } from "common/dishInterface";
+import { dishType } from "common/types";
 import { categories } from "common/constants";
 
 type CardPropsType = {
-  dishes: dishInterface[];
+  dishes: dishType[];
 };
 
 type CardWrapPropsType = {
@@ -21,7 +21,7 @@ const Wrapper = styled.div<CardWrapPropsType>`
   border-color: ${(props) => props.color};
   padding: 0 15px;
   margin: 15px;
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 `;
 const Title = styled.h3<CardWrapPropsType>`
   font-weight: 400;
@@ -32,7 +32,7 @@ const Title = styled.h3<CardWrapPropsType>`
 `;
 const Name = styled.h4`
   font-weight: 400;
-  margin: 25px 0;
+  margin: 20px 0 35px 0;
 `;
 const StyledImg = styled.img`
   display: block;
@@ -41,8 +41,6 @@ const StyledImg = styled.img`
 `;
 
 const Card = ({ dishes }: CardPropsType) => {
-  console.log({ dishes });
-
   const category = dishes[0].category;
   const list = dishes.map((item, index) => (
     <div key={index}>

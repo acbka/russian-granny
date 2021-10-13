@@ -1,9 +1,4 @@
-export type categoriesType = {
-  [key: string]: {
-    color: string;
-    count: number;
-  };
-};
+import { categoriesType } from "./types";
 
 export const categories: categoriesType = {
   soups: {
@@ -27,10 +22,6 @@ export const categories: categoriesType = {
     count: 1,
   },
 };
-
-// export type formDataType = {
-//    [key:string]: string
-// }
 
 export const initialData = {
   name: "",

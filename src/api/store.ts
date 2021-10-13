@@ -1,15 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { dishInterface } from "common/dishInterface";
+import { dishType } from "common/types";
 import dishesSlice from "./dishesSlice";
 import { useDispatch } from "react-redux";
 import setsSlice from "./setsSlice";
-import { setType } from "common/setType";
+import { setType } from "common/types";
 
 export type DishesStateType = {
   dishes: {
-    dish: dishInterface;
-    dishes: dishInterface[];
-    dishesInOrder: dishInterface[];
+    dish: dishType;
+    dishes: dishType[];
+    dishesInOrder: dishType[];
   };
   sets: {
     sets: setType[];
@@ -18,7 +18,6 @@ export type DishesStateType = {
 
 const store = configureStore({
   reducer: {
-    dish: dishesSlice,
     dishes: dishesSlice,
     sets: setsSlice,
   },

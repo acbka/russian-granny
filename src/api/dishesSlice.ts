@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { dishInterface } from "common/dishInterface";
+import { dishType } from "common/types";
 
 type initialStateType = {
-  dish: dishInterface | null;
-  dishes: dishInterface[];
-  dishesInOrder: dishInterface[];
+  dish: dishType | null;
+  dishes: dishType[];
+  dishesInOrder: dishType[];
 };
 
 const initialState: initialStateType = {
@@ -21,7 +21,7 @@ const dishesSlice = createSlice({
       state.dishes = payload;
     },
     addDishToOrder: (state, { payload }) => {
-      state.dishesInOrder.push(payload as dishInterface);
+      state.dishesInOrder.push(payload as dishType);
     },
     removeDishFromOrder: (state, { payload }) => {
       const index = state.dishesInOrder.findIndex(
@@ -31,7 +31,7 @@ const dishesSlice = createSlice({
     },
     getDishById: (state, { payload }) => {
       const dish = state.dishes.find((item) => item.id === payload);
-      state.dish = dish as dishInterface;
+      state.dish = dish as dishType;
     },
   },
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import dishes from "api/dishes.json";
-import sets from "api/sets.json";
+import dishes from "api/json/dishes.json";
+import sets from "api/json/sets.json";
 import { useAppDispatch } from "api/store";
 import { setDishes } from "api/dishesSlice";
 import HomePage from "pages/HomePage";
