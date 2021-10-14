@@ -41,6 +41,7 @@ const StyledImg = styled.img`
 `;
 
 const Card = ({ dishes }: CardPropsType) => {
+   console.log({dishes})
   const category = dishes[0].category;
   const list = dishes.map((item, index) => (
     <div key={index}>

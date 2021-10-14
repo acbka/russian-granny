@@ -36,7 +36,7 @@ export const initialData = {
 export const emptyDish: dishType = {
   id: 0,
   name: "none",
-  pict: "granny.png",
+  pict: "empty.png",
   category: "",
   calories: 0,
   dairyFree: false,
