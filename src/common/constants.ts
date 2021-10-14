@@ -1,4 +1,4 @@
-import { categoriesType } from "./types";
+import { categoriesType, dishType } from "./types";
 
 export const categories: categoriesType = {
   soups: {
@@ -31,4 +31,17 @@ export const initialData = {
   phone: "",
   date: "",
   payment: "cash",
+};
+
+export const emptyDish: dishType = {
+  id: 0,
+  name: "none",
+  pict: "granny.png",
+  category: "",
+  calories: 0,
+  dairyFree: false,
+  beefFree: false,
+  porkFree: false,
+  selected: true,
+  ingredients: [],
 };

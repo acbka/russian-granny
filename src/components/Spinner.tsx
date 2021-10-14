@@ -1,13 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-const Wrap = styled.div`
-  /* margin: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center; */
-`;
 const Loader = styled.div`
   width: 20em;
   height: 20em;
@@ -71,16 +64,14 @@ const Circle = styled.div`
 
 const Spinner = () => {
   return (
-    <Wrap>
-      <Loader>
-        <Face>
-          <Circle></Circle>
-        </Face>
-        <Face>
-          <Circle></Circle>
-        </Face>
-      </Loader>
-    </Wrap>
+    <Loader>
+      <Face>
+        <Circle></Circle>
+      </Face>
+      <Face>
+        <Circle></Circle>
+      </Face>
+    </Loader>
   );
 };
 

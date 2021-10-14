@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { selectDishes, selectSets } from "api/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import { updateDishes } from "api/dishesSlice";
 import { updateSets } from "api/setsSlice";
 import Layout from "components/Layout";
 import { setType } from "common/types";
-import Set from "./Set";
+import Spinner from "components/Spinner";
+const Set = React.lazy(() => import("./Set"));
 
 const SetsPage = () => {
   const sets = useSelector(selectSets);
@@ -50,7 +51,11 @@ const SetsPage = () => {
     />
   ));
 
-  return <Layout title="Dishes' Sets ">{setsList}</Layout>;
+  return (
+    <Layout title="Dishes' Sets ">
+      <Suspense fallback={<Spinner />}>{setsList}</Suspense>
+    </Layout>
+  );
 };
 
 export default SetsPage;

@@ -62,7 +62,7 @@ const Set = ({ set, addSetToOrder, removeSetFromOrder }: SetPropsType) => {
       tempDishArray.push(dishesByCategory);
       setDishesSet(tempDishArray as dishType[][]);
     }
-  }, []);
+  }, [set.dishes]);
 
   const unselectSet = () => {
     removeSetFromOrder(set);

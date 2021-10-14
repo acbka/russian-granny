@@ -3,11 +3,10 @@ export type dishType = {
   category: string;
   name: string;
   ingredients: string[];
-  pict: "assets/dishes/borscht.jpg";
+  pict: string;
   dairyFree: boolean;
   beefFree: boolean;
   porkFree: boolean;
-  top: boolean;
   calories: number;
   selected: boolean;
 };

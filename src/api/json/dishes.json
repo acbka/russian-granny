@@ -9,7 +9,6 @@
     "beefFree": true,
     "porkFree": false,
     "calories": 477,
-    "top": false,
     "selected": false
   },
   {
@@ -29,7 +28,6 @@
     "beefFree": false,
     "porkFree": true,
     "calories": 122,
-    "top": true,
     "selected": false
   },
   {
@@ -49,7 +47,6 @@
     "beefFree": false,
     "porkFree": false,
     "calories": 233,
-    "top": false,
     "selected": false
   },
   {
@@ -62,7 +59,6 @@
     "beefFree": false,
     "porkFree": false,
     "calories": 417,
-    "top": true,
     "selected": false
   },
   {
@@ -75,7 +71,6 @@
     "beefFree": false,
     "porkFree": true,
     "calories": 137,
-    "top": false,
     "selected": false
   },
   {
@@ -88,7 +83,6 @@
     "beefFree": false,
     "porkFree": true,
     "calories": 107,
-    "top": false,
     "selected": false
   },
   {
@@ -101,7 +95,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 204,
-    "top": false,
     "selected": false
   },
   {
@@ -114,7 +107,6 @@
     "beefFree": false,
     "porkFree": true,
     "calories": 158,
-    "top": false,
     "selected": false
   },
   {
@@ -127,7 +119,6 @@
     "beefFree": false,
     "porkFree": true,
     "calories": 148,
-    "top": true,
     "selected": false
   },
   {
@@ -140,7 +131,6 @@
     "beefFree": true,
     "porkFree": false,
     "calories": 641,
-    "top": false,
     "selected": false
   },
   {
@@ -153,7 +143,6 @@
     "beefFree": false,
     "porkFree": true,
     "calories": 147,
-    "top": false,
     "selected": false
   },
   {
@@ -166,7 +155,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 290,
-    "top": false,
     "selected": false
   },
   {
@@ -179,7 +167,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 190,
-    "top": true,
     "selected": false
   },
   {
@@ -192,7 +179,6 @@
     "beefFree": false,
     "porkFree": true,
     "calories": 246,
-    "top": true,
     "selected": false
   },
   {
@@ -205,7 +191,6 @@
     "beefFree": false,
     "porkFree": true,
     "calories": 108,
-    "top": false,
     "selected": false
   },
   {
@@ -218,7 +203,6 @@
     "beefFree": false,
     "porkFree": false,
     "calories": 350,
-    "top": false,
     "selected": false
   },
   {
@@ -231,7 +215,6 @@
     "beefFree": false,
     "porkFree": false,
     "calories": 222,
-    "top": false,
     "selected": false
   },
   {
@@ -244,7 +227,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 233,
-    "top": false,
     "selected": false
   },
   {
@@ -257,7 +239,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 128,
-    "top": false,
     "selected": false,
     "sets": [2]
   },
@@ -271,7 +252,6 @@
     "beefFree": false,
     "porkFree": true,
     "calories": 251,
-    "top": false,
     "selected": false
   },
   {
@@ -284,7 +264,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 113,
-    "top": true,
     "selected": false
   },
   {
@@ -297,7 +276,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 88,
-    "top": true,
     "selected": false
   },
   {
@@ -310,7 +288,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 130,
-    "top": false,
     "selected": false
   },
   {
@@ -323,7 +300,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 132,
-    "top": false,
     "selected": false
   },
   {
@@ -336,7 +312,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 371,
-    "top": false,
     "selected": false
   },
   {
@@ -349,7 +324,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 47,
-    "top": true,
     "selected": false
   },
   {
@@ -362,7 +336,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 112,
-    "top": true,
     "selected": false
   },
   {
@@ -383,7 +356,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 131,
-    "top": false,
     "selected": false
   },
   {
@@ -404,7 +376,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 162,
-    "top": true,
     "selected": false
   },
   {
@@ -424,7 +395,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 296,
-    "top": false,
     "selected": false
   },
   {
@@ -445,7 +415,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 209,
-    "top": true,
     "selected": false
   },
   {
@@ -465,7 +434,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 221,
-    "top": false,
     "selected": false
   },
   {
@@ -478,7 +446,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 87,
-    "top": true,
     "selected": false
   },
   {
@@ -491,7 +458,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 227,
-    "top": false,
     "selected": false
   },
   {
@@ -504,7 +470,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 206,
-    "top": true,
     "selected": false
   },
   {
@@ -517,7 +482,6 @@
     "beefFree": false,
     "porkFree": false,
     "calories": 225,
-    "top": true,
     "selected": false
   },
   {
@@ -530,7 +494,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 274,
-    "top": false,
     "selected": false
   },
   {
@@ -543,7 +506,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 331,
-    "top": false,
     "selected": false
   },
   {
@@ -556,7 +518,6 @@
     "beefFree": true,
     "porkFree": true,
     "calories": 237,
-    "top": true,
     "selected": false
   }
 ]
