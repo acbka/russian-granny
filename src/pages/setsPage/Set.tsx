@@ -6,6 +6,9 @@ import { useSelector } from "react-redux";
 import Card from "../../components/Card";
 import Button from "components/Button";
 import { categories } from "common/constants";
+import beef from "assets/beef.png";
+import pork from "assets/pork.png";
+import dairy from "assets/dairy.png";
 
 type SetPropsType = {
   set: setType;
@@ -24,6 +27,22 @@ const Wrapper = styled.section`
   position: relative;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 `;
+const TitleWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  & > h2 {
+    font-weight: 400;
+  }
+`;
+const StyledImg = styled.img`
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: block;
+  margin: 0 8px;
+  padding: 3px;
+  width: 36px;
+  height: 36px;
+`;
 const DishesList = styled.div`
   display: flex;
   justify-content: space-between;
@@ -33,7 +52,7 @@ const DishesList = styled.div`
 const Set = ({ set, addSet, removeSet }: SetPropsType) => {
   const sets = useSelector(selectSets);
   const [dishesSet, setDishesSet] = useState<dishType[][]>([]);
-  console.log(set);
+
   useEffect(() => {
     const tempDishArray = [];
     for (let category in categories) {
@@ -59,7 +78,15 @@ const Set = ({ set, addSet, removeSet }: SetPropsType) => {
 
   return (
     <Wrapper>
-      <h2>{set.name} </h2>
+      <TitleWrap>
+        <h2>{set.name} </h2>
+        {set.dishes.filter((dish) => dish.dairyFree).length ===
+          set.dishes.length && <StyledImg src={dairy} alt="dairy free" />}
+        {set.dishes.filter((dish) => dish.beefFree).length ===
+          set.dishes.length && <StyledImg src={beef} alt="beef free" />}
+        {set.dishes.filter((dish) => dish.porkFree).length ===
+          set.dishes.length && <StyledImg src={pork} alt="pork free" />}
+      </TitleWrap>
       <DishesList>{dishesList}</DishesList>
       {set.selected ? (
         <Button title="Remove" handleClick={unselectSet} />
