@@ -12,8 +12,8 @@ import dairy from "assets/dairy.png";
 
 type SetPropsType = {
   set: setType;
-  addSet: (arg: setType) => void;
-  removeSet: (arg: setType) => void;
+  addSetToOrder: (arg: setType) => void;
+  removeSetFromOrder: (arg: setType) => void;
 };
 
 const Wrapper = styled.section`
@@ -49,7 +49,7 @@ const DishesList = styled.div`
   margin: 10px 0;
 `;
 
-const Set = ({ set, addSet, removeSet }: SetPropsType) => {
+const Set = ({ set, addSetToOrder, removeSetFromOrder }: SetPropsType) => {
   const sets = useSelector(selectSets);
   const [dishesSet, setDishesSet] = useState<dishType[][]>([]);
 
@@ -65,11 +65,11 @@ const Set = ({ set, addSet, removeSet }: SetPropsType) => {
   }, []);
 
   const unselectSet = () => {
-    removeSet(set);
+    removeSetFromOrder(set);
   };
 
   const selectSet = () => {
-    addSet(set);
+    addSetToOrder(set);
   };
 
   const dishesList = dishesSet.map((item, index) => (

@@ -75,9 +75,9 @@ const StyledImg = styled.img`
   border-radius: 50%;
   display: block;
   margin-right: 6px;
-  padding: 10px;
-  width: 46px;
-  height: 46px;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
   background: #fff;
   border-radius: 50%;
 `;
