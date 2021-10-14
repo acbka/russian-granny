@@ -4,7 +4,6 @@ export type dishType = {
   name: string;
   ingredients: string[];
   pict: "assets/dishes/borscht.jpg";
-  sets: number[];
   dairyFree: boolean;
   beefFree: boolean;
   porkFree: boolean;
@@ -22,9 +21,7 @@ export type categoriesType = {
 
 export type setType = {
   name: string;
-  dishes: {
-    [category: string]: number[];
-  };
+  dishes: dishType[];
   selected: boolean;
 };
 

@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import { dishType, setType } from "common/types";
-import { selectDishes } from "api/selectors";
-import { updateSets } from "api/setsSlice";
-import { changeSelectedValue } from "api/dishesSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { selectSets } from "api/selectors";
+import { useSelector } from "react-redux";
 import Card from "../../components/Card";
 import Button from "components/Button";
+import { categories } from "common/constants";
 
 type SetPropsType = {
   set: setType;
+  addSet: (arg: setType) => void;
+  removeSet: (arg: setType) => void;
 };
 
 const Wrapper = styled.section`
@@ -29,52 +30,45 @@ const DishesList = styled.div`
   margin: 10px 0;
 `;
 
-const Set = ({ set }: SetPropsType) => {
-  const dishes = useSelector(selectDishes);
-  const dispatch = useDispatch();
+const Set = ({ set, addSet, removeSet }: SetPropsType) => {
+  const sets = useSelector(selectSets);
   const [dishesSet, setDishesSet] = useState<dishType[][]>([]);
-
+  console.log(set);
   useEffect(() => {
     const tempDishArray = [];
-    for (let category in set.dishes) {
-      const dishesId = set.dishes[category];
-      const dishesByCategory = dishesId.map((item) =>
-        dishes.find((dish) => dish.id === item)
+    for (let category in categories) {
+      const dishesByCategory = set.dishes.filter(
+        (dish) => dish.category === category
       );
       tempDishArray.push(dishesByCategory);
       setDishesSet(tempDishArray as dishType[][]);
     }
   }, []);
 
+  const unselectSet = () => {
+    removeSet(set);
+  };
+
+  const selectSet = () => {
+    addSet(set);
+  };
+
   const dishesList = dishesSet.map((item, index) => (
     <Card key={index} dishes={item} />
   ));
-
-  const addSet = () => {
-    dishesSet.flat(1).forEach((dish) => {
-      const tempDish = { ...dish, selected: true };
-      dispatch(changeSelectedValue(tempDish));
-    });
-    const tempSet = { ...set, selected: true };
-    dispatch(updateSets(tempSet));
-  };
-  const removeSet = () => {
-    dishesSet.flat(1).forEach((dish) => {
-      const tempDish = { ...dish, selected: false };
-      dispatch(changeSelectedValue(tempDish));
-      const tempSet = { ...set, selected: false };
-      dispatch(updateSets(tempSet));
-    });
-  };
 
   return (
     <Wrapper>
       <h2>{set.name} </h2>
       <DishesList>{dishesList}</DishesList>
       {set.selected ? (
-        <Button title="Remove" handleClick={removeSet} />
+        <Button title="Remove" handleClick={unselectSet} />
       ) : (
-        <Button title="Add to order" handleClick={addSet} />
+        <Button
+          title="Add to order"
+          handleClick={selectSet}
+          disabled={!set.selected && Boolean(sets.find((set) => set.selected))}
+        />
       )}
     </Wrapper>
   );

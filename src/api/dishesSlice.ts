@@ -18,7 +18,7 @@ const dishesSlice = createSlice({
     setDishes: (state, { payload }) => {
       state.dishes = payload;
     },
-    changeSelectedValue: (state, { payload }) => {
+    updateDishes: (state, { payload }) => {
       const index = state.dishes.findIndex((dish) => dish.id === payload.id);
       state.dishes.splice(index, 1, payload);
     },
@@ -29,7 +29,6 @@ const dishesSlice = createSlice({
   },
 });
 
-export const { setDishes, changeSelectedValue, getDishById } =
-  dishesSlice.actions;
+export const { setDishes, updateDishes, getDishById } = dishesSlice.actions;
 
 export default dishesSlice.reducer;

@@ -10,8 +10,7 @@
     "porkFree": false,
     "calories": 477,
     "top": false,
-    "selected": false,
-    "sets": [2]
+    "selected": false
   },
   {
     "id": 102,
@@ -31,8 +30,7 @@
     "porkFree": true,
     "calories": 122,
     "top": true,
-    "selected": false,
-    "sets": [1, 4]
+    "selected": false
   },
   {
     "id": 103,
@@ -52,8 +50,7 @@
     "porkFree": false,
     "calories": 233,
     "top": false,
-    "selected": false,
-    "sets": [1]
+    "selected": false
   },
   {
     "id": 104,
@@ -66,8 +63,7 @@
     "porkFree": false,
     "calories": 417,
     "top": true,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 105,
@@ -80,8 +76,7 @@
     "porkFree": true,
     "calories": 137,
     "top": false,
-    "selected": false,
-    "sets": [3]
+    "selected": false
   },
   {
     "id": 106,
@@ -94,8 +89,7 @@
     "porkFree": true,
     "calories": 107,
     "top": false,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 107,
@@ -108,8 +102,7 @@
     "porkFree": true,
     "calories": 204,
     "top": false,
-    "selected": false,
-    "sets": [2]
+    "selected": false
   },
   {
     "id": 108,
@@ -122,8 +115,7 @@
     "porkFree": true,
     "calories": 158,
     "top": false,
-    "selected": false,
-    "sets": [4]
+    "selected": false
   },
   {
     "id": 109,
@@ -136,8 +128,7 @@
     "porkFree": true,
     "calories": 148,
     "top": true,
-    "selected": false,
-    "sets": [3]
+    "selected": false
   },
   {
     "id": 110,
@@ -150,8 +141,7 @@
     "porkFree": false,
     "calories": 641,
     "top": false,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 201,
@@ -164,8 +154,7 @@
     "porkFree": true,
     "calories": 147,
     "top": false,
-    "selected": false,
-    "sets": [3]
+    "selected": false
   },
   {
     "id": 202,
@@ -178,8 +167,7 @@
     "porkFree": true,
     "calories": 290,
     "top": false,
-    "selected": false,
-    "sets": [2]
+    "selected": false
   },
   {
     "id": 203,
@@ -192,8 +180,7 @@
     "porkFree": true,
     "calories": 190,
     "top": true,
-    "selected": false,
-    "sets": [3]
+    "selected": false
   },
   {
     "id": 204,
@@ -206,8 +193,7 @@
     "porkFree": true,
     "calories": 246,
     "top": true,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 205,
@@ -220,8 +206,7 @@
     "porkFree": true,
     "calories": 108,
     "top": false,
-    "selected": false,
-    "sets": [1, 4]
+    "selected": false
   },
   {
     "id": 206,
@@ -234,8 +219,7 @@
     "porkFree": false,
     "calories": 350,
     "top": false,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 207,
@@ -248,8 +232,7 @@
     "porkFree": false,
     "calories": 222,
     "top": false,
-    "selected": false,
-    "sets": [1]
+    "selected": false
   },
   {
     "id": 208,
@@ -262,8 +245,7 @@
     "porkFree": true,
     "calories": 233,
     "top": false,
-    "selected": false,
-    "sets": [4]
+    "selected": false
   },
   {
     "id": 209,
@@ -290,8 +272,7 @@
     "porkFree": true,
     "calories": 251,
     "top": false,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 211,
@@ -304,8 +285,7 @@
     "porkFree": true,
     "calories": 113,
     "top": true,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 301,
@@ -318,8 +298,7 @@
     "porkFree": true,
     "calories": 88,
     "top": true,
-    "selected": false,
-    "sets": [3]
+    "selected": false
   },
   {
     "id": 302,
@@ -332,8 +311,7 @@
     "porkFree": true,
     "calories": 130,
     "top": false,
-    "selected": false,
-    "sets": [1, 2]
+    "selected": false
   },
   {
     "id": 303,
@@ -346,8 +324,7 @@
     "porkFree": true,
     "calories": 132,
     "top": false,
-    "selected": false,
-    "sets": [1, 4]
+    "selected": false
   },
   {
     "id": 304,
@@ -360,8 +337,7 @@
     "porkFree": true,
     "calories": 371,
     "top": false,
-    "selected": false,
-    "sets": [4]
+    "selected": false
   },
   {
     "id": 305,
@@ -374,8 +350,7 @@
     "porkFree": true,
     "calories": 47,
     "top": true,
-    "selected": false,
-    "sets": [2]
+    "selected": false
   },
   {
     "id": 306,
@@ -388,8 +363,7 @@
     "porkFree": true,
     "calories": 112,
     "top": true,
-    "selected": false,
-    "sets": [3]
+    "selected": false
   },
   {
     "id": 401,
@@ -410,8 +384,7 @@
     "porkFree": true,
     "calories": 131,
     "top": false,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 402,
@@ -432,8 +405,7 @@
     "porkFree": true,
     "calories": 162,
     "top": true,
-    "selected": false,
-    "sets": [1, 2]
+    "selected": false
   },
   {
     "id": 403,
@@ -453,8 +425,7 @@
     "porkFree": true,
     "calories": 296,
     "top": false,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 404,
@@ -475,8 +446,7 @@
     "porkFree": true,
     "calories": 209,
     "top": true,
-    "selected": false,
-    "sets": [4]
+    "selected": false
   },
   {
     "id": 405,
@@ -496,8 +466,7 @@
     "porkFree": true,
     "calories": 221,
     "top": false,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 406,
@@ -510,8 +479,7 @@
     "porkFree": true,
     "calories": 87,
     "top": true,
-    "selected": false,
-    "sets": [3]
+    "selected": false
   },
   {
     "id": 501,
@@ -524,8 +492,7 @@
     "porkFree": true,
     "calories": 227,
     "top": false,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 502,
@@ -538,8 +505,7 @@
     "porkFree": true,
     "calories": 206,
     "top": true,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 503,
@@ -552,8 +518,7 @@
     "porkFree": false,
     "calories": 225,
     "top": true,
-    "selected": false,
-    "sets": []
+    "selected": false
   },
   {
     "id": 504,
@@ -566,8 +531,7 @@
     "porkFree": true,
     "calories": 274,
     "top": false,
-    "selected": false,
-    "sets": [2]
+    "selected": false
   },
   {
     "id": 505,
@@ -580,8 +544,7 @@
     "porkFree": true,
     "calories": 331,
     "top": false,
-    "selected": false,
-    "sets": [3]
+    "selected": false
   },
   {
     "id": 506,
@@ -594,7 +557,6 @@
     "porkFree": true,
     "calories": 237,
     "top": true,
-    "selected": false,
-    "sets": [1, 4]
+    "selected": false
   }
 ]

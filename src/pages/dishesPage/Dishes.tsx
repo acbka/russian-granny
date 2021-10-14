@@ -1,7 +1,7 @@
 import React from "react";
 import { selectDishes } from "api/selectors";
 import { useAppDispatch } from "api/store";
-import { changeSelectedValue } from "api/dishesSlice";
+import { updateDishes } from "api/dishesSlice";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Dish from "./Dish";
@@ -33,13 +33,13 @@ const Dishes = () => {
         .length < categories[dish.category].count
     ) {
       const tempDish = { ...dish, selected: true };
-      dispatch(changeSelectedValue(tempDish));
+      dispatch(updateDishes(tempDish));
     }
   };
 
   const removeDish = (dish: dishType) => {
     const tempDish = { ...dish, selected: false };
-    dispatch(changeSelectedValue(tempDish));
+    dispatch(updateDishes(tempDish));
   };
 
   return (
