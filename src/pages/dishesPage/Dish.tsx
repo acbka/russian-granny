@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import { selectDishes } from "api/selectors";
 import Button from "components/Button";
 import { categories } from "common/constants";
+import beef from "assets/beef.png";
+import pork from "assets/pork.png";
+import dairy from "assets/dairy.png";
 
 type DishPropsType = {
   dish: dishType;
@@ -68,6 +71,21 @@ const Overlay = styled.div`
   z-index: 10;
   background: rgba(255, 255, 255, 0.6);
 `;
+const StyledImg = styled.img`
+  border-radius: 50%;
+  display: block;
+  margin-right: 6px;
+  padding: 10px;
+  width: 46px;
+  height: 46px;
+  background: #fff;
+  border-radius: 50%;
+`;
+const Labels = styled.div`
+  position: absolute;
+  top: 2px;
+  display: flex;
+`;
 
 const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
   const dishes = useSelector(selectDishes);
@@ -83,7 +101,13 @@ const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
         ).length >= categories[dish.category].count && !dish.selected
       }
     >
-      <div>
+        <div>
+           <Labels>
+        {dish.dairyFree && <StyledImg src={dairy} alt="dairy free" />}
+        {dish.beefFree && <StyledImg src={beef} alt="beef free" />}
+        {dish.porkFree && <StyledImg src={pork} alt="pork free" />}
+
+           </Labels>
         <Image src={`/dishes/${dish.pict}`} alt={dish.name} />
         <Info>
           <Title>{dish.name} </Title>
