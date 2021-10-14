@@ -9,7 +9,6 @@ export type DishesStateType = {
   dishes: {
     dish: dishType;
     dishes: dishType[];
-    dishesInOrder: dishType[];
   };
   sets: {
     sets: setType[];

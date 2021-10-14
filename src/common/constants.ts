@@ -10,15 +10,15 @@ export const categories: categoriesType = {
     count: 2,
   },
   sides: {
-    color: "#b3f9b3",
+    color: "#ffc0cb",
     count: 2,
   },
   salads: {
-    color: "#ffc0cb",
+    color: "#b3f9b3",
     count: 1,
   },
   desserts: {
-    color: "#a0e8f7",
+    color: "#ffa500",
     count: 1,
   },
 };

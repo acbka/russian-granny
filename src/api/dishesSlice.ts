@@ -4,13 +4,11 @@ import { dishType } from "common/types";
 type initialStateType = {
   dish: dishType | null;
   dishes: dishType[];
-  dishesInOrder: dishType[];
 };
 
 const initialState: initialStateType = {
   dish: null,
   dishes: [],
-  dishesInOrder: [],
 };
 
 const dishesSlice = createSlice({

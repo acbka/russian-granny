@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { dishType } from "common/types";
-import Card from "../../components/Card";
-import { setType } from "common/types";
-import { useDispatch, useSelector } from "react-redux";
+import { dishType, setType } from "common/types";
 import { selectDishes } from "api/selectors";
-import Button from "components/Button";
+import { updateSets } from "api/setsSlice";
 import { changeSelectedValue } from "api/dishesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Card from "../../components/Card";
+import Button from "components/Button";
 
 type SetPropsType = {
   set: setType;
@@ -33,7 +33,6 @@ const Set = ({ set }: SetPropsType) => {
   const dishes = useSelector(selectDishes);
   const dispatch = useDispatch();
   const [dishesSet, setDishesSet] = useState<dishType[][]>([]);
-  const [isOrder, setIsOrder] = useState(false);
 
   useEffect(() => {
     const tempDishArray = [];
@@ -52,19 +51,27 @@ const Set = ({ set }: SetPropsType) => {
   ));
 
   const addSet = () => {
-    dishesSet.flat(1).forEach((dish) => dispatch(changeSelectedValue(dish)));
-    setIsOrder(true);
+    dishesSet.flat(1).forEach((dish) => {
+      const tempDish = { ...dish, selected: true };
+      dispatch(changeSelectedValue(tempDish));
+    });
+    const tempSet = { ...set, selected: true };
+    dispatch(updateSets(tempSet));
   };
   const removeSet = () => {
-    dishesSet.flat(1).forEach((dish) => dispatch(changeSelectedValue(dish)));
-    setIsOrder(false);
+    dishesSet.flat(1).forEach((dish) => {
+      const tempDish = { ...dish, selected: false };
+      dispatch(changeSelectedValue(tempDish));
+      const tempSet = { ...set, selected: false };
+      dispatch(updateSets(tempSet));
+    });
   };
 
   return (
     <Wrapper>
       <h2>{set.name} </h2>
       <DishesList>{dishesList}</DishesList>
-      {isOrder ? (
+      {set.selected ? (
         <Button title="Remove" handleClick={removeSet} />
       ) : (
         <Button title="Add to order" handleClick={addSet} />

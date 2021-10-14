@@ -16,9 +16,13 @@ const setsSlice = createSlice({
     setSets: (state, { payload }) => {
       state.sets = payload;
     },
+    updateSets: (state, { payload }) => {
+      const index = state.sets.findIndex((item) => item.name === payload.name);
+      state.sets.splice(index, 1, payload);
+    },
   },
 });
 
-export const { setSets } = setsSlice.actions;
+export const { setSets, updateSets } = setsSlice.actions;
 
 export default setsSlice.reducer;

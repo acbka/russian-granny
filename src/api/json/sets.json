@@ -37,7 +37,7 @@
     "dishes": {
       "soups": [102, 108],
       "mains": [205, 208],
-      "sides": [303, 304],
+      "sides": [304, 303],
       "salads": [404],
       "desserts": [506]
     },
