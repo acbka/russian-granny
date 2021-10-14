@@ -7,15 +7,20 @@ import { categories, emptyDish } from "common/constants";
 import Layout from "components/Layout";
 import Spinner from "components/Spinner";
 import Card from "components/Card";
+import { useHistory } from "react-router";
 
 const Wrapper = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
+const CardWrap = styled(Card)`
+  cursor: pointer;
+`;
 
 const OrderPage = () => {
   const dishes = useSelector(selectDishes);
+  const history = useHistory();
   const dishesInOrder = dishes.filter((dish) => dish.selected);
   const [dishesByCategories, setDishesByCategories] = useState<dishType[][]>(
     []
@@ -64,10 +69,12 @@ const OrderPage = () => {
     }
   }, []);
 
-  // console.log(dishesByCategories);
-
   const dishesList = dishesByCategories.map((item, index) => (
-    <Card key={index} dishes={item} />
+    <CardWrap
+      key={index}
+      dishes={item}
+      handleClick={() => history.push(`/dishes/${item[0].category}`)}
+    />
   ));
 
   return (

@@ -5,6 +5,8 @@ import { categories } from "common/constants";
 
 type CardPropsType = {
   dishes: dishType[];
+  handleClick?: () => void;
+  className?: string;
 };
 
 type CardWrapPropsType = {
@@ -40,8 +42,8 @@ const StyledImg = styled.img`
   height: auto;
 `;
 
-const Card = ({ dishes }: CardPropsType) => {
-   console.log({dishes})
+const Card = ({ dishes, handleClick, className }: CardPropsType) => {
+  console.log({ dishes });
   const category = dishes[0].category;
   const list = dishes.map((item, index) => (
     <div key={index}>
@@ -53,7 +55,11 @@ const Card = ({ dishes }: CardPropsType) => {
   ));
 
   return (
-    <Wrapper color={categories[category].color}>
+    <Wrapper
+      color={categories[category].color}
+      onClick={handleClick}
+      className={className}
+    >
       <Title color={categories[category].color}>{category}</Title>
       {list}
     </Wrapper>
