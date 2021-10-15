@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 type ButtonPropsType = {
-  title: string;
+  title?: string;
   disabled?: boolean;
   children?: React.ReactNode;
   className?: string;

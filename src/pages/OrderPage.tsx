@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components/macro";
 import { selectDishes } from "api/selectors";
 import { useSelector } from "react-redux";
-import { dishType } from "common/types";
 import Layout from "components/Layout";
 import Card from "components/Card";
 import { useHistory } from "react-router";
@@ -32,13 +31,7 @@ const OrderPage = () => {
   const dishes = useSelector(selectDishes);
   const history = useHistory();
   const dishesInOrder = dishes.filter((dish) => dish.selected);
-  const [dishesByCategories, setDishesByCategories] = useState<dishType[][]>(
-    []
-  );
-
-  useEffect(() => {
-    setDishesByCategories(groupDishes(dishesInOrder));
-  }, []);
+  const dishesByCategories = groupDishes(dishesInOrder);
 
   const dishesList = dishesByCategories.map((item, index) => (
     <CardWrap

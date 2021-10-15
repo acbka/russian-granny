@@ -8,6 +8,7 @@ import Dish from "./Dish";
 import { dishType } from "common/types";
 import { categories } from "common/constants";
 import Layout from "components/Layout";
+import SideCart from "components/SideCart";
 
 type Params = {
   category: string;
@@ -44,7 +45,8 @@ const Dishes = () => {
 
   return (
     <Layout title={category.charAt(0).toUpperCase() + category.slice(1)}>
-      {list}
+        {list}
+        <SideCart />
     </Layout>
   );
 };

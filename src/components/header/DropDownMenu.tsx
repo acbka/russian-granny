@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   float: left;
   min-width: 120px;
   background-color: #fff;
-  z-index: 10;
+  z-index: 15;
 `;
 
 const DropDownMenu = ({ setIsOpen }: DropDownMenuPropsType) => {
