@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import Layout from "components/Layout";
 import Input from "components/Input";
-import { initialData } from "common/constants";
+import { initialUser } from "common/constants";
 import RadioInput from "components/RadioInput";
 import Button from "components/Button";
 import { useHistory } from "react-router";
@@ -10,20 +10,26 @@ import { useHistory } from "react-router";
 const Wrap = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+`;
+const ButtonWrap = styled(Button)`
+  margin: 25px 0;
+  width: 220px;
 `;
 
 const ContactFormPage = () => {
-  const [userData, setUserData] = useState(initialData);
+  const [user, setuUer] = useState(initialUser);
   const [minDate, setminDate] = useState("");
   const [maxDate, setmaxDate] = useState("");
-//   const emailTemplate =
-//     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+  const emailPattern =
+    /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
   const history = useHistory();
+  const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{3-4}$/;
 
-  const updateData = (fieldName: string) => (value: string) => {
-    setUserData({
-      ...userData,
+  const updateUser = (fieldName: string) => (value: string) => {
+    setuUer({
+      ...user,
       [fieldName]: value,
     });
   };
@@ -36,11 +42,14 @@ const ContactFormPage = () => {
     setmaxDate(new Date(lastDate).toISOString().split("T")[0]);
   }, []);
 
-  console.log({ userData });
+  console.log({ user });
 
-   const validateUserData = () => {
-     
-    history.push("./final");
+  const validateUser = () => {
+    user.name.length >= 3 &&
+      emailPattern.test(user.email) &&
+      phonePattern.test(user.phone) &&
+      Boolean(user.date) &&
+      history.push("./final");
   };
 
   return (
@@ -50,60 +59,60 @@ const ContactFormPage = () => {
           <Input
             label="Full name"
             type="text"
-            value=""
-            handleChange={updateData("name")}
+            value={user.name}
+            handleChange={updateUser("name")}
           />
           <Input
             label="Email"
             type="email"
-            value=""
+            value={user.email}
             placeholder="you@example.com"
-            handleChange={updateData("email")}
+            handleChange={updateUser("email")}
           />
           <Input
             label="Delivery Address"
             type="text"
-            value=""
+            value={user.address}
             placeholder="1234 Main Street"
-            handleChange={updateData("address")}
+            handleChange={updateUser("address")}
           />
           <Input
             label="Suburb"
             type="text"
-            value=""
+            value={user.suburb}
             placeholder="Suburb"
-            handleChange={updateData("suburb")}
+            handleChange={updateUser("suburb")}
           />
           <Input
             label="Phone"
-            type="phone"
-            value=""
-            placeholder=""
-            handleChange={updateData("phone")}
+            type="tel"
+            value={user.phone}
+            placeholder="___-___-___-____"
+            handleChange={updateUser("phone")}
           />
           <Input
             label="Delivery date"
             type="date"
             minDate={minDate}
             maxDate={maxDate}
-            handleChange={updateData("date")}
+            handleChange={updateUser("date")}
           />
           <RadioInput
             name="payment"
             label="Cash"
             value="cash"
-            checked={userData.payment === "cash"}
-            handleChange={updateData("payment")}
+            checked={user.payment === "cash"}
+            handleChange={updateUser("payment")}
           />
           <RadioInput
             name="payment"
             label="PayPal"
             value="paypal"
-            checked={userData.payment === "paypal"}
-            handleChange={updateData("payment")}
+            checked={user.payment === "paypal"}
+            handleChange={updateUser("payment")}
           />
         </form>
-        <Button title="continue to checkout" handleClick={validateUserData} />
+        <ButtonWrap title="Continue to checkout" handleClick={validateUser} />
       </Wrap>
     </Layout>
   );

@@ -23,7 +23,7 @@ export const categories: categoriesType = {
   },
 };
 
-export const initialData = {
+export const initialUser = {
   name: "",
   email: "",
   address: "",

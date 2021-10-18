@@ -23,6 +23,7 @@ const Wrapper = styled.section<WrapperPrpsType>`
   right: ${(props) => (props.isHidden ? "-160px" : 0)};
   z-index: 10;
   cursor: pointer;
+  transition: right .3s;
 `;
 const DishesBlock = styled.div`
   width: 160px;
@@ -75,7 +76,10 @@ const SideCart = () => {
     <CardWrap
       key={index}
       dishes={item}
-      handleClick={() => history.push(`/dishes/${item[0].category}`)}
+      handleClick={() => {
+        history.push(`/dishes/${item[0].category}`);
+        setIsHidden(true);
+      }}
     />
   ));
 

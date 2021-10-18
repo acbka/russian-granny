@@ -27,9 +27,18 @@ export type setType = {
 export type order = {
   [key: string]: {
     dish: dishType;
+    user: userType;
   }[];
 };
 
-// export type userDataType = {
-//    [key:string]: string
-// }
+export type userType = {
+  [key: string]: {
+    name: string;
+    email: string;
+    address: string;
+    suburb: string;
+    phone: string;
+    date: string;
+    payment: string;
+  };
+};

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
 import Layout from "components/Layout";
+import { userType } from "common/types";
+
 
 const Wrap = styled.section`
   display: flex;
@@ -9,11 +11,13 @@ const Wrap = styled.section`
 `;
 
 const FinalPage = () => {
+   const date = new Date();
+
   return (
     <Layout>
       <Wrap>
-        <h1>Thank you </h1>
-        <p>You order #876814 is confirmed.</p>
+        <h1>Thank you  </h1>
+        <p>You order {Math.round(date.getTime()/10000000)} is confirmed.</p>
         <p>Your Russian granny is cooking meal for you.</p>
         <h2>Here are your order details:</h2>
         <ul>
