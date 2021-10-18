@@ -25,7 +25,7 @@ const ContactFormPage = () => {
   const emailPattern =
     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
   const history = useHistory();
-  const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{3-4}$/;
+  const phonePattern = /02\d{7,8}/;
 
   const updateUser = (fieldName: string) => (value: string) => {
     setuUer({
@@ -47,9 +47,9 @@ const ContactFormPage = () => {
   const validateUser = () => {
     user.name.length >= 3 &&
       emailPattern.test(user.email) &&
-      phonePattern.test(user.phone) &&
-      Boolean(user.date) &&
-      history.push("./final");
+      phonePattern.test(user.phone.split("-").join("")) &&
+      Boolean(user.date);
+    // history.push("./final");
   };
 
   return (
@@ -112,7 +112,18 @@ const ContactFormPage = () => {
             handleChange={updateUser("payment")}
           />
         </form>
-        <ButtonWrap title="Continue to checkout" handleClick={validateUser} />
+        <ButtonWrap
+          title="Continue to checkout"
+          handleClick={validateUser}
+          disabled={
+            !(
+              user.name.length >= 3 &&
+              emailPattern.test(user.email) &&
+              phonePattern.test(user.phone) &&
+              Boolean(user.date)
+            )
+          }
+        />
       </Wrap>
     </Layout>
   );
