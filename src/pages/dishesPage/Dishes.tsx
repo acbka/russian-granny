@@ -1,7 +1,7 @@
 import React from "react";
 import { selectDishes } from "api/selectors";
 import { useAppDispatch } from "api/store";
-import { updateDishes } from "api/dishesSlice";
+import { updateDishes } from "api/slises/dishesSlice";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Dish from "./Dish";

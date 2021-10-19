@@ -1,8 +1,8 @@
 import React, { Suspense, useEffect } from "react";
 import { selectDishes, selectSets } from "api/selectors";
 import { useSelector, useDispatch } from "react-redux";
-import { updateDishes } from "api/dishesSlice";
-import { updateSets } from "api/setsSlice";
+import { updateDishes } from "api/slises/dishesSlice";
+import { updateSets } from "api/slises/setsSlice";
 import Layout from "components/Layout";
 import { setType } from "common/types";
 import Spinner from "components/Spinner";

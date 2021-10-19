@@ -24,9 +24,10 @@ export type setType = {
   selected: boolean;
 };
 
-export type order = {
+export type orderType = {
   [key: string]: {
-    dish: dishType;
+    id: string;
+    dishes: dishType[];
     user: userType;
   }[];
 };
