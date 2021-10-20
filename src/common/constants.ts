@@ -24,13 +24,34 @@ export const categories: categoriesType = {
 };
 
 export const initialUser = {
-  name: "",
-  email: "",
-  address: "",
-  suburb: "",
-  phone: "",
-  date: "",
-  payment: "cash",
+  name: {
+    value: "",
+    isValid: true,
+  },
+  email: {
+   value: "",
+   isValid: true,
+ },
+  address: {
+   value: "",
+   isValid: true,
+ },
+  suburb: {
+   value: "",
+   isValid: true,
+ },
+  phone: {
+   value: "",
+   isValid: true,
+ },
+  date: {
+   value: "",
+   isValid: true,
+ },
+  payment: {
+   value: "cash",
+   isValid: true,
+ },
 };
 
 export const emptyDish: dishType = {

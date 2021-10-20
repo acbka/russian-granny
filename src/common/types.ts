@@ -46,7 +46,7 @@ export type orderType = {
 
 export type userType = {
   [key: string]: {
-    value: string | string;
+    value: string;
     isValid?: boolean;
   };
 };

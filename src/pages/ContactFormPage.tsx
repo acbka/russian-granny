@@ -44,11 +44,12 @@ const ContactFormPage = () => {
 
   console.log({ user });
 
-  const validateUser = () => {
-    user.name.length >= 3 &&
-      emailPattern.test(user.email) &&
-      phonePattern.test(user.phone.split("-").join("")) &&
-      Boolean(user.date);
+   const validateUser = () => {
+     
+   //  user.name.length >= 3 &&
+   //    emailPattern.test(user.email.value) &&
+   //    phonePattern.test(user.phone.value.split("-").join("")) &&
+   //    Boolean(user.date.value);
     // history.push("./final");
   };
 
@@ -59,35 +60,35 @@ const ContactFormPage = () => {
           <Input
             label="Full name"
             type="text"
-            value={user.name}
+            value={user.name.value}
             handleChange={updateUser("name")}
           />
           <Input
             label="Email"
             type="email"
-            value={user.email}
+            value={user.email.value}
             placeholder="you@example.com"
             handleChange={updateUser("email")}
           />
           <Input
             label="Delivery Address"
             type="text"
-            value={user.address}
+            value={user.address.value}
             placeholder="1234 Main Street"
             handleChange={updateUser("address")}
           />
           <Input
             label="Suburb"
             type="text"
-            value={user.suburb}
+            value={user.suburb.value}
             placeholder="Suburb"
             handleChange={updateUser("suburb")}
           />
           <Input
             label="Phone"
             type="tel"
-            value={user.phone}
-            placeholder="___-___-___-____"
+            value={user.phone.value}
+            placeholder="02_-___-____"
             handleChange={updateUser("phone")}
           />
           <Input
@@ -101,14 +102,14 @@ const ContactFormPage = () => {
             name="payment"
             label="Cash"
             value="cash"
-            checked={user.payment === "cash"}
+            checked={user.payment.value === "cash"}
             handleChange={updateUser("payment")}
           />
           <RadioInput
             name="payment"
             label="PayPal"
             value="paypal"
-            checked={user.payment === "paypal"}
+            checked={user.payment.value === "paypal"}
             handleChange={updateUser("payment")}
           />
         </form>
@@ -117,10 +118,10 @@ const ContactFormPage = () => {
           handleClick={validateUser}
           disabled={
             !(
-              user.name.length >= 3 &&
-              emailPattern.test(user.email) &&
-              phonePattern.test(user.phone) &&
-              Boolean(user.date)
+              user.name.value.length >= 3 &&
+              emailPattern.test(user.email.value) &&
+              phonePattern.test(user.phone.value) &&
+              Boolean(user.date.value)
             )
           }
         />
