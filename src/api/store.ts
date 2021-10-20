@@ -4,6 +4,7 @@ import dishesSlice from "./slises/dishesSlice";
 import { useDispatch } from "react-redux";
 import setsSlice from "./slises/setsSlice";
 import { setType } from "common/types";
+import orderSlice from "./slises/orderSlice";
 
 export type MainStateType = {
   dishes: {
@@ -22,6 +23,7 @@ const store = configureStore({
   reducer: {
     dishes: dishesSlice,
     sets: setsSlice,
+    order: orderSlice,
   },
 });
 export type AppDispatch = typeof store.dispatch;

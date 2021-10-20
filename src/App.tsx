@@ -9,7 +9,7 @@ import { setType } from "common/types";
 import HomePage from "pages/HomePage";
 import Dishes from "pages/dishesPage/Dishes";
 import SetsPage from "pages/setsPage/SetsPage";
-import OrderPage from "pages/OrderPage";
+import CartPage from "pages/CartPage";
 import ContactFormPage from "pages/ContactFormPage";
 import FinalPage from "pages/FinalPage";
 
@@ -39,7 +39,7 @@ function App() {
           <SetsPage />
         </Route>
         <Route path="/order">
-          <OrderPage />
+          <CartPage />
         </Route>
         <Route path="/form">
           <ContactFormPage />

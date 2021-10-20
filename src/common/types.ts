@@ -32,14 +32,21 @@ export type orderType = {
   }[];
 };
 
+// export type userType = {
+//   [key: string]: {
+//     name: string;
+//     email: string;
+//     address: string;
+//     suburb: string;
+//     phone: string;
+//     date: string;
+//     payment: string;
+//   };
+// };
+
 export type userType = {
   [key: string]: {
-    name: string;
-    email: string;
-    address: string;
-    suburb: string;
-    phone: string;
-    date: string;
-    payment: string;
+    value: string | string;
+    isValid?: boolean;
   };
 };

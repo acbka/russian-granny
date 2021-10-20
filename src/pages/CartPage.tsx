@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { selectDishes } from "api/selectors";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Layout from "components/Layout";
 import Card from "components/Card";
 import { useHistory } from "react-router";
 import Button from "components/Button";
 import { groupDishes } from "common/groupDishes";
+import { setDishesInOrder } from "api/slises/orderSlice";
 
 const Wrapper = styled.section`
   display: flex;
@@ -27,11 +28,17 @@ const ButtonWrap = styled(Button)`
   width: 220px;
 `;
 
-const OrderPage = () => {
+const CartPage = () => {
   const dishes = useSelector(selectDishes);
+  const dispatch = useDispatch();
   const history = useHistory();
   const dishesInOrder = dishes.filter((dish) => dish.selected);
   const dishesByCategories = groupDishes(dishesInOrder);
+
+  const createOrder = () => {
+    dispatch(setDishesInOrder(dishesInOrder));
+    history.push("/form");
+  };
 
   const dishesList = dishesByCategories.map((item, index) => (
     <CardWrap
@@ -48,11 +55,11 @@ const OrderPage = () => {
         <ButtonWrap
           title="Processed to checkout"
           disabled={dishesInOrder.length < 8}
-          handleClick={() => history.push("/form")}
+          handleClick={createOrder}
         />
       </Wrapper>
     </Layout>
   );
 };
 
-export default OrderPage;
+export default CartPage;

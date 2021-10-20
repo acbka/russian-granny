@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { orderType} from "common/types";
+import { dishType, orderType } from "common/types";
 
 type initialStateType = {
   order: orderType;
@@ -16,9 +16,12 @@ const orderSlice = createSlice({
     setOrder: (state, { payload }) => {
       state.order = payload;
     },
+     setDishesInOrder: (state, { payload }) => {
+      state.order.dishes = payload;
+    },
   },
 });
 
-export const { setOrder } = orderSlice.actions;
+export const { setOrder, setDishesInOrder } = orderSlice.actions;
 
 export default orderSlice.reducer;
