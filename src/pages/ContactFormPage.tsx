@@ -19,7 +19,7 @@ const ButtonWrap = styled(Button)`
 `;
 
 const ContactFormPage = () => {
-  const [user, setuUer] = useState(initialUser);
+  const [user, setUser] = useState(initialUser);
   const [minDate, setminDate] = useState("");
   const [maxDate, setmaxDate] = useState("");
   const emailPattern =
@@ -28,7 +28,7 @@ const ContactFormPage = () => {
   const phonePattern = /02\d{7,8}/;
 
   const updateUser = (fieldName: string) => (value: string) => {
-    setuUer({
+    setUser({
       ...user,
       [fieldName]: value,
     });
@@ -44,12 +44,24 @@ const ContactFormPage = () => {
 
   console.log({ user });
 
-   const validateUser = () => {
-     
-   //  user.name.length >= 3 &&
-   //    emailPattern.test(user.email.value) &&
-   //    phonePattern.test(user.phone.value.split("-").join("")) &&
-   //    Boolean(user.date.value);
+  const validateUser = () => {
+    setUser({
+      ...user,
+      name: { ...user.name, isValid: user.name.value.length >= 3 },
+      email: { ...user.email, isValid: emailPattern.test(user.email.value) },
+      phone: {
+        ...user.phone,
+        isValid: phonePattern.test(user.phone.value.split("-").join("")),
+      },
+      date: {
+        ...user.date,
+        isValid: Boolean(user.date.value),
+      },
+    });
+    //  user.name.length >= 3 &&
+    //    emailPattern.test(user.email.value) &&
+    //    phonePattern.test(user.phone.value.split("-").join("")) &&
+    //    Boolean(user.date.value);
     // history.push("./final");
   };
 
