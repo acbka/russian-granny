@@ -14,6 +14,7 @@ const Wrapper = styled.section`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-top: 1rem;
 `;
 const Dishes = styled.div`
   display: flex;
@@ -50,6 +51,13 @@ const CartPage = () => {
 
   return (
     <Layout title="Order">
+      {!!dishesInOrder.length && (
+        <h3>
+          You should add {8 - dishesInOrder.length} more{" "}
+          {8 - dishesInOrder.length === 1 ? "dish" : "dishes"} to complete the
+          order
+        </h3>
+      )}
       <Wrapper>
         <Dishes>{dishesList}</Dishes>
         <ButtonWrap
