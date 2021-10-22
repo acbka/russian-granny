@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { selectDishes } from "api/selectors";
 import { useAppDispatch } from "api/store";
 import { updateDishes } from "api/slises/dishesSlice";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { useParams, useLocation } from "react-router";
 import Dish from "./Dish";
 import { dishType } from "common/types";
 import { categories } from "common/constants";
@@ -17,6 +17,12 @@ const Dishes = () => {
   const dispatch = useAppDispatch();
   const dishes = useSelector(selectDishes);
   const { category } = useParams<Params>();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const list = dishes
     .filter((item) => item.category.toLowerCase() === category)
     .map((item, index) => (
@@ -45,8 +51,8 @@ const Dishes = () => {
 
   return (
     <Layout title={category.charAt(0).toUpperCase() + category.slice(1)}>
-        {list}
-        <SideCart />
+      {list}
+      <SideCart />
     </Layout>
   );
 };

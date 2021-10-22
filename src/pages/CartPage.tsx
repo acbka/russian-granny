@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components/macro";
 import { selectDishes } from "api/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import Layout from "components/Layout";
 import Card from "components/Card";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import Button from "components/Button";
 import { groupDishes } from "common/groupDishes";
 import { setDishesInOrder } from "api/slises/orderSlice";
@@ -38,6 +38,11 @@ const CartPage = () => {
   const history = useHistory();
   const dishesInOrder = dishes.filter((dish) => dish.selected);
   const dishesByCategories = groupDishes(dishesInOrder);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const createOrder = () => {
     dispatch(setDishesInOrder(dishesInOrder));

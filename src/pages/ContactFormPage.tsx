@@ -5,7 +5,7 @@ import Input from "components/Input";
 import { initialUser } from "common/constants";
 import RadioInput from "components/RadioInput";
 import Button from "components/Button";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import { useDispatch } from "react-redux";
 import { setUserInOrder } from "api/slises/orderSlice";
 
@@ -30,10 +30,14 @@ const ContactFormPage = () => {
   const [maxDate, setmaxDate] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
-
+  const { pathname } = useLocation();
   const emailPattern =
     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
   const phonePattern = /02\d{7,8}/;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const updateUser = (fieldName: string) => (value: string) => {
     setUser({
