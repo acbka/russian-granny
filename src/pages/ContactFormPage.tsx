@@ -30,7 +30,7 @@ const ContactFormPage = () => {
   const updateUser = (fieldName: string) => (value: string) => {
     setUser({
       ...user,
-      [fieldName]: value,
+       [fieldName]:{ ...user[fieldName], value}
     });
   };
 
@@ -125,18 +125,7 @@ const ContactFormPage = () => {
             handleChange={updateUser("payment")}
           />
         </form>
-        <ButtonWrap
-          title="Continue to checkout"
-          handleClick={validateUser}
-          disabled={
-            !(
-              user.name.value.length >= 3 &&
-              emailPattern.test(user.email.value) &&
-              phonePattern.test(user.phone.value) &&
-              Boolean(user.date.value)
-            )
-          }
-        />
+        <ButtonWrap title="Continue to checkout" handleClick={validateUser} />
       </Wrap>
     </Layout>
   );

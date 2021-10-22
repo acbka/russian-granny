@@ -1,4 +1,4 @@
-import { categoriesType, dishType } from "./types";
+import { categoriesType, dishType, userType } from "./types";
 
 export const categories: categoriesType = {
   soups: {
@@ -23,35 +23,35 @@ export const categories: categoriesType = {
   },
 };
 
-export const initialUser = {
+export const initialUser: userType = {
   name: {
     value: "",
     isValid: true,
   },
   email: {
-   value: "",
-   isValid: true,
- },
+    value: "",
+    isValid: true,
+  },
   address: {
-   value: "",
-   isValid: true,
- },
+    value: "",
+    isValid: true,
+  },
   suburb: {
-   value: "",
-   isValid: true,
- },
+    value: "",
+    isValid: true,
+  },
   phone: {
-   value: "",
-   isValid: true,
- },
+    value: "",
+    isValid: true,
+  },
   date: {
-   value: "",
-   isValid: true,
- },
+    value: "",
+    isValid: true,
+  },
   payment: {
-   value: "cash",
-   isValid: true,
- },
+    value: "cash",
+    isValid: true,
+  },
 };
 
 export const emptyDish: dishType = {
