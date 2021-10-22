@@ -6,7 +6,7 @@ import { categories } from "common/constants";
 import { dishType } from "common/types";
 import Header from "components/header/Header";
 import Footer from "components/Footer";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import Spinner from "components/Spinner";
 
 const Wrapper = styled.div`
@@ -58,23 +58,12 @@ const Payment = styled.h3`
   font-size: 1.25rem;
   padding-top: 1rem;
 `;
-const WarningWrap = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 3rem;
-  padding: 3rem 0;
-`;
-const Warning = styled.h1`
-  color: #ff0000;
-  font-size: 3rem;
-  padding-bottom: 1rem;
-`;
 
 const FinalPage = () => {
   const order = useSelector(selectOrder);
   const [dishesByCategory, setDishesByCategory] = useState<dishType[][]>([]);
   const { pathname } = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -89,70 +78,70 @@ const FinalPage = () => {
     setDishesByCategory(dishesArray);
   }, [order.dishes]);
 
-  if (dishesByCategory.length === 0)
-    return (
-      <Wrapper>
-        <Header />
-        <Wrap>
-          <Spinner />
-        </Wrap>
-        <Footer />
-      </Wrapper>
-    );
+  if (!order.dishes.length) history.push("/404");
+
+  //   if (dishesByCategory.length === 0)
+  //     return (
+  //       <Wrapper>
+  //         <Header />
+  //         <Wrap>
+  //           <Spinner />
+  //         </Wrap>
+  //         <Footer />
+  //       </Wrapper>
+  //     );
 
   return (
     <Wrapper>
       <Header />
-      {!!order.dishes.length ? (
-        <Wrap>
-          <TitleWrap>
-            <Title>Thank you {order.user.name.value} </Title>
-            <TitleText>You order #358 is confirmed.</TitleText>
-            <TitleText>Your Russian granny is cooking meal for you.</TitleText>
-          </TitleWrap>
-          <SubTitle>Here are your order details:</SubTitle>
-          <List>
-            <li>Order reference id: #358 </li>
-            <li>Order delivery date: {order.user.date.value} </li>
-            <li>Order delivery address:{order.user.address.value} </li>
-            <li>Your phone number: {order.user.phone.value}</li>
-          </List>
-          <SubTitle>Your order includes:</SubTitle>
-          <List>
-            <li>
-              <b>Soups: </b> {dishesByCategory[0][0].name},{" "}
-              {dishesByCategory[0][1].name} (1 litre each).
-            </li>
-            <li>
-              <b> Main dishes: </b>
-              {dishesByCategory[1][0].name}, {dishesByCategory[1][1].name} (1
-              kilogram each).
-            </li>
-            <li>
-              <b>Side dishes: </b> {dishesByCategory[2][0].name},{" "}
-              {dishesByCategory[2][1].name} (1 kilogram each).
-            </li>
-            <li>
-              <b>Salad: </b> {dishesByCategory[3][0].name} (1 kilogram).
-            </li>
-            <li>
-              {" "}
-              <b>Dessert: </b> {dishesByCategory[4][0].name} (1 kilogram).
-            </li>
-          </List>
-          <Payment>
-            Payment ($79.99) should be made upon delivery of the order.
-          </Payment>
-        </Wrap>
-      ) : (
-        <WarningWrap>
-          <Warning>Warning!</Warning>
-          <p>This page is unavailable.</p>
-          <p>
-            Please start your order from the <Link to="/">Home Page</Link>{" "}
-          </p>
-        </WarningWrap>
-      )}
+      {
+        dishesByCategory.length === 0 ? (
+          <Spinner />
+        ) : (
+          <Wrap>
+            <TitleWrap>
+              <Title>Thank you {order.user.name.value} </Title>
+              <TitleText>You order #358 is confirmed.</TitleText>
+              <TitleText>
+                Your Russian granny is cooking meal for you.
+              </TitleText>
+            </TitleWrap>
+            <SubTitle>Here are your order details:</SubTitle>
+            <List>
+              <li>Order reference id: #358 </li>
+              <li>Order delivery date: {order.user.date.value} </li>
+              <li>Order delivery address:{order.user.address.value} </li>
+              <li>Your phone number: {order.user.phone.value}</li>
+            </List>
+            <SubTitle>Your order includes:</SubTitle>
+            <List>
+              <li>
+                <b>Soups: </b> {dishesByCategory[0][0].name},{" "}
+                {dishesByCategory[0][1].name} (1 litre each).
+              </li>
+              <li>
+                <b> Main dishes: </b>
+                {dishesByCategory[1][0].name}, {dishesByCategory[1][1].name} (1
+                kilogram each).
+              </li>
+              <li>
+                <b>Side dishes: </b> {dishesByCategory[2][0].name},{" "}
+                {dishesByCategory[2][1].name} (1 kilogram each).
+              </li>
+              <li>
+                <b>Salad: </b> {dishesByCategory[3][0].name} (1 kilogram).
+              </li>
+              <li>
+                {" "}
+                <b>Dessert: </b> {dishesByCategory[4][0].name} (1 kilogram).
+              </li>
+            </List>
+            <Payment>
+              Payment ($79.99) should be made upon delivery of the order.
+            </Payment>
+          </Wrap>
+        )
+      }
       <Footer />
     </Wrapper>
   );

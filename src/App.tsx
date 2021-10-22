@@ -12,6 +12,7 @@ import SetsPage from "pages/setsPage/SetsPage";
 import CartPage from "pages/CartPage";
 import ContactFormPage from "pages/ContactFormPage";
 import FinalPage from "pages/FinalPage";
+import ErrorPage from "pages/ErrorPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -49,6 +50,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <HomePage />
+           </Route>
+           <Route path="/404">
+          <ErrorPage />
         </Route>
       </Switch>
     </Router>
