@@ -50,7 +50,6 @@ export const initialUser: userType = {
   },
   payment: {
     value: "cash",
-    isValid: true,
   },
 };
 

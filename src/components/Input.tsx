@@ -9,6 +9,7 @@ type InputPropsType = {
   minDate?: string;
   maxDate?: string;
   placeholder?: string;
+  isMust?: boolean;
   handleChange: (arg: string) => void;
 };
 
@@ -17,6 +18,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 1.25rem;
+  margin-top: 1.5rem;
 `;
 const StyledInput = styled.input`
   min-width: 25rem;
@@ -24,9 +26,12 @@ const StyledInput = styled.input`
   padding-left: 5px;
   border: 1px solid grey;
   border-radius: 4px;
-  margin: 0.8rem 0 1.7rem;
+  margin: 0.5rem 0;
   background: transparent;
   font-size: 1.25rem;
+`;
+const Sup = styled.sup`
+  color: #ff0000;
 `;
 
 const Input = ({
@@ -37,6 +42,7 @@ const Input = ({
   minDate,
   maxDate,
   placeholder,
+  isMust = false,
   handleChange,
 }: InputPropsType) => {
   const inputData = (e: ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +51,10 @@ const Input = ({
 
   return (
     <Wrapper>
-      <label>{`${label}: `}</label>
+      <div>
+        <label>{`${label}: `}</label>
+        {isMust && <Sup>*</Sup>}
+      </div>
       <StyledInput
         name={name}
         type={type}

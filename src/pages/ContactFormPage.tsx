@@ -17,6 +17,10 @@ const ButtonWrap = styled(Button)`
   margin: 25px 0;
   width: 220px;
 `;
+const Paragraph = styled.p`
+  font-size: 0.9rem;
+  color: #ff0000;
+`;
 
 const ContactFormPage = () => {
   const [user, setUser] = useState(initialUser);
@@ -30,7 +34,7 @@ const ContactFormPage = () => {
   const updateUser = (fieldName: string) => (value: string) => {
     setUser({
       ...user,
-       [fieldName]:{ ...user[fieldName], value}
+      [fieldName]: { ...user[fieldName], value },
     });
   };
 
@@ -58,11 +62,11 @@ const ContactFormPage = () => {
         isValid: Boolean(user.date.value),
       },
     });
-    //  user.name.length >= 3 &&
-    //    emailPattern.test(user.email.value) &&
-    //    phonePattern.test(user.phone.value.split("-").join("")) &&
-    //    Boolean(user.date.value);
-    // history.push("./final");
+    user.name.value.length >= 3 &&
+      emailPattern.test(user.email.value) &&
+      phonePattern.test(user.phone.value.split("-").join("")) &&
+      Boolean(user.date.value) &&
+      history.push("./final");
   };
 
   return (
@@ -74,14 +78,20 @@ const ContactFormPage = () => {
             type="text"
             value={user.name.value}
             handleChange={updateUser("name")}
+            isMust={true}
           />
+          {!user.name.isValid && <Paragraph>Enter your name</Paragraph>}
           <Input
             label="Email"
             type="email"
             value={user.email.value}
             placeholder="you@example.com"
             handleChange={updateUser("email")}
+            isMust={true}
           />
+          {!user.email.isValid && (
+            <Paragraph>Enter your valid email address</Paragraph>
+          )}
           <Input
             label="Delivery Address"
             type="text"
@@ -102,14 +112,20 @@ const ContactFormPage = () => {
             value={user.phone.value}
             placeholder="02_-___-____"
             handleChange={updateUser("phone")}
+            isMust={true}
           />
+          {!user.phone.isValid && (
+            <Paragraph>Enter your phone number</Paragraph>
+          )}
           <Input
             label="Delivery date"
             type="date"
             minDate={minDate}
             maxDate={maxDate}
             handleChange={updateUser("date")}
+            isMust={true}
           />
+          {!user.date.isValid && <Paragraph>Choose a date</Paragraph>}
           <RadioInput
             name="payment"
             label="Cash"
