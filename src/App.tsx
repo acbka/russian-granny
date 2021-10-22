@@ -50,8 +50,11 @@ function App() {
         </Route>
         <Route exact path="/">
           <HomePage />
-           </Route>
-           <Route path="/404">
+        </Route>
+        <Route path="/404">
+          <ErrorPage />
+        </Route>
+        <Route>
           <ErrorPage />
         </Route>
       </Switch>

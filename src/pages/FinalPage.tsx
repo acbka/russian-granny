@@ -80,16 +80,6 @@ const FinalPage = () => {
 
   if (!order.dishes.length) history.push("/404");
 
-  //   if (dishesByCategory.length === 0)
-  //     return (
-  //       <Wrapper>
-  //         <Header />
-  //         <Wrap>
-  //           <Spinner />
-  //         </Wrap>
-  //         <Footer />
-  //       </Wrapper>
-  //     );
 
   return (
     <Wrapper>

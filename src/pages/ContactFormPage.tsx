@@ -6,8 +6,9 @@ import { initialUser } from "common/constants";
 import RadioInput from "components/RadioInput";
 import Button from "components/Button";
 import { useHistory, useLocation } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUserInOrder } from "api/slises/orderSlice";
+import { selectOrder } from "api/selectors";
 
 const Wrap = styled.section`
   display: flex;
@@ -30,6 +31,7 @@ const ContactFormPage = () => {
   const [maxDate, setmaxDate] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
+  const order = useSelector(selectOrder);
   const { pathname } = useLocation();
   const emailPattern =
     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
@@ -78,6 +80,8 @@ const ContactFormPage = () => {
       history.push("./final");
     }
   };
+
+  if (!order.dishes.length) history.push("/404");
 
   return (
     <Layout title="Contact Details">
