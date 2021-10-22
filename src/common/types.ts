@@ -25,11 +25,8 @@ export type setType = {
 };
 
 export type orderType = {
-  [key: string]: {
-    id: string;
-    dishes: dishType[];
-    user: userType;
-  }[];
+  dishes: dishType[];
+  user: userType;
 };
 
 export type userType = {
@@ -38,5 +35,3 @@ export type userType = {
     isValid?: boolean;
   };
 };
-
- 

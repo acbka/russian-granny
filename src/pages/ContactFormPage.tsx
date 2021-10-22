@@ -6,6 +6,8 @@ import { initialUser } from "common/constants";
 import RadioInput from "components/RadioInput";
 import Button from "components/Button";
 import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { setUserInOrder } from "api/slises/orderSlice";
 
 const Wrap = styled.section`
   display: flex;
@@ -26,9 +28,11 @@ const ContactFormPage = () => {
   const [user, setUser] = useState(initialUser);
   const [minDate, setminDate] = useState("");
   const [maxDate, setmaxDate] = useState("");
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const emailPattern =
     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
-  const history = useHistory();
   const phonePattern = /02\d{7,8}/;
 
   const updateUser = (fieldName: string) => (value: string) => {
@@ -46,8 +50,6 @@ const ContactFormPage = () => {
     setmaxDate(new Date(lastDate).toISOString().split("T")[0]);
   }, []);
 
-  console.log({ user });
-
   const validateUser = () => {
     setUser({
       ...user,
@@ -62,11 +64,15 @@ const ContactFormPage = () => {
         isValid: Boolean(user.date.value),
       },
     });
-    user.name.value.length >= 3 &&
+    if (
+      user.name.value.length >= 3 &&
       emailPattern.test(user.email.value) &&
       phonePattern.test(user.phone.value.split("-").join("")) &&
-      Boolean(user.date.value) &&
+      Boolean(user.date.value)
+    ) {
+      dispatch(setUserInOrder(user));
       history.push("./final");
+    }
   };
 
   return (
@@ -110,7 +116,7 @@ const ContactFormPage = () => {
             label="Phone"
             type="tel"
             value={user.phone.value}
-            placeholder="02_-___-____"
+            placeholder="___-___-____"
             handleChange={updateUser("phone")}
             isMust={true}
           />

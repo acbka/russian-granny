@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   min-height: 100vh;
   padding-top: 110px;
   font-size: 1.1rem;
@@ -20,7 +21,8 @@ const Main = styled.main`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 20px 40px 40px 40px;
+  max-width: 1140px;
+  padding: 20px 0 40px;
 `;
 const Title = styled.h1`
   text-align: center;

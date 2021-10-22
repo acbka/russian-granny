@@ -32,7 +32,7 @@ const Card = styled.div<CardPropsType>`
   overflow: hidden;
   box-shadow: ${(props) =>
     props.isShadow ? "none" : "0 0.5rem 1rem rgba(0, 0, 0, 0.15)"};
-  margin: 1.875rem 1rem;
+  margin: 1.875rem .5rem;
 `;
 
 const Image = styled.img`

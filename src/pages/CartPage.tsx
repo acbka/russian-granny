@@ -28,6 +28,9 @@ const ButtonWrap = styled(Button)`
   margin-top: 25px;
   width: 220px;
 `;
+const Title = styled.p`
+  font-size: 1.3rem;
+`;
 
 const CartPage = () => {
   const dishes = useSelector(selectDishes);
@@ -51,12 +54,12 @@ const CartPage = () => {
 
   return (
     <Layout title="Order">
-      {!!dishesInOrder.length && (
-        <h3>
+      {dishesInOrder.length !== 8 && (
+        <Title>
           You should add {8 - dishesInOrder.length} more{" "}
           {8 - dishesInOrder.length === 1 ? "dish" : "dishes"} to complete the
           order
-        </h3>
+        </Title>
       )}
       <Wrapper>
         <Dishes>{dishesList}</Dishes>
