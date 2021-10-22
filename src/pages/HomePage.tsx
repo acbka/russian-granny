@@ -107,9 +107,7 @@ const PaymentSection = styled.section`
     color: var(--color-main);
   }
 `;
-const StyledLink = styled(Link)`
-  color: var(--color-main);
-`;
+
 
 const HomePage = () => {
   return (
@@ -178,27 +176,23 @@ const HomePage = () => {
           </Paragraph>
           <li>
             <span>2 </span>
-            <StyledLink to="/dishes/soups">soups</StyledLink>{" "}
-            <span>1 litre each</span>{" "}
+            <Link to="/dishes/soups">soups</Link> <span>1 litre each</span>{" "}
           </li>
           <li>
             <span>2 </span>
-            <StyledLink to="/dishes/soups">main</StyledLink>{" "}
-            <span>1 kg each</span>{" "}
+            <Link to="/dishes/soups">main</Link> <span>1 kg each</span>{" "}
           </li>
           <li>
             <span>2 </span>
-            <StyledLink to="/dishes/sides">side dishes</StyledLink>{" "}
-            <span>1 kg each</span>{" "}
+            <Link to="/dishes/sides">side dishes</Link> <span>1 kg each</span>{" "}
           </li>
           <li>
             <span>1 </span>
-            <StyledLink to="/dishes/salads">salad</StyledLink> <span>1 kg</span>{" "}
+            <Link to="/dishes/salads">salad</Link> <span>1 kg</span>{" "}
           </li>
           <li>
             <span>1 </span>
-            <StyledLink to="/dishes/desserts">dessert</StyledLink>{" "}
-            <span>1 kg</span>{" "}
+            <Link to="/dishes/desserts">dessert</Link> <span>1 kg</span>{" "}
           </li>
           <Paragraph>
             This volume of food is enough for one person for approximately 4-5
@@ -206,7 +200,7 @@ const HomePage = () => {
           </Paragraph>
           <Paragraph>
             <span>We prepare some </span>
-            <StyledLink to="/sets">dish sets</StyledLink>{" "}
+            <Link to="/sets">dish sets</Link>{" "}
             <span>to help you make a choice.</span>
           </Paragraph>
         </Info>

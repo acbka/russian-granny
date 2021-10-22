@@ -16,7 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 a {
-  color: #000;
+  color: var(--color-main);
   text-decoration: none;
 }
 a:hover {

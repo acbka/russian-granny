@@ -6,9 +6,9 @@ type initialStateType = {
 };
 
 const initialState: initialStateType = {
-   order: {
-      dishes: [],
-      user: {}
+  order: {
+    dishes: [],
+    user: {},
   },
 };
 
