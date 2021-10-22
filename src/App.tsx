@@ -39,7 +39,7 @@ function App() {
         <Route path="/sets">
           <SetsPage />
         </Route>
-        <Route path="/order">
+        <Route path="/cart">
           <CartPage />
         </Route>
         <Route path="/form">
