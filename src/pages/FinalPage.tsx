@@ -4,7 +4,7 @@ import { selectOrder } from "api/selectors";
 import { useSelector } from "react-redux";
 import { categories } from "common/constants";
 import { dishType } from "common/types";
-import Header from "components/header/Header";
+import Header from "components/Header";
 import Footer from "components/Footer";
 import { useLocation, useHistory } from "react-router-dom";
 import Spinner from "components/Spinner";

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components/macro";
-import Header from "components/header/Header";
+import Header from "components/Header";
 import Footer from "components/Footer";
 
 type LayoutPropsType = {

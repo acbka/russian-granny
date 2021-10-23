@@ -22,6 +22,9 @@ a {
 a:hover {
   color: var(--color-second);
 }
+a:active {
+  color: var(--color-second);
+}
 code {
   font-family: "Roboto", sans-serif;
 }

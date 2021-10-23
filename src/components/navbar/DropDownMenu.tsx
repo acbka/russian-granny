@@ -17,14 +17,14 @@ const Wrapper = styled.div`
   float: left;
   min-width: 120px;
   background-color: #fff;
-  z-index: 15;
+  z-index: 115;
 `;
 
 const DropDownMenu = ({ setIsOpen }: DropDownMenuPropsType) => {
   const menuItems = Object.keys(categories).map((item, index) => (
     <DropDownMenuItem key={index} category={item} setIsOpen={setIsOpen} />
   ));
-  return <Wrapper>{menuItems}</Wrapper>;
+  return <Wrapper onBlur={setIsOpen}>{menuItems}</Wrapper>;
 };
 
 export default DropDownMenu;

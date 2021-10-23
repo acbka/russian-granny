@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-import Header from "components/header/Header";
+import Header from "components/Header";
 import backgroundImage from "assets/background.jpeg";
 import pelmeni from "assets/pelmeni.jpeg";
 import food from "assets/food.jpeg";
