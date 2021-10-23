@@ -29,6 +29,9 @@ const StyledInput = styled.input`
   margin: 0.5rem 0;
   background: transparent;
   font-size: 1.25rem;
+  @media screen and (max-width: 500px) {
+    min-width: 18rem;
+  }
 `;
 const Sup = styled.sup`
   color: #ff0000;
