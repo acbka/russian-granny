@@ -5,7 +5,7 @@ import granny from "assets/granny.png";
 
 const Wrapper = styled.footer`
   width: 100%;
-  height: 120px;
+  min-height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +19,12 @@ const Wrapper = styled.footer`
     url(${footer}) center no-repeat;
   padding: 5px 150px;
   z-index: 100;
+  @media screen and (max-width: 1100px) {
+      padding: 5px 50px;
+  }
+  @media screen and (max-width: 800px) {
+      flex-direction: column;
+  }
 `;
 const LogoText = styled.div`
   font-size: 3rem;
@@ -26,9 +32,8 @@ const LogoText = styled.div`
 `;
 const LogoImg = styled.img`
   display: block;
-  height: 100%;
-  width: auto;
-  margin-right: 20px;
+  height: auto;
+  width: 100px;
 `;
 const Contacts = styled.div`
   display: flex;
