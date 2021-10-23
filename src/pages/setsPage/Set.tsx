@@ -45,7 +45,8 @@ const StyledImg = styled.img`
 `;
 const DishesList = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin: 10px 0;
 `;
 

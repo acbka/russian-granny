@@ -20,10 +20,10 @@ const Wrapper = styled.footer`
   padding: 5px 150px;
   z-index: 100;
   @media screen and (max-width: 1100px) {
-      padding: 5px 50px;
+    padding: 5px 50px;
   }
   @media screen and (max-width: 800px) {
-      flex-direction: column;
+    flex-direction: column;
   }
 `;
 const LogoText = styled.div`
