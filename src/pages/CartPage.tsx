@@ -18,8 +18,8 @@ const Wrapper = styled.section`
 `;
 const Dishes = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `;
 const CardWrap = styled(Card)`
   cursor: pointer;
@@ -30,6 +30,7 @@ const ButtonWrap = styled(Button)`
 `;
 const Title = styled.p`
   font-size: 1.3rem;
+  text-align: center;
 `;
 
 const CartPage = () => {
