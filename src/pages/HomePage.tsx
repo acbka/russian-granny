@@ -44,19 +44,30 @@ const Discount = styled.div`
 `;
 const Section = styled.section`
   display: grid;
+  align-items : center;
+  grid-template-areas: "image title" "image text";
   grid-template-columns: 1fr 1.5fr;
-  grid-gap: 100px;
-  max-height: 530px;
+  grid-gap: 20px 100px;
   padding: 60px;
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const ImgWrap = styled.figure`
+  grid-area: image;
   & > img {
     display: block;
     width: 100%;
     height: auto;
   }
 `;
+const Title = styled.h2`
+  grid-area: title;
+  font-size: 2.5rem;
+  text-align: center;
+`;
 const Info = styled.div`
+  grid-area: text;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -66,11 +77,6 @@ const Info = styled.div`
   & li {
     line-height: 1.5rem;
   }
-`;
-const Title = styled.h2`
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 20px;
 `;
 const Paragraph = styled.p`
   margin: 20px 0;
@@ -94,20 +100,23 @@ const Paralax = styled.section`
   }
 `;
 const InfoSection = styled(Section)`
+ grid-template-areas: "title image" "text image";
   grid-template-columns: 1.5fr 1fr;
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const PaymentSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-height: 530px;
   background: #f5f5f5;
   padding: 60px;
   & h2 {
     color: var(--color-main);
+    margin-bottom: 30px;
   }
 `;
-
 
 const HomePage = () => {
   return (
@@ -128,8 +137,8 @@ const HomePage = () => {
         <ImgWrap>
           <img src={pelmeni} alt="pelmeni" />
         </ImgWrap>
+        <Title>Have a rest! We will take over looking after your food.</Title>
         <Info>
-          <Title>Have a rest! We will take over looking after your food.</Title>
           <Paragraph>
             Imagine your beloved Russian grandmother came to your place and
             prepared tasty and varied home-made food for the whole family for
@@ -168,8 +177,8 @@ const HomePage = () => {
         </Info>
       </Paralax>
       <InfoSection>
-        <Info>
           <Title>Order information</Title>
+        <Info>
           <Paragraph>
             The order costs $79.99 and includes 8 dishes with a total weight of
             8 kg:

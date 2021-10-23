@@ -9,12 +9,12 @@ import Button from "components/Button";
 import { groupDishes } from "common/groupDishes";
 import { setDishesInOrder } from "api/slises/orderSlice";
 
-const Wrapper = styled.section`
+const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
+  padding: 20px 0 40px;
 `;
 const Dishes = styled.div`
   display: flex;

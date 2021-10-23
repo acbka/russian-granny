@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import styled from "styled-components/macro";
 import { selectDishes } from "api/selectors";
 import { useAppDispatch } from "api/store";
 import { updateDishes } from "api/slises/dishesSlice";
@@ -13,6 +14,25 @@ import SideCart from "components/SideCart";
 type Params = {
   category: string;
 };
+
+const TitleWrap = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+const Title = styled.h1`
+  text-align: center;
+  font-size: 3rem;
+  color: var(--color-main);
+  letter-spacing: 0.25rem;
+`;
+const Main = styled.main`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1140px;
+  padding: 20px 0 40px;
+`;
+
 const Dishes = () => {
   const dispatch = useAppDispatch();
   const dishes = useSelector(selectDishes);
@@ -50,8 +70,11 @@ const Dishes = () => {
   };
 
   return (
-    <Layout title={category.charAt(0).toUpperCase() + category.slice(1)}>
-      {list}
+    <Layout>
+      <TitleWrap>
+        <Title>{category.charAt(0).toUpperCase() + category.slice(1)}</Title>
+      </TitleWrap>
+      <Main>{list}</Main>
       <SideCart />
     </Layout>
   );

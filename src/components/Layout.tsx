@@ -17,13 +17,6 @@ const Wrapper = styled.div`
   padding-top: 110px;
   font-size: 1.1rem;
 `;
-const Main = styled.main`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 1140px;
-  padding: 20px 0 40px;
-`;
 const Title = styled.h1`
   text-align: center;
   font-size: 3rem;
@@ -37,7 +30,7 @@ const Layout = ({ title, children }: LayoutPropsType) => {
     <Wrapper>
       <Header />
       <Title>{title}</Title>
-      <Main>{children}</Main>
+      <div>{children}</div>
       <Footer />
     </Wrapper>
   );
