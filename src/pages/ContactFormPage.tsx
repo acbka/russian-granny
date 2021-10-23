@@ -9,6 +9,7 @@ import { useHistory, useLocation } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserInOrder } from "api/slises/orderSlice";
 import { selectOrder } from "api/selectors";
+import PayPal from "components/PayPal";
 
 const Wrap = styled.section`
   display: flex;
@@ -154,6 +155,7 @@ const ContactFormPage = () => {
             checked={user.payment.value === "paypal"}
             handleChange={updateUser("payment")}
           />
+          {user.payment.value === "paypal" && <PayPal />}
         </form>
         <ButtonWrap title="Continue to checkout" handleClick={validateUser} />
       </Wrap>

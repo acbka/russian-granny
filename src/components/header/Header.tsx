@@ -78,7 +78,7 @@ const Header = () => {
           Dishes
         </DropDownMenuItem>
         <MenuItem to="/sets">Sets</MenuItem>
-        <MenuItem to="/order">
+        <MenuItem to="/cart">
           <MenuBasket
             onMouseEnter={() => setonHover(true)}
             onMouseLeave={() => setonHover(false)}

@@ -23,7 +23,7 @@ const Wrapper = styled.section<WrapperPrpsType>`
   right: ${(props) => (props.isHidden ? "-160px" : 0)};
   z-index: 10;
   cursor: pointer;
-  transition: right .3s;
+  transition: right 0.3s;
 `;
 const DishesBlock = styled.div`
   width: 160px;
@@ -93,7 +93,7 @@ const SideCart = () => {
         <DishesBlock>
           {dishesList}
           {dishesInOrder.length >= 8 && (
-            <StyledLink to={"/order"}>Continue</StyledLink>
+            <StyledLink to={"/cart"}>Continue</StyledLink>
           )}
         </DishesBlock>
       </Wrapper>

@@ -21,17 +21,18 @@ const WarningWrap = styled.section`
   padding: 3rem 0;
 `;
 const Warning = styled.h1`
-  color: #ff0000;
-  font-size: 3rem;
-  padding-bottom: 1rem;
+  color: var(--color-main);
+  font-size: 6rem;
+  letter-spacing: 1rem;
+  padding-bottom: 2rem;
 `;
 
 const ErrorPage = () => {
   return (
     <Wrapper>
       <WarningWrap>
-        <Warning>Warning!</Warning>
-        <p>This page is unavailable.</p>
+        <Warning>404</Warning>
+        <p>Page not found</p>
         <p>
           Please start your order from the <Link to="/">Home Page</Link>{" "}
         </p>
