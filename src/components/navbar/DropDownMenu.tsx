@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import DropDownMenuItem from "./DropDownMenuItem";
 
 type DropDownMenuPropsType = {
-   setIsOpen: () => void;
+  setisMenuOpen: () => void;
 };
 
 const Wrapper = styled.div`
@@ -20,11 +20,15 @@ const Wrapper = styled.div`
   z-index: 115;
 `;
 
-const DropDownMenu = ({ setIsOpen }: DropDownMenuPropsType) => {
+const DropDownMenu = ({ setisMenuOpen }: DropDownMenuPropsType) => {
   const menuItems = Object.keys(categories).map((item, index) => (
-    <DropDownMenuItem key={index} category={item} setIsOpen={setIsOpen} />
+    <DropDownMenuItem
+      key={index}
+      category={item}
+      setisMenuOpen={setisMenuOpen}
+    />
   ));
-  return <Wrapper onBlur={setIsOpen}>{menuItems}</Wrapper>;
+  return <Wrapper onBlur={setisMenuOpen}>{menuItems}</Wrapper>;
 };
 
 export default DropDownMenu;

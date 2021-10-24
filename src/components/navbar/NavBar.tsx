@@ -3,7 +3,7 @@ import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
 import DropDownMenu from "./DropDownMenu";
 import Basket from "components/Basket";
-import burger from "assets/burger.png";
+import Burger from "components/Burger";
 
 const Nav = styled.nav`
   display: flex;
@@ -32,7 +32,8 @@ const MenuBasket = styled.span`
 `;
 
 const NavBar = () => {
-  const [isOpen, setisOpen] = useState(false);
+   const [isMenuOpen, setisMenuOpen] = useState(false);
+   const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
   const [onHover, setonHover] = useState(false);
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
   const [windowSize, setWindowSize] = useState<number | undefined>(undefined);
@@ -40,7 +41,7 @@ const NavBar = () => {
   useEffect(() => {
     const listener = (event: MouseEvent) => {
       if (!ref.current || ref.current.contains(event.target as Node)) return;
-      setisOpen(false);
+      setisMenuOpen(false);
     };
     document.addEventListener("mousedown", listener);
     return () => {
@@ -62,7 +63,7 @@ const NavBar = () => {
       {windowSize && windowSize > 850 ? (
         <Nav ref={ref}>
           <MenuItem to="/">Home</MenuItem>
-          <DropDownMenuItem onClick={() => setisOpen(!isOpen)}>
+          <DropDownMenuItem onClick={() => setisMenuOpen(!isMenuOpen)}>
             DishesPage
           </DropDownMenuItem>
           <MenuItem to="/sets">Sets</MenuItem>
@@ -77,10 +78,13 @@ const NavBar = () => {
               Cart
             </MenuBasket>
           </MenuItem>
-          {isOpen && <DropDownMenu setIsOpen={() => setisOpen(!isOpen)} />}
+          {isMenuOpen && (
+            <DropDownMenu setisMenuOpen={() => setisMenuOpen(!isMenuOpen)} />
+          )}
         </Nav>
       ) : (
-        <img src={burger} alt="burger" />
+        //   <img src={burger} alt="burger" />
+        <Burger handleClick={() => setisBurgerMenuOpen(!isBurgerMenuOpen)} />
       )}
     </>
   );
