@@ -32,8 +32,8 @@ const MenuBasket = styled.span`
 `;
 
 const NavBar = () => {
-   const [isMenuOpen, setisMenuOpen] = useState(false);
-   const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
+  const [isMenuOpen, setisMenuOpen] = useState(false);
+  const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
   const [onHover, setonHover] = useState(false);
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
   const [windowSize, setWindowSize] = useState<number | undefined>(undefined);
@@ -83,7 +83,6 @@ const NavBar = () => {
           )}
         </Nav>
       ) : (
-        //   <img src={burger} alt="burger" />
         <Burger handleClick={() => setisBurgerMenuOpen(!isBurgerMenuOpen)} />
       )}
     </>
