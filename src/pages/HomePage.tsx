@@ -15,6 +15,9 @@ const Wrapper = styled.main`
 const MainSection = styled.section`
   padding: 100px 50px 20px 50px;
   background: center right url(${backgroundImage});
+  @media screen and (max-width: 850px) {
+    padding: 100px 20px 20px;
+  }
 `;
 const MainTitle = styled.h1`
   color: var(--color-main);
@@ -27,6 +30,9 @@ const SubTitle = styled.h3`
   text-align: left;
   margin: 3.125rem;
   line-height: 2.5rem;
+  @media screen and (max-width: 850px) {
+    width: 100%;
+  }
 `;
 const Discount = styled.div`
   display: flex;
@@ -44,13 +50,15 @@ const Discount = styled.div`
 `;
 const Section = styled.section`
   display: grid;
-  align-items : center;
+  align-items: center;
   grid-template-areas: "image title" "image text";
   grid-template-columns: 1fr 1.5fr;
   grid-gap: 20px 100px;
   padding: 60px;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
+    grid-template-areas: "title" "image" "text";
     grid-template-columns: 1fr;
+    grid-gap: 50px 0;
   }
 `;
 const ImgWrap = styled.figure`
@@ -98,12 +106,19 @@ const Paralax = styled.section`
   & li {
     line-height: 1.5rem;
   }
+  @media screen and (max-width: 850px) {
+    & > div {
+      width: 100%;
+    }
+  }
 `;
 const InfoSection = styled(Section)`
- grid-template-areas: "title image" "text image";
+  grid-template-areas: "title image" "text image";
   grid-template-columns: 1.5fr 1fr;
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
+    grid-template-areas: "title" "image" "text";
     grid-template-columns: 1fr;
+    grid-gap: 50px 0;
   }
 `;
 const PaymentSection = styled.section`
@@ -177,7 +192,7 @@ const HomePage = () => {
         </Info>
       </Paralax>
       <InfoSection>
-          <Title>Order information</Title>
+        <Title>Order information</Title>
         <Info>
           <Paragraph>
             The order costs $79.99 and includes 8 dishes with a total weight of
