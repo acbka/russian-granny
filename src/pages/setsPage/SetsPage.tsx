@@ -4,6 +4,7 @@ import { selectDishes, selectSets } from "api/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import { updateDishes } from "api/slises/dishesSlice";
 import { updateSets } from "api/slises/setsSlice";
+import { useLocation } from "react-router";
 import Layout from "components/Layout";
 import { setType } from "common/types";
 import Spinner from "components/Spinner";
@@ -21,6 +22,11 @@ const SetsPage = () => {
   const sets = useSelector(selectSets);
   const dishes = useSelector(selectDishes);
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     sets.forEach((set) =>
