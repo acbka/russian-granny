@@ -64,7 +64,7 @@ const NavBar = () => {
         <Nav ref={ref}>
           <MenuItem to="/">Home</MenuItem>
           <DropDownMenuItem onClick={() => setisMenuOpen(!isMenuOpen)}>
-            DishesPage
+            Dishes
           </DropDownMenuItem>
           <MenuItem to="/sets">Sets</MenuItem>
           <MenuItem to="/cart">
