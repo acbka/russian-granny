@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import DropDownMenuItem from "./DropDownMenuItem";
 
 type DropDownMenuPropsType = {
-  setIsOpen: () => void;
+   setIsOpen: () => void;
 };
 
 const Wrapper = styled.div`

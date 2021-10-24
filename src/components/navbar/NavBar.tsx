@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, MutableRefObject } from "react";
 import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
 import DropDownMenu from "./DropDownMenu";
@@ -33,29 +33,39 @@ const MenuBasket = styled.span`
 const NavBar = () => {
   const [isOpen, setisOpen] = useState(false);
   const [onHover, setonHover] = useState(false);
+  const ref = useRef() as MutableRefObject<HTMLInputElement>;
+
+  useEffect(() => {
+    const listener = (event: MouseEvent) => {
+      if (!ref.current || ref.current.contains(event.target as Node)) return;
+      setisOpen(false);
+    };
+    document.addEventListener("mousedown", listener);
+    return () => {
+      document.removeEventListener("mousedown", listener);
+    };
+  }, [ref]);
 
   return (
-    <>
-      <Nav>
-        <MenuItem to="/">Home</MenuItem>
-        <DropDownMenuItem onClick={() => setisOpen(!isOpen)}>
-          Dishes
-        </DropDownMenuItem>
-        <MenuItem to="/sets">Sets</MenuItem>
-        <MenuItem to="/cart">
-          <MenuBasket
-            onMouseEnter={() => setonHover(true)}
-            onMouseLeave={() => setonHover(false)}
-          >
-            <Basket
-              color={onHover ? "var(--color-second)" : "var(--color-main)"}
-            />
-            Cart
-          </MenuBasket>
-        </MenuItem>
-      </Nav>
+    <Nav ref={ref}>
+      <MenuItem to="/">Home</MenuItem>
+      <DropDownMenuItem onClick={() => setisOpen(!isOpen)}>
+        Dishes
+      </DropDownMenuItem>
+      <MenuItem to="/sets">Sets</MenuItem>
+      <MenuItem to="/cart">
+        <MenuBasket
+          onMouseEnter={() => setonHover(true)}
+          onMouseLeave={() => setonHover(false)}
+        >
+          <Basket
+            color={onHover ? "var(--color-second)" : "var(--color-main)"}
+          />
+          Cart
+        </MenuBasket>
+      </MenuItem>
       {isOpen && <DropDownMenu setIsOpen={() => setisOpen(!isOpen)} />}
-    </>
+    </Nav>
   );
 };
 
