@@ -1,10 +1,10 @@
 import React from "react";
-import { categories } from "common/constants";
 import styled from "styled-components/macro";
+import { categories } from "common/constants";
 import DropDownMenuItem from "./DropDownMenuItem";
 
 type DropDownMenuPropsType = {
-  setisMenuOpen: () => void;
+  setIsMenuOpen: () => void;
 };
 
 const Wrapper = styled.div`
@@ -20,15 +20,15 @@ const Wrapper = styled.div`
   z-index: 115;
 `;
 
-const DropDownMenu = ({ setisMenuOpen }: DropDownMenuPropsType) => {
+const DropDownMenu = ({ setIsMenuOpen }: DropDownMenuPropsType) => {
   const menuItems = Object.keys(categories).map((item, index) => (
     <DropDownMenuItem
       key={index}
       category={item}
-      setisMenuOpen={setisMenuOpen}
+      setIsMenuOpen={setIsMenuOpen}
     />
   ));
-  return <Wrapper onBlur={setisMenuOpen}>{menuItems}</Wrapper>;
+  return <Wrapper>{menuItems}</Wrapper>;
 };
 
 export default DropDownMenu;

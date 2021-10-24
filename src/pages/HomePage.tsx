@@ -17,6 +17,7 @@ const MainSection = styled.section`
   background: center right url(${backgroundImage});
   @media screen and (max-width: 850px) {
     padding: 100px 20px 20px;
+    background: bottom right url(${backgroundImage});
   }
 `;
 const MainTitle = styled.h1`
@@ -32,6 +33,8 @@ const SubTitle = styled.h3`
   line-height: 2.5rem;
   @media screen and (max-width: 850px) {
     width: 100%;
+    padding: 2rem;
+    margin: 3.125rem 0;
   }
 `;
 const Discount = styled.div`

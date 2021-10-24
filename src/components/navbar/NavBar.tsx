@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import DropDownMenu from "./DropDownMenu";
 import Basket from "components/Basket";
 import Burger from "components/Burger";
+import BurgerMenu from "./BurgerMenu";
 
 const Nav = styled.nav`
   display: flex;
@@ -32,7 +33,7 @@ const MenuBasket = styled.span`
 `;
 
 const NavBar = () => {
-  const [isMenuOpen, setisMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
   const [onHover, setonHover] = useState(false);
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
@@ -41,7 +42,7 @@ const NavBar = () => {
   useEffect(() => {
     const listener = (event: MouseEvent) => {
       if (!ref.current || ref.current.contains(event.target as Node)) return;
-      setisMenuOpen(false);
+      setIsMenuOpen(false);
     };
     document.addEventListener("mousedown", listener);
     return () => {
@@ -63,7 +64,7 @@ const NavBar = () => {
       {windowSize && windowSize > 850 ? (
         <Nav ref={ref}>
           <MenuItem to="/">Home</MenuItem>
-          <DropDownMenuItem onClick={() => setisMenuOpen(!isMenuOpen)}>
+          <DropDownMenuItem onClick={() => setIsMenuOpen(!isMenuOpen)}>
             Dishes
           </DropDownMenuItem>
           <MenuItem to="/sets">Sets</MenuItem>
@@ -79,11 +80,16 @@ const NavBar = () => {
             </MenuBasket>
           </MenuItem>
           {isMenuOpen && (
-            <DropDownMenu setisMenuOpen={() => setisMenuOpen(!isMenuOpen)} />
+            <DropDownMenu setIsMenuOpen={() => setIsMenuOpen(!isMenuOpen)} />
           )}
         </Nav>
       ) : (
         <Burger handleClick={() => setisBurgerMenuOpen(!isBurgerMenuOpen)} />
+      )}
+      {isBurgerMenuOpen && (
+        <BurgerMenu
+          setIsMenuOpen={() => setisBurgerMenuOpen(!isBurgerMenuOpen)}
+        />
       )}
     </>
   );

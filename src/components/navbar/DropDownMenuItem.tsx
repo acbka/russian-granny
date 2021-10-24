@@ -14,15 +14,15 @@ const StyledLink = styled(Link)`
 
 type DropDownMenuItemPropsType = {
   category: string;
-  setisMenuOpen: () => void;
+  setIsMenuOpen: () => void;
 };
 
 const DropDownMenuItem = ({
   category,
-  setisMenuOpen,
+  setIsMenuOpen,
 }: DropDownMenuItemPropsType) => {
   return (
-    <LinkkWrap onClick={setisMenuOpen}>
+    <LinkkWrap onClick={setIsMenuOpen}>
       <StyledLink to={`/dishes/${category}`}>{category}</StyledLink>
     </LinkkWrap>
   );
