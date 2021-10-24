@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 import { selectOrder } from "api/selectors";
 import { useSelector } from "react-redux";
 import { categories } from "common/constants";
-import { Dish } from "common/types";
+import { DishType } from "common/types";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import { useLocation, useHistory } from "react-router-dom";
@@ -62,7 +62,7 @@ const Payment = styled.h3`
 
 const FinalPage = () => {
   const order = useSelector(selectOrder);
-  const [dishesByCategory, setDishesByCategory] = useState<Dish[][]>([]);
+  const [dishesByCategory, setDishesByCategory] = useState<DishType[][]>([]);
   const { pathname } = useLocation();
   const history = useHistory();
 

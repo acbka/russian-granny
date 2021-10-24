@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { Dish, Set } from "common/types";
+import { DishType, SetType } from "common/types";
 import { selectSets } from "api/selectors";
 import { useSelector } from "react-redux";
 import Card from "../../components/Card";
@@ -11,9 +11,9 @@ import pork from "assets/pork.png";
 import dairy from "assets/dairy.png";
 
 type SetPropsType = {
-  set: Set;
-  addSetToOrder: (arg: Set) => void;
-  removeSetFromOrder: (arg: Set) => void;
+  set: SetType;
+  addSetToOrder: (arg: SetType) => void;
+  removeSetFromOrder: (arg: SetType) => void;
 };
 
 const Wrapper = styled.section`
@@ -52,7 +52,7 @@ const DishesList = styled.div`
 
 const Set = ({ set, addSetToOrder, removeSetFromOrder }: SetPropsType) => {
   const sets = useSelector(selectSets);
-  const [dishesSet, setDishesSet] = useState<Dish[][]>([]);
+  const [dishesSet, setDishesSet] = useState<DishType[][]>([]);
 
   useEffect(() => {
     const tempDishArray = [];
@@ -61,7 +61,7 @@ const Set = ({ set, addSetToOrder, removeSetFromOrder }: SetPropsType) => {
         (dish) => dish.category === category
       );
       tempDishArray.push(dishesByCategory);
-      setDishesSet(tempDishArray as Dish[][]);
+      setDishesSet(tempDishArray as DishType[][]);
     }
   }, [set.dishes]);
 

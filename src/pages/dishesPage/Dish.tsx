@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Dish } from "common/types";
+import { DishType } from "common/types";
 import { useSelector } from "react-redux";
 import { selectDishes } from "api/selectors";
 import Button from "components/Button";
@@ -10,7 +10,7 @@ import pork from "assets/pork.png";
 import dairy from "assets/dairy.png";
 
 type DishPropsType = {
-  dish: Dish;
+  dish: DishType;
   addDish: () => void;
   removeDish: () => void;
 };

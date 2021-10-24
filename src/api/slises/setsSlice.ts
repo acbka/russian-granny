@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Set } from "common/types";
+import { SetType } from "common/types";
 
 type initialStateType = {
-  sets: Set[];
+  sets: SetType[];
 };
 
 const initialState: initialStateType = {

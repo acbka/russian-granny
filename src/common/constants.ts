@@ -1,4 +1,4 @@
-import { Category, Dish, User } from "./types";
+import { Category, DishType, User } from "./types";
 
 export const categories: Category = {
   soups: {
@@ -53,7 +53,7 @@ export const initialUser: User = {
   },
 };
 
-export const emptyDish: Dish = {
+export const emptyDish: DishType = {
   id: 0,
   name: "none",
   pict: "empty.png",

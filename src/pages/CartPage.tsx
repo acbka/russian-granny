@@ -16,7 +16,7 @@ const Wrapper = styled.main`
   align-items: center;
   padding: 20px 0 40px;
 `;
-const Dishes = styled.div`
+const DishesPage = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -68,7 +68,7 @@ const CartPage = () => {
         </Title>
       )}
       <Wrapper>
-        <Dishes>{dishesList}</Dishes>
+        <DishesPage>{dishesList}</DishesPage>
         <ButtonWrap
           title="Processed to checkout"
           disabled={dishesInOrder.length < 8}

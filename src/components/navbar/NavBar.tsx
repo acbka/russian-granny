@@ -33,9 +33,9 @@ const MenuBasket = styled.span`
 
 const NavBar = () => {
   const [isOpen, setisOpen] = useState(false);
-   const [onHover, setonHover] = useState(false);
-   const [isBurger, setIsBurger] = useState(false)
+  const [onHover, setonHover] = useState(false);
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
+  const [windowSize, setWindowSize] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     const listener = (event: MouseEvent) => {
@@ -47,33 +47,41 @@ const NavBar = () => {
       document.removeEventListener("mousedown", listener);
     };
   }, [ref]);
-   
-   useEffect(() => {
-     setIsBurger(window.innerWidth<900)
-   }, [window])
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
-   {!isBurger?   <Nav ref={ref}>
-        <MenuItem to="/">Home</MenuItem>
-        <DropDownMenuItem onClick={() => setisOpen(!isOpen)}>
-          Dishes
-        </DropDownMenuItem>
-        <MenuItem to="/sets">Sets</MenuItem>
-        <MenuItem to="/cart">
-          <MenuBasket
-            onMouseEnter={() => setonHover(true)}
-            onMouseLeave={() => setonHover(false)}
-          >
-            <Basket
-              color={onHover ? "var(--color-second)" : "var(--color-main)"}
-            />
-            Cart
-          </MenuBasket>
-        </MenuItem>
-        {isOpen && <DropDownMenu setIsOpen={() => setisOpen(!isOpen)} />}
-        </Nav> :
-        <img src={burger} alt="burger" />}
+      {windowSize && windowSize > 850 ? (
+        <Nav ref={ref}>
+          <MenuItem to="/">Home</MenuItem>
+          <DropDownMenuItem onClick={() => setisOpen(!isOpen)}>
+            DishesPage
+          </DropDownMenuItem>
+          <MenuItem to="/sets">Sets</MenuItem>
+          <MenuItem to="/cart">
+            <MenuBasket
+              onMouseEnter={() => setonHover(true)}
+              onMouseLeave={() => setonHover(false)}
+            >
+              <Basket
+                color={onHover ? "var(--color-second)" : "var(--color-main)"}
+              />
+              Cart
+            </MenuBasket>
+          </MenuItem>
+          {isOpen && <DropDownMenu setIsOpen={() => setisOpen(!isOpen)} />}
+        </Nav>
+      ) : (
+        <img src={burger} alt="burger" />
+      )}
     </>
   );
 };

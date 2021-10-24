@@ -5,9 +5,9 @@ import sets from "api/json/sets.json";
 import { useAppDispatch } from "api/store";
 import { setDishes } from "api/slises/dishesSlice";
 import { setSets } from "api/slises/setsSlice";
-import { Set } from "common/types";
+import { SetType } from "common/types";
 import HomePage from "pages/HomePage";
-import Dishes from "pages/dishesPage/Dishes";
+import DishesPage from "pages/dishesPage/DishesPage";
 import SetsPage from "pages/setsPage/SetsPage";
 import CartPage from "pages/CartPage";
 import ContactFormPage from "pages/ContactFormPage";
@@ -18,14 +18,14 @@ function App() {
   const dispatch = useAppDispatch();
   dispatch(setDishes(dishes));
   let setsDishes = [];
-  let tempSets: Set[] = [];
+  let tempSets: SetType[] = [];
 
   for (let i = 0; i < sets.length; i++) {
     setsDishes = sets[i].dishes.map((item) =>
       dishes.find((dish) => dish.id === item)
     );
     let tempSet = { ...sets[i], dishes: setsDishes };
-    tempSets.push(tempSet as Set);
+    tempSets.push(tempSet as SetType);
   }
 
   dispatch(setSets(tempSets));
@@ -34,7 +34,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/dishes/:category">
-          <Dishes />
+          <DishesPage />
         </Route>
         <Route path="/sets">
           <SetsPage />

@@ -1,8 +1,8 @@
-import { Dish } from "common/types";
+import { DishType } from "common/types";
 import React, { useState, ChangeEvent } from "react";
 
 type SearchPropsType = {
-  dishes: Dish[];
+  dishes: DishType[];
 };
 
 const Search = ({ dishes }: SearchPropsType) => {

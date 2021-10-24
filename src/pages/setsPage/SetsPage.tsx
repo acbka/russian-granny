@@ -6,7 +6,7 @@ import { updateDishes } from "api/slises/dishesSlice";
 import { updateSets } from "api/slises/setsSlice";
 import { useLocation } from "react-router";
 import Layout from "components/Layout";
-import { Set } from "common/types";
+import { SetType } from "common/types";
 import Spinner from "components/Spinner";
 const Set = React.lazy(() => import("./Set"));
 
@@ -36,7 +36,7 @@ const SetsPage = () => {
     );
   }, []);
 
-  const addSetToOrder = (set: Set) => {
+  const addSetToOrder = (set: SetType) => {
     dishes.forEach((dish) =>
       dispatch(updateDishes({ ...dish, selected: false }))
     );
@@ -48,7 +48,7 @@ const SetsPage = () => {
     dispatch(updateSets(tempSet));
   };
 
-  const removeSetFromOrder = (set: Set) => {
+  const removeSetFromOrder = (set: SetType) => {
     set.dishes.forEach((dish) => {
       const tempDish = { ...dish, selected: false };
       dispatch(updateDishes(tempDish));
@@ -67,7 +67,7 @@ const SetsPage = () => {
   ));
 
   return (
-    <Layout title="Dishes' Sets ">
+    <Layout title="DishesPage' Sets ">
       <Suspense fallback={<Spinner />}>
         <Main>{setsList}</Main>
       </Suspense>

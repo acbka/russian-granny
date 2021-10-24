@@ -1,4 +1,4 @@
-export type Dish = {
+export type DishType = {
   id: number;
   category: string;
   name: string;
@@ -18,14 +18,14 @@ export type Category = {
   };
 };
 
-export type Set = {
+export type SetType = {
   name: string;
-  dishes: Dish[];
+  dishes: DishType[];
   selected: boolean;
 };
 
 export type Order = {
-  dishes: Dish[];
+  dishes: DishType[];
   user: User;
 };
 
@@ -35,3 +35,5 @@ export type User = {
     isValid?: boolean;
   };
 };
+
+
