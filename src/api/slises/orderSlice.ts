@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { orderType } from "common/types";
+import { Order } from "common/types";
 
 type initialStateType = {
-  order: orderType;
+  order: Order;
 };
 
 const initialState: initialStateType = {

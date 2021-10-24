@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { dishType } from "common/types";
+import { Dish } from "common/types";
 import { useSelector } from "react-redux";
 import { selectDishes } from "api/selectors";
 import Button from "components/Button";
@@ -10,7 +10,7 @@ import pork from "assets/pork.png";
 import dairy from "assets/dairy.png";
 
 type DishPropsType = {
-  dish: dishType;
+  dish: Dish;
   addDish: () => void;
   removeDish: () => void;
 };
@@ -32,7 +32,7 @@ const Card = styled.div<CardPropsType>`
   overflow: hidden;
   box-shadow: ${(props) =>
     props.isShadow ? "none" : "0 0.5rem 1rem rgba(0, 0, 0, 0.15)"};
-  margin: 1.875rem .5rem;
+  margin: 1.875rem 0.5rem;
 `;
 
 const Image = styled.img`
@@ -101,13 +101,12 @@ const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
         ).length >= categories[dish.category].count && !dish.selected
       }
     >
-        <div>
-           <Labels>
-        {dish.dairyFree && <StyledImg src={dairy} alt="dairy free" />}
-        {dish.beefFree && <StyledImg src={beef} alt="beef free" />}
-        {dish.porkFree && <StyledImg src={pork} alt="pork free" />}
-
-           </Labels>
+      <div>
+        <Labels>
+          {dish.dairyFree && <StyledImg src={dairy} alt="dairy free" />}
+          {dish.beefFree && <StyledImg src={beef} alt="beef free" />}
+          {dish.porkFree && <StyledImg src={pork} alt="pork free" />}
+        </Labels>
         <Image src={`/dishes/${dish.pict}`} alt={dish.name} />
         <Info>
           <Title>{dish.name} </Title>

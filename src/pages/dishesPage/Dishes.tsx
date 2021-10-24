@@ -6,7 +6,7 @@ import { updateDishes } from "api/slises/dishesSlice";
 import { useSelector } from "react-redux";
 import { useParams, useLocation } from "react-router";
 import Dish from "./Dish";
-import { dishType } from "common/types";
+import { Dish } from "common/types";
 import { categories } from "common/constants";
 import Layout from "components/Layout";
 import SideCart from "components/SideCart";
@@ -54,7 +54,7 @@ const Dishes = () => {
       />
     ));
 
-  const addDish = (dish: dishType) => {
+  const addDish = (dish: Dish) => {
     if (
       dishes.filter((item) => item.selected && item.category === dish.category)
         .length < categories[dish.category].count
@@ -64,7 +64,7 @@ const Dishes = () => {
     }
   };
 
-  const removeDish = (dish: dishType) => {
+  const removeDish = (dish: Dish) => {
     const tempDish = { ...dish, selected: false };
     dispatch(updateDishes(tempDish));
   };

@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { dishType } from "common/types";
+import { Dish } from "common/types";
 import { categories } from "common/constants";
 
 type CardPropsType = {
-  dishes: dishType[];
+  dishes: Dish[];
   handleClick?: () => void;
   className?: string;
 };

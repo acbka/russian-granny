@@ -1,4 +1,4 @@
-export type dishType = {
+export type Dish = {
   id: number;
   category: string;
   name: string;
@@ -11,25 +11,25 @@ export type dishType = {
   selected: boolean;
 };
 
-export type categoriesType = {
+export type Category = {
   [key: string]: {
     color: string;
     count: number;
   };
 };
 
-export type setType = {
+export type Set = {
   name: string;
-  dishes: dishType[];
+  dishes: Dish[];
   selected: boolean;
 };
 
-export type orderType = {
-  dishes: dishType[];
-  user: userType;
+export type Order = {
+  dishes: Dish[];
+  user: User;
 };
 
-export type userType = {
+export type User = {
   [key: string]: {
     value: string;
     isValid?: boolean;

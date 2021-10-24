@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { dishType } from "common/types";
+import { Dish } from "common/types";
 
 type initialStateType = {
-  dish: dishType | null;
-  dishes: dishType[];
+  dish: Dish | null;
+  dishes: Dish[];
 };
 
 const initialState: initialStateType = {
@@ -24,7 +24,7 @@ const dishesSlice = createSlice({
     },
     getDishById: (state, { payload }) => {
       const dish = state.dishes.find((item) => item.id === payload);
-      state.dish = dish as dishType;
+      state.dish = dish as Dish;
     },
   },
 });

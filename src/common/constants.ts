@@ -1,6 +1,6 @@
-import { categoriesType, dishType, userType } from "./types";
+import { Category, Dish, User } from "./types";
 
-export const categories: categoriesType = {
+export const categories: Category = {
   soups: {
     color: "#c9a8f7",
     count: 2,
@@ -23,7 +23,7 @@ export const categories: categoriesType = {
   },
 };
 
-export const initialUser: userType = {
+export const initialUser: User = {
   name: {
     value: "",
     isValid: true,
@@ -53,7 +53,7 @@ export const initialUser: userType = {
   },
 };
 
-export const emptyDish: dishType = {
+export const emptyDish: Dish = {
   id: 0,
   name: "none",
   pict: "empty.png",

@@ -1,21 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { dishType, orderType } from "common/types";
+import { Dish, Order } from "common/types";
 import dishesSlice from "./slises/dishesSlice";
 import { useDispatch } from "react-redux";
 import setsSlice from "./slises/setsSlice";
-import { setType } from "common/types";
+import { Set } from "common/types";
 import orderSlice from "./slises/orderSlice";
 
 export type MainStateType = {
   dishes: {
-    dish: dishType;
-    dishes: dishType[];
+    dish: Dish;
+    dishes: Dish[];
   };
   sets: {
-    sets: setType[];
+    sets: Set[];
   };
   order: {
-    order: orderType;
+    order: Order;
   };
 };
 

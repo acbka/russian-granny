@@ -3,6 +3,7 @@ import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
 import DropDownMenu from "./DropDownMenu";
 import Basket from "components/Basket";
+import burger from "assets/burger.png";
 
 const Nav = styled.nav`
   display: flex;
@@ -32,7 +33,8 @@ const MenuBasket = styled.span`
 
 const NavBar = () => {
   const [isOpen, setisOpen] = useState(false);
-  const [onHover, setonHover] = useState(false);
+   const [onHover, setonHover] = useState(false);
+   const [isBurger, setIsBurger] = useState(false)
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
@@ -45,27 +47,34 @@ const NavBar = () => {
       document.removeEventListener("mousedown", listener);
     };
   }, [ref]);
+   
+   useEffect(() => {
+     setIsBurger(window.innerWidth<900)
+   }, [window])
 
   return (
-    <Nav ref={ref}>
-      <MenuItem to="/">Home</MenuItem>
-      <DropDownMenuItem onClick={() => setisOpen(!isOpen)}>
-        Dishes
-      </DropDownMenuItem>
-      <MenuItem to="/sets">Sets</MenuItem>
-      <MenuItem to="/cart">
-        <MenuBasket
-          onMouseEnter={() => setonHover(true)}
-          onMouseLeave={() => setonHover(false)}
-        >
-          <Basket
-            color={onHover ? "var(--color-second)" : "var(--color-main)"}
-          />
-          Cart
-        </MenuBasket>
-      </MenuItem>
-      {isOpen && <DropDownMenu setIsOpen={() => setisOpen(!isOpen)} />}
-    </Nav>
+    <>
+   {!isBurger?   <Nav ref={ref}>
+        <MenuItem to="/">Home</MenuItem>
+        <DropDownMenuItem onClick={() => setisOpen(!isOpen)}>
+          Dishes
+        </DropDownMenuItem>
+        <MenuItem to="/sets">Sets</MenuItem>
+        <MenuItem to="/cart">
+          <MenuBasket
+            onMouseEnter={() => setonHover(true)}
+            onMouseLeave={() => setonHover(false)}
+          >
+            <Basket
+              color={onHover ? "var(--color-second)" : "var(--color-main)"}
+            />
+            Cart
+          </MenuBasket>
+        </MenuItem>
+        {isOpen && <DropDownMenu setIsOpen={() => setisOpen(!isOpen)} />}
+        </Nav> :
+        <img src={burger} alt="burger" />}
+    </>
   );
 };
 

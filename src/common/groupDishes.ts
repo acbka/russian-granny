@@ -1,11 +1,11 @@
-import { dishType } from "common/types";
+import { Dish } from "common/types";
 import { categories, emptyDish } from "common/constants";
 
-export const groupDishes = (dishes: dishType[]) => {
-  let dishesArray: dishType[][] = [];
+export const groupDishes = (dishes: Dish[]) => {
+  let dishesArray: Dish[][] = [];
   for (let category in categories) {
     let count = dishes.filter((dish) => dish.category === category).length;
-    let dishesByCategory: dishType[] = [];
+    let dishesByCategory: Dish[] = [];
 
     if (categories[category].count === 2) {
       switch (count) {

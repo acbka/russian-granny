@@ -5,7 +5,7 @@ import sets from "api/json/sets.json";
 import { useAppDispatch } from "api/store";
 import { setDishes } from "api/slises/dishesSlice";
 import { setSets } from "api/slises/setsSlice";
-import { setType } from "common/types";
+import { Set } from "common/types";
 import HomePage from "pages/HomePage";
 import Dishes from "pages/dishesPage/Dishes";
 import SetsPage from "pages/setsPage/SetsPage";
@@ -18,14 +18,14 @@ function App() {
   const dispatch = useAppDispatch();
   dispatch(setDishes(dishes));
   let setsDishes = [];
-  let tempSets: setType[] = [];
+  let tempSets: Set[] = [];
 
   for (let i = 0; i < sets.length; i++) {
     setsDishes = sets[i].dishes.map((item) =>
       dishes.find((dish) => dish.id === item)
     );
     let tempSet = { ...sets[i], dishes: setsDishes };
-    tempSets.push(tempSet as setType);
+    tempSets.push(tempSet as Set);
   }
 
   dispatch(setSets(tempSets));
