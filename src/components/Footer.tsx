@@ -29,6 +29,7 @@ const Wrapper = styled.footer`
 const LogoText = styled.div`
   font-size: 3rem;
   font-weight: 700;
+  text-align: center;
 `;
 const LogoImg = styled.img`
   display: block;
