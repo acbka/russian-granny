@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import Button from "components/Button";
 import { groupDishes } from "common/groupDishes";
-import Basket from "components/Basket";
+import Basket from "components/IconComponents/Basket";
 import MiniCard from "./MiniCard";
 import { Link } from "react-router-dom";
 

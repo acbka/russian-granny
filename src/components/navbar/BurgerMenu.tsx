@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, MutableRefObject } from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-import Basket from "components/Basket";
+import Basket from "components/IconComponents/Basket";
 import { categories } from "common/constants";
 import DropDownMenuItem from "./DropDownMenuItem";
 

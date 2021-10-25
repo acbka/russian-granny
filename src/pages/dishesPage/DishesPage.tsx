@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { selectDishes } from "api/selectors";
 import { useAppDispatch } from "api/store";
@@ -10,6 +10,7 @@ import { DishType } from "common/types";
 import { categories } from "common/constants";
 import Layout from "components/Layout";
 import SideCart from "components/SideCart";
+import Search from "components/Search";
 
 type Params = {
   category: string;
@@ -18,6 +19,10 @@ type Params = {
 const TitleWrap = styled.div`
   display: flex;
   justify-content: center;
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const Title = styled.h1`
   text-align: center;
@@ -38,21 +43,26 @@ const DishesPage = () => {
   const dishes = useSelector(selectDishes);
   const { category } = useParams<Params>();
   const { pathname } = useLocation();
+  const [FilteredDishes, setFilteredDishes] = useState<DishType[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const list = dishes
-    .filter((item) => item.category.toLowerCase() === category)
-    .map((item, index) => (
-      <Dish
-        key={index}
-        dish={item}
-        addDish={() => addDish(item)}
-        removeDish={() => removeDish(item)}
-      />
-    ));
+  useEffect(() => {
+    setFilteredDishes(
+      dishes.filter((item) => item.category.toLowerCase() === category)
+    );
+  }, [dishes, category]);
+
+  const list = FilteredDishes.map((item, index) => (
+    <Dish
+      key={index}
+      dish={item}
+      addDish={() => addDish(item)}
+      removeDish={() => removeDish(item)}
+    />
+  ));
 
   const addDish = (dish: DishType) => {
     if (
@@ -73,6 +83,12 @@ const DishesPage = () => {
     <Layout>
       <TitleWrap>
         <Title>{category.charAt(0).toUpperCase() + category.slice(1)}</Title>
+        <Search
+          dishes={dishes.filter(
+            (item) => item.category.toLowerCase() === category
+          )}
+          setSearchDishes={(value) => setFilteredDishes(value)}
+        />
       </TitleWrap>
       <Main>{list}</Main>
       <SideCart />

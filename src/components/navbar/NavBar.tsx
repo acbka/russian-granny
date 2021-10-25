@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef, MutableRefObject } from "react";
 import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
 import DropDownMenu from "./DropDownMenu";
-import Basket from "components/Basket";
-import Burger from "components/Burger";
+import Basket from "components/IconComponents/Basket";
+import Burger from "components/IconComponents/Burger";
 import BurgerMenu from "./BurgerMenu";
 
 const Nav = styled.nav`
