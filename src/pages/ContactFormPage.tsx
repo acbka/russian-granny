@@ -34,20 +34,13 @@ const ContactFormPage = () => {
   const dispatch = useDispatch();
   const order = useSelector(selectOrder);
   const { pathname } = useLocation();
+  const phonePattern = /\d{9,10}/;
   const emailPattern =
     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
-  const phonePattern = /02\d{7,8}/;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
-  const updateUser = (fieldName: string) => (value: string) => {
-    setUser({
-      ...user,
-      [fieldName]: { ...user[fieldName], value },
-    });
-  };
 
   useEffect(() => {
     const today = +new Date();
@@ -56,6 +49,13 @@ const ContactFormPage = () => {
     setminDate(new Date(firstDate).toISOString().split("T")[0]);
     setmaxDate(new Date(lastDate).toISOString().split("T")[0]);
   }, []);
+
+  const updateUser = (fieldName: string) => (value: string) => {
+    setUser({
+      ...user,
+      [fieldName]: { ...user[fieldName], value },
+    });
+  };
 
   const validateUser = () => {
     setUser({

@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   right: 150px;
   @media screen and (max-width: 850px) {
     position: relative;
-    top:0;
+    top: 0;
     right: 0;
     justify-content: center;
     width: 100%;
@@ -46,7 +46,7 @@ const Search = ({ dishes, setSearchDishes }: SearchPropsType) => {
     setValue(e.target.value);
     searchDish(e.target.value);
   };
-  console.log(value);
+
   const searchDish = (value: string) => {
     const filteredDishes = dishes.filter(
       (dish) =>

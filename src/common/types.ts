@@ -35,5 +35,3 @@ export type User = {
     isValid?: boolean;
   };
 };
-
-

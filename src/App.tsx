@@ -16,9 +16,10 @@ import ErrorPage from "pages/ErrorPage";
 
 function App() {
   const dispatch = useAppDispatch();
-  dispatch(setDishes(dishes));
   let setsDishes = [];
   let tempSets: SetType[] = [];
+
+  dispatch(setDishes(dishes));
 
   for (let i = 0; i < sets.length; i++) {
     setsDishes = sets[i].dishes.map((item) =>

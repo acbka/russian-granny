@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import styled from "styled-components/macro";
 import { selectDishes } from "api/selectors";
+import { setDishesInOrder } from "api/slises/orderSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useLocation } from "react-router";
+import { groupDishes } from "common/groupDishes";
 import Layout from "components/Layout";
 import Card from "components/Card";
-import { useHistory, useLocation } from "react-router";
 import Button from "components/Button";
-import { groupDishes } from "common/groupDishes";
-import { setDishesInOrder } from "api/slises/orderSlice";
 
 const Wrapper = styled.main`
   display: flex;

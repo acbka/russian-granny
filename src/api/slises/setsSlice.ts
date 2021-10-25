@@ -24,5 +24,4 @@ const setsSlice = createSlice({
 });
 
 export const { setSets, updateSets } = setsSlice.actions;
-
 export default setsSlice.reducer;

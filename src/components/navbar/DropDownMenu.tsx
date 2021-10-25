@@ -28,6 +28,7 @@ const DropDownMenu = ({ setIsMenuOpen }: DropDownMenuPropsType) => {
       setIsMenuOpen={setIsMenuOpen}
     />
   ));
+
   return <Wrapper>{menuItems}</Wrapper>;
 };
 

@@ -30,5 +30,4 @@ const dishesSlice = createSlice({
 });
 
 export const { setDishes, updateDishes, getDishById } = dishesSlice.actions;
-
 export default dishesSlice.reducer;

@@ -3,6 +3,7 @@ import { categories, emptyDish } from "common/constants";
 
 export const groupDishes = (dishes: DishType[]) => {
   let dishesArray: DishType[][] = [];
+
   for (let category in categories) {
     let count = dishes.filter((dish) => dish.category === category).length;
     let dishesByCategory: DishType[] = [];
@@ -40,5 +41,6 @@ export const groupDishes = (dishes: DishType[]) => {
     }
     dishesArray.push(dishesByCategory);
   }
+
   return dishesArray;
 };

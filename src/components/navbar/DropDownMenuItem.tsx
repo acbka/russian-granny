@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 
+type DropDownMenuItemPropsType = {
+  category: string;
+  setIsMenuOpen: () => void;
+};
+
 const LinkkWrap = styled.div`
   padding: 10px 20px;
 `;
@@ -11,11 +16,6 @@ const StyledLink = styled(Link)`
   font-size: 1.2rem;
   font-weight: 500;
 `;
-
-type DropDownMenuItemPropsType = {
-  category: string;
-  setIsMenuOpen: () => void;
-};
 
 const DropDownMenuItem = ({
   category,

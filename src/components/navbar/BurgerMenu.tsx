@@ -46,7 +46,7 @@ const BurgerMenu = ({ setIsMenuOpen }: BurgerMenuPropsType) => {
     return () => {
       document.removeEventListener("mousedown", listener);
     };
-  }, [ref,setIsMenuOpen]);
+  }, [ref, setIsMenuOpen]);
 
   const menuItems = Object.keys(categories).map((item, index) => (
     <DropDownMenuItem

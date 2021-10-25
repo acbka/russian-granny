@@ -26,5 +26,4 @@ const orderSlice = createSlice({
 });
 
 export const { setUserInOrder, setDishesInOrder } = orderSlice.actions;
-
 export default orderSlice.reducer;
