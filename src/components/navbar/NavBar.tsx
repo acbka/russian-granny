@@ -22,6 +22,16 @@ const MenuItem = styled(Link)`
 const DropDownMenuItem = styled.span`
   ${Item}
   position: relative;
+  & :after {
+    display: inline-block;
+    margin-left: 0.3rem;
+    vertical-align: 0.255rem;
+    content: "";
+    border-top: 0.4rem solid;
+    border-right: 0.4rem solid transparent;
+    border-bottom: 0;
+    border-left: 0.4rem solid transparent;
+  }
   & :hover {
     color: var(--color-second);
   }
@@ -58,7 +68,7 @@ const NavBar = () => {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
+  console.log(isBurgerMenuOpen);
   return (
     <>
       {windowSize && windowSize > 850 ? (

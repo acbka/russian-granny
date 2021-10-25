@@ -12,10 +12,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   position: absolute;
   top: 70px;
-  right: 160px;
+  right: 164px;
   z-index: 10;
   float: left;
-  min-width: 120px;
+  min-width: 135px;
   background-color: #fff;
   z-index: 115;
 `;

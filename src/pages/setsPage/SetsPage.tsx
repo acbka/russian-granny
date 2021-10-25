@@ -67,7 +67,7 @@ const SetsPage = () => {
   ));
 
   return (
-    <Layout title="DishesPage' Sets ">
+    <Layout title="Sets ">
       <Suspense fallback={<Spinner />}>
         <Main>{setsList}</Main>
       </Suspense>

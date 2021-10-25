@@ -57,7 +57,7 @@ const BurgerMenu = ({ setIsMenuOpen }: BurgerMenuPropsType) => {
   ));
 
   return (
-    <Wrapper ref={ref} onClick={setIsMenuOpen}>
+    <Wrapper ref={ref}>
       <MenuItem to="/">Home</MenuItem>
       {menuItems}
       <MenuItem to="/sets">Sets</MenuItem>

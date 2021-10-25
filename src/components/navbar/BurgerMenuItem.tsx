@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 
-type DropDownMenuItemPropsType = {
+type BurgerMenuItemPropsType = {
   category: string;
-  setIsMenuOpen: () => void;
 };
 
 const LinkWrap = styled.div`
@@ -17,15 +16,14 @@ const StyledLink = styled(Link)`
   font-weight: 500;
 `;
 
-const DropDownMenuItem = ({
+const BurgerMenuItem = ({
   category,
-  setIsMenuOpen,
-}: DropDownMenuItemPropsType) => {
+}: BurgerMenuItemPropsType) => {
   return (
-    <LinkWrap onClick={setIsMenuOpen}>
+    <LinkWrap>
       <StyledLink to={`/dishes/${category}`}>{category}</StyledLink>
     </LinkWrap>
   );
 };
 
-export default DropDownMenuItem;
+export default BurgerMenuItem;

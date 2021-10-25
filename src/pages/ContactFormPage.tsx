@@ -130,7 +130,7 @@ const ContactFormPage = () => {
             isMust={true}
           />
           {!user.phone.isValid && (
-            <Paragraph>Enter your phone number</Paragraph>
+            <Paragraph>Phone number should consist digits only</Paragraph>
           )}
           <Input
             label="Delivery date"
