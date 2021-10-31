@@ -94,12 +94,14 @@ const NavBar = () => {
           )}
         </Nav>
       ) : (
-        <Burger handleClick={() => setisBurgerMenuOpen(!isBurgerMenuOpen)} />
-      )}
-      {isBurgerMenuOpen && (
-        <BurgerMenu
-          setIsMenuOpen={() => setisBurgerMenuOpen(!isBurgerMenuOpen)}
-        />
+        <div>
+          <Burger handleClick={() => setisBurgerMenuOpen(!isBurgerMenuOpen)} />
+          {isBurgerMenuOpen && (
+            <BurgerMenu
+              setIsMenuOpen={() => setisBurgerMenuOpen(!isBurgerMenuOpen)}
+            />
+          )}
+        </div>
       )}
     </>
   );

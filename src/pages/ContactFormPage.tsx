@@ -34,7 +34,7 @@ const ContactFormPage = () => {
   const dispatch = useDispatch();
   const order = useSelector(selectOrder);
   const { pathname } = useLocation();
-  const phonePattern = /\d{9,10}/;
+  const phonePattern = /^\d{9,10}$/;
   const emailPattern =
     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
 
@@ -123,14 +123,14 @@ const ContactFormPage = () => {
           />
           <Input
             label="Phone"
-            type="tel"
+            type="number"
             value={user.phone.value}
             placeholder="___-___-____"
             handleChange={updateUser("phone")}
             isMust={true}
           />
           {!user.phone.isValid && (
-            <Paragraph>Phone number should consist digits only</Paragraph>
+            <Paragraph>Phone number should consist 9-10 digits only</Paragraph>
           )}
           <Input
             label="Delivery date"

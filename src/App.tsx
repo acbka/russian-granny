@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import dishes from "api/json/dishes.json";
 import sets from "api/json/sets.json";
 import { useAppDispatch } from "api/store";
@@ -32,7 +32,7 @@ function App() {
   dispatch(setSets(tempSets));
 
   return (
-    <Router>
+    <HashRouter>
       <Switch>
         <Route path="/dishes/:category">
           <DishesPage />
@@ -59,7 +59,7 @@ function App() {
           <ErrorPage />
         </Route>
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }
 

@@ -9,7 +9,7 @@ type BurgerMenuPropsType = {
   setIsMenuOpen: () => void;
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
