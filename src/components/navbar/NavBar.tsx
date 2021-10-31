@@ -3,7 +3,6 @@ import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
 import DropDownMenu from "./DropDownMenu";
 import Basket from "components/IconComponents/Basket";
-import Burger from "components/IconComponents/Burger";
 import BurgerMenu from "./BurgerMenu";
 
 const Nav = styled.nav`
@@ -68,7 +67,7 @@ const NavBar = () => {
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  console.log(isBurgerMenuOpen);
+
   return (
     <>
       {windowSize && windowSize > 850 ? (
@@ -94,14 +93,9 @@ const NavBar = () => {
           )}
         </Nav>
       ) : (
-        <div>
-          <Burger handleClick={() => setisBurgerMenuOpen(!isBurgerMenuOpen)} />
-          {isBurgerMenuOpen && (
-            <BurgerMenu
-              setIsMenuOpen={() => setisBurgerMenuOpen(!isBurgerMenuOpen)}
-            />
-          )}
-        </div>
+        <BurgerMenu
+          setIsMenuOpen={() => setisBurgerMenuOpen(!isBurgerMenuOpen)}
+        />
       )}
     </>
   );

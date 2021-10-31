@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, MutableRefObject } from "react";
+import React, { useState, useEffect, useRef, MutableRefObject } from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import Basket from "components/IconComponents/Basket";
 import { categories } from "common/constants";
 import DropDownMenuItem from "./DropDownMenuItem";
+import Burger from "components/IconComponents/Burger";
 
 type BurgerMenuPropsType = {
   setIsMenuOpen: () => void;
@@ -35,39 +36,45 @@ const MenuBasket = styled.span`
 `;
 
 const BurgerMenu = ({ setIsMenuOpen }: BurgerMenuPropsType) => {
+  const [open, setOpen] = useState(false);
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
     const listener = (event: MouseEvent) => {
       if (!ref.current || ref.current.contains(event.target as Node)) return;
-      setIsMenuOpen();
+      setOpen(false);
     };
     document.addEventListener("mousedown", listener);
     return () => {
       document.removeEventListener("mousedown", listener);
     };
-  }, [ref, setIsMenuOpen]);
+  }, [ref, setOpen]);
 
   const menuItems = Object.keys(categories).map((item, index) => (
     <DropDownMenuItem
       key={index}
       category={item}
-      setIsMenuOpen={setIsMenuOpen}
+      setIsMenuOpen={() => setOpen(false)}
     />
   ));
 
   return (
-    <Wrapper ref={ref}>
-      <MenuItem to="/">Home</MenuItem>
-      {menuItems}
-      <MenuItem to="/sets">Sets</MenuItem>
-      <MenuItem to="/cart">
-        <MenuBasket>
-          <Basket color="var(--color-main)" />
-          Cart
-        </MenuBasket>
-      </MenuItem>
-    </Wrapper>
+    <div ref={ref}>
+      <Burger handleClick={() => setOpen(!open)} />
+      {open && (
+        <Wrapper>
+          <MenuItem to="/">Home</MenuItem>
+          {menuItems}
+          <MenuItem to="/sets">Sets</MenuItem>
+          <MenuItem to="/cart">
+            <MenuBasket>
+              <Basket color="var(--color-main)" />
+              Cart
+            </MenuBasket>
+          </MenuItem>
+        </Wrapper>
+      )}
+    </div>
   );
 };
 

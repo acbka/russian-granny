@@ -21,6 +21,7 @@ const DropDownMenuItem = ({
   category,
   setIsMenuOpen,
 }: DropDownMenuItemPropsType) => {
+  
   return (
     <LinkWrap onClick={setIsMenuOpen}>
       <StyledLink to={`/dishes/${category}`}>{category}</StyledLink>
