@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useRef, MutableRefObject } from "react";
+import React, { useState, useRef, MutableRefObject } from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import Basket from "components/IconComponents/Basket";
 import { categories } from "common/constants";
 import DropDownMenuItem from "./DropDownMenuItem";
 import Burger from "components/IconComponents/Burger";
-
-type BurgerMenuPropsType = {
-  setIsMenuOpen: () => void;
-};
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 const Wrapper = styled.nav`
   display: flex;
@@ -35,20 +32,11 @@ const MenuBasket = styled.span`
   align-items: center;
 `;
 
-const BurgerMenu = ({ setIsMenuOpen }: BurgerMenuPropsType) => {
+const BurgerMenu = () => {
   const [open, setOpen] = useState(false);
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
-  useEffect(() => {
-    const listener = (event: MouseEvent) => {
-      if (!ref.current || ref.current.contains(event.target as Node)) return;
-      setOpen(false);
-    };
-    document.addEventListener("mousedown", listener);
-    return () => {
-      document.removeEventListener("mousedown", listener);
-    };
-  }, [ref, setOpen]);
+  useOnClickOutside(ref.current, () => setOpen(false));
 
   const menuItems = Object.keys(categories).map((item, index) => (
     <DropDownMenuItem

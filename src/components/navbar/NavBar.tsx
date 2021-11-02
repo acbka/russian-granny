@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import DropDownMenu from "./DropDownMenu";
 import Basket from "components/IconComponents/Basket";
 import BurgerMenu from "./BurgerMenu";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 const Nav = styled.nav`
   display: flex;
@@ -43,21 +44,11 @@ const MenuBasket = styled.span`
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
   const [onHover, setonHover] = useState(false);
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
   const [windowSize, setWindowSize] = useState<number | undefined>(undefined);
 
-  useEffect(() => {
-    const listener = (event: MouseEvent) => {
-      if (!ref.current || ref.current.contains(event.target as Node)) return;
-      setIsMenuOpen(false);
-    };
-    document.addEventListener("mousedown", listener);
-    return () => {
-      document.removeEventListener("mousedown", listener);
-    };
-  }, [ref]);
+  useOnClickOutside(ref.current, () => setIsMenuOpen(false));
 
   useEffect(() => {
     function handleResize() {
@@ -93,9 +84,7 @@ const NavBar = () => {
           )}
         </Nav>
       ) : (
-        <BurgerMenu
-          setIsMenuOpen={() => setisBurgerMenuOpen(!isBurgerMenuOpen)}
-        />
+        <BurgerMenu />
       )}
     </>
   );
