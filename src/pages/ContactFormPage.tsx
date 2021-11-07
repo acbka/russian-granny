@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUserInOrder } from "api/slises/orderSlice";
 import { selectOrder } from "api/selectors";
 import PayPal from "components/PayPal";
+import PhoneInput from "components/PhoneInput";
 
 const Wrap = styled.section`
   display: flex;
@@ -34,7 +35,6 @@ const ContactFormPage = () => {
   const dispatch = useDispatch();
   const order = useSelector(selectOrder);
   const { pathname } = useLocation();
-  const phonePattern = /^\d{9,10}$/;
   const emailPattern =
     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
 
@@ -64,7 +64,7 @@ const ContactFormPage = () => {
       email: { ...user.email, isValid: emailPattern.test(user.email.value) },
       phone: {
         ...user.phone,
-        isValid: phonePattern.test(user.phone.value.split("-").join("")),
+        isValid: user.phone.value.replace(/[^0-9]/g, "").length === 11,
       },
       date: {
         ...user.date,
@@ -74,7 +74,8 @@ const ContactFormPage = () => {
     if (
       user.name.value.length >= 3 &&
       emailPattern.test(user.email.value) &&
-      phonePattern.test(user.phone.value.split("-").join("")) &&
+      (user.phone.value.replace(/[^0-9]/g, "").length === 10 ||
+        user.phone.value.replace(/[^0-9]/g, "").length === 11) &&
       Boolean(user.date.value)
     ) {
       dispatch(setUserInOrder(user));
@@ -121,16 +122,14 @@ const ContactFormPage = () => {
             placeholder="Suburb"
             handleChange={updateUser("suburb")}
           />
-          <Input
+          <PhoneInput
             label="Phone"
-            type="number"
             value={user.phone.value}
-            placeholder="___-___-____"
             handleChange={updateUser("phone")}
             isMust={true}
           />
           {!user.phone.isValid && (
-            <Paragraph>Phone number should consist 9-10 digits only</Paragraph>
+            <Paragraph>Phone number should consist 10-11 digits</Paragraph>
           )}
           <Input
             label="Delivery date"

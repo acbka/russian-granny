@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 
 type InputPropsType = {
   type: string;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   font-size: 1.25rem;
   margin-top: 1.5rem;
 `;
-const StyledInput = styled.input`
+export const CommonInput = css`
   min-width: 25rem;
   height: 2.5rem;
   padding-left: 5px;
@@ -32,6 +32,9 @@ const StyledInput = styled.input`
   @media screen and (max-width: 500px) {
     min-width: 18rem;
   }
+`;
+const StyledInput = styled.input`
+  ${CommonInput}
 `;
 const Sup = styled.sup`
   color: #ff0000;
