@@ -53,7 +53,7 @@ const ContactFormPage = () => {
   const updateUser = (fieldName: string) => (value: string) => {
     setUser({
       ...user,
-      [fieldName]: { ...user[fieldName], value },
+      [fieldName]: { ...user[fieldName], value: value.replace(/_/g, "") },
     });
   };
 
