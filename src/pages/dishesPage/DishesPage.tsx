@@ -83,12 +83,14 @@ const DishesPage = () => {
     <Layout>
       <TitleWrap>
         <Title>{category.charAt(0).toUpperCase() + category.slice(1)}</Title>
-        <Search
-          dishes={dishes.filter(
-            (item) => item.category.toLowerCase() === category
-          )}
-          setSearchDishes={(value) => setFilteredDishes(value)}
-        />
+        {Boolean(dishes.length) && (
+          <Search
+            dishes={dishes.filter(
+              (item) => item.category.toLowerCase() === category
+            )}
+            setSearchDishes={(value) => setFilteredDishes(value)}
+          />
+        )}
       </TitleWrap>
       <Main>{list}</Main>
       <SideCart />

@@ -1,4 +1,6 @@
+import React from "react";
 import { createSlice } from "@reduxjs/toolkit";
+import { getSets } from "api/requests/getSets";
 import { SetType } from "common/types";
 
 type initialStateType = {
@@ -13,15 +15,21 @@ const setsSlice = createSlice({
   name: "sets",
   initialState,
   reducers: {
-    setSets: (state, { payload }) => {
-      state.sets = payload;
-    },
+   //  setSets: (state, { payload }) => {
+   //    state.sets = payload;
+   //  },
     updateSets: (state, { payload }) => {
       const index = state.sets.findIndex((item) => item.name === payload.name);
       state.sets.splice(index, 1, payload);
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(getSets.fulfilled, (state, { payload }) => {
+      console.log("nnn", payload);
+      state.sets = payload;
+    });
+  },
 });
 
-export const { setSets, updateSets } = setsSlice.actions;
+export const {  updateSets } = setsSlice.actions;
 export default setsSlice.reducer;

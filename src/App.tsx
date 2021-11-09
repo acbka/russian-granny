@@ -1,10 +1,6 @@
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
-import dishes from "api/json/dishes.json";
-import sets from "api/json/sets.json";
 import { useAppDispatch } from "api/store";
-import { setDishes } from "api/slises/dishesSlice";
-import { setSets } from "api/slises/setsSlice";
 import { SetType } from "common/types";
 import HomePage from "pages/HomePage";
 import DishesPage from "pages/dishesPage/DishesPage";
@@ -13,23 +9,14 @@ import CartPage from "pages/CartPage";
 import ContactFormPage from "pages/ContactFormPage";
 import FinalPage from "pages/FinalPage";
 import ErrorPage from "pages/ErrorPage";
+import { getDishes } from "api/requests/getDishes";
+import { getSets } from "api/requests/getSets";
 
 function App() {
   const dispatch = useAppDispatch();
-  let setsDishes = [];
-  let tempSets: SetType[] = [];
 
-  dispatch(setDishes(dishes));
-
-  for (let i = 0; i < sets.length; i++) {
-    setsDishes = sets[i].dishes.map((item) =>
-      dishes.find((dish) => dish.id === item)
-    );
-    let tempSet = { ...sets[i], dishes: setsDishes };
-    tempSets.push(tempSet as SetType);
-  }
-
-  dispatch(setSets(tempSets));
+  dispatch(getDishes());
+//   dispatch(getSets());
 
   return (
     <HashRouter>

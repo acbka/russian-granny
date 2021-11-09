@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getDishes } from "api/requests/getDishes";
 import { DishType } from "common/types";
 
 type initialStateType = {
@@ -15,9 +16,6 @@ const dishesSlice = createSlice({
   name: "dishes",
   initialState,
   reducers: {
-    setDishes: (state, { payload }) => {
-      state.dishes = payload;
-    },
     updateDishes: (state, { payload }) => {
       const index = state.dishes.findIndex((dish) => dish.id === payload.id);
       state.dishes.splice(index, 1, payload);
@@ -26,8 +24,13 @@ const dishesSlice = createSlice({
       const dish = state.dishes.find((item) => item.id === payload);
       state.dish = dish as DishType;
     },
-  },
+   },
+   extraReducers: (builder) => {
+      builder.addCase(getDishes.fulfilled, (state, { payload }) => {
+         state.dishes = payload;
+      });
+    },
 });
 
-export const { setDishes, updateDishes, getDishById } = dishesSlice.actions;
+export const {  updateDishes, getDishById } = dishesSlice.actions;
 export default dishesSlice.reducer;

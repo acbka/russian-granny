@@ -8,6 +8,7 @@ import { useLocation } from "react-router";
 import Layout from "components/Layout";
 import { SetType } from "common/types";
 import Spinner from "components/Spinner";
+import { getSets } from "api/requests/getSets";
 const Set = React.lazy(() => import("./Set"));
 
 const Main = styled.main`
@@ -23,6 +24,8 @@ const SetsPage = () => {
   const dishes = useSelector(selectDishes);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+// console.log({sets})
+//   dispatch(getSets());
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,7 +37,7 @@ const SetsPage = () => {
         ? dispatch(updateSets({ ...set, selected: false }))
         : ""
     );
-  }, []);
+  }, [sets, dispatch]);
 
   const addSetToOrder = (set: SetType) => {
     dishes.forEach((dish) =>
