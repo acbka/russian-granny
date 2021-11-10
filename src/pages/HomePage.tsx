@@ -141,10 +141,10 @@ const HomePage = () => {
     <Wrapper>
       <Header />
       <MainSection>
-        <MainTitle>Delivery of delicious Russian dishes</MainTitle>
+        <MainTitle>Delicious Russian food delivery</MainTitle>
         <SubTitle>
-          The best service for the cooking of delicious home-made food with free
-          delivery in Auckland
+          The best delicious homemade cooking service with free delivery in
+          Auckland
         </SubTitle>
         <Discount>
           <p>$10 discount</p>

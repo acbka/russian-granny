@@ -1,7 +1,6 @@
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import { useAppDispatch } from "api/store";
-import { SetType } from "common/types";
 import HomePage from "pages/HomePage";
 import DishesPage from "pages/dishesPage/DishesPage";
 import SetsPage from "pages/setsPage/SetsPage";
@@ -16,7 +15,7 @@ function App() {
   const dispatch = useAppDispatch();
 
   dispatch(getDishes());
-//   dispatch(getSets());
+  dispatch(getSets());
 
   return (
     <HashRouter>

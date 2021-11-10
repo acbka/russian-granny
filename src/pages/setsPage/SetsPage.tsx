@@ -8,7 +8,6 @@ import { useLocation } from "react-router";
 import Layout from "components/Layout";
 import { SetType } from "common/types";
 import Spinner from "components/Spinner";
-import { getSets } from "api/requests/getSets";
 const Set = React.lazy(() => import("./Set"));
 
 const Main = styled.main`
@@ -20,43 +19,31 @@ const Main = styled.main`
 `;
 
 const SetsPage = () => {
+  const dispatch = useDispatch();
   const sets = useSelector(selectSets);
   const dishes = useSelector(selectDishes);
-  const dispatch = useDispatch();
   const { pathname } = useLocation();
-// console.log({sets})
-//   dispatch(getSets());
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  useEffect(() => {
-    sets.forEach((set) =>
-      set.selected && set.dishes.filter((dish) => dish.selected).length !== 8
-        ? dispatch(updateSets({ ...set, selected: false }))
-        : ""
-    );
-  }, [sets, dispatch]);
-
   const addSetToOrder = (set: SetType) => {
     dishes.forEach((dish) =>
       dispatch(updateDishes({ ...dish, selected: false }))
     );
-    set.dishes.forEach((dish) => {
-      const tempDish = { ...dish, selected: true };
-      dispatch(updateDishes(tempDish));
+    set.dishesId.forEach((item) => {
+      const selectedDish = dishes.find((dish) => dish.id === item);
+      dispatch(updateDishes({ ...selectedDish, selected: true }));
     });
-    const tempSet = { ...set, selected: true };
-    dispatch(updateSets(tempSet));
+    dispatch(updateSets({ ...set, selected: true }));
   };
 
   const removeSetFromOrder = (set: SetType) => {
-    set.dishes.forEach((dish) => {
-      const tempDish = { ...dish, selected: false };
-      dispatch(updateDishes(tempDish));
-      const tempSet = { ...set, selected: false };
-      dispatch(updateSets(tempSet));
+    set.dishesId.forEach((item) => {
+      const removedDish = dishes.find((dish) => dish.id === item);
+      dispatch(updateDishes({ ...removedDish, selected: false }));
+      dispatch(updateSets({ ...set, selected: false }));
     });
   };
 

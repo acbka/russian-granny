@@ -20,7 +20,7 @@ export type Category = {
 
 export type SetType = {
   name: string;
-  dishes: DishType[];
+  dishesId: number[];
   selected: boolean;
 };
 

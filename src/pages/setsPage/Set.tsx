@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import { DishType, SetType } from "common/types";
-import { selectSets } from "api/selectors";
+import { selectDishes, selectSets } from "api/selectors";
 import { useSelector } from "react-redux";
 import Card from "../../components/Card";
 import Button from "components/Button";
@@ -52,18 +52,23 @@ const DishesList = styled.div`
 
 const Set = ({ set, addSetToOrder, removeSetFromOrder }: SetPropsType) => {
   const sets = useSelector(selectSets);
+  const dishes = useSelector(selectDishes);
   const [dishesSet, setDishesSet] = useState<DishType[][]>([]);
+
+  const setWithDishes = set.dishesId.map((item) =>
+    dishes.find((dish) => dish.id === item)
+  );
 
   useEffect(() => {
     const tempDishArray = [];
     for (let category in categories) {
-      const dishesByCategory = set.dishes.filter(
-        (dish) => dish.category === category
+      const dishesByCategory = setWithDishes?.filter(
+        (dish) => dish!.category === category
       );
       tempDishArray.push(dishesByCategory);
       setDishesSet(tempDishArray as DishType[][]);
     }
-  }, [set.dishes]);
+  }, [setWithDishes]);
 
   const unselectSet = () => {
     removeSetFromOrder(set);
@@ -81,12 +86,12 @@ const Set = ({ set, addSetToOrder, removeSetFromOrder }: SetPropsType) => {
     <Wrapper>
       <TitleWrap>
         <h2>{set.name} </h2>
-        {set.dishes.filter((dish) => dish.dairyFree).length ===
-          set.dishes.length && <StyledImg src={dairy} alt="dairy free" />}
-        {set.dishes.filter((dish) => dish.beefFree).length ===
-          set.dishes.length && <StyledImg src={beef} alt="beef free" />}
-        {set.dishes.filter((dish) => dish.porkFree).length ===
-          set.dishes.length && <StyledImg src={pork} alt="pork free" />}
+        {setWithDishes.filter((dish) => dish!.dairyFree).length ===
+          setWithDishes.length && <StyledImg src={dairy} alt="dairy free" />}
+        {setWithDishes.filter((dish) => dish!.beefFree).length ===
+          setWithDishes.length && <StyledImg src={beef} alt="beef free" />}
+        {setWithDishes.filter((dish) => dish!.porkFree).length ===
+          setWithDishes.length && <StyledImg src={pork} alt="pork free" />}
       </TitleWrap>
       <DishesList>{dishesList}</DishesList>
       {set.selected ? (

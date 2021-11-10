@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
-import { selectDishes } from "api/selectors";
+import { selectDishes, selectSets } from "api/selectors";
 import { useAppDispatch } from "api/store";
 import { updateDishes } from "api/slises/dishesSlice";
 import { useSelector } from "react-redux";
@@ -11,6 +11,7 @@ import { categories } from "common/constants";
 import Layout from "components/Layout";
 import SideCart from "components/SideCart";
 import Search from "components/Search";
+import { updateSets } from "api/slises/setsSlice";
 
 type Params = {
   category: string;
@@ -41,6 +42,7 @@ const Main = styled.main`
 const DishesPage = () => {
   const dispatch = useAppDispatch();
   const dishes = useSelector(selectDishes);
+  const sets = useSelector(selectSets);
   const { category } = useParams<Params>();
   const { pathname } = useLocation();
   const [FilteredDishes, setFilteredDishes] = useState<DishType[]>([]);
@@ -77,6 +79,15 @@ const DishesPage = () => {
   const removeDish = (dish: DishType) => {
     const tempDish = { ...dish, selected: false };
     dispatch(updateDishes(tempDish));
+    sets.forEach(
+      (set) =>
+        set.selected &&
+        set.dishesId.filter((item) =>
+          item === dish.id
+            ? dispatch(updateSets({ ...set, selected: false }))
+            : ""
+        )
+    );
   };
 
   return (
