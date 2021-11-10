@@ -56,7 +56,7 @@ export const initialUser: User = {
 export const emptyDish: DishType = {
   id: 0,
   name: "none",
-  pict: "empty.png",
+  pict: "/dishes/empty.png",
   category: "",
   calories: 0,
   dairyFree: false,

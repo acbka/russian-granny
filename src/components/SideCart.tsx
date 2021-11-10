@@ -21,7 +21,7 @@ const Wrapper = styled.section<WrapperPrpsType>`
   position: fixed;
   top: 120px;
   right: ${(props) => (props.isHidden ? "-160px" : 0)};
-  z-index: 10;
+  z-index: 20;
   cursor: pointer;
   transition: right 0.3s;
 `;

@@ -18,7 +18,7 @@ const Wrapper = styled.footer`
       0 0 / cover,
     url(${footer}) center no-repeat;
   padding: 5px 150px;
-  z-index: 100;
+  z-index: 10;
   @media screen and (max-width: 1100px) {
     padding: 5px 50px;
   }

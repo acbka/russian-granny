@@ -107,7 +107,7 @@ const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
           {dish.beefFree && <StyledImg src={beef} alt="beef free" />}
           {dish.porkFree && <StyledImg src={pork} alt="pork free" />}
         </Labels>
-        <Image src={`/dishes/${dish.pict}`} alt={dish.name} />
+        <Image src={dish.pict} alt={dish.name} />
         <Info>
           <Title>{dish.name} </Title>
           <SubTitle>Ingredients:</SubTitle>

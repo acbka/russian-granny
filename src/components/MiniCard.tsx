@@ -31,7 +31,7 @@ const MiniCard = ({ dishes, handleClick, className }: CardPropsType) => {
   const list = dishes.map((item, index) => (
     <div key={index}>
       <figure>
-        <StyledImg src={`/dishes/${item.pict}`} alt="item.name" />
+        <StyledImg src={item.pict} alt={item.name} />
       </figure>
     </div>
   ));
