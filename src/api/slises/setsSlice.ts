@@ -1,4 +1,3 @@
-import React from "react";
 import { createSlice } from "@reduxjs/toolkit";
 import { getSets } from "api/requests/getSets";
 import { SetType } from "common/types";
