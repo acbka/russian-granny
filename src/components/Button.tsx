@@ -1,14 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-type ButtonPropsType = {
-  title?: string;
-  disabled?: boolean;
-  children?: React.ReactNode;
-  className?: string;
-  handleClick: () => void;
-};
-
 const StyledButton = styled.button`
   width: 150px;
   height: 42px;
@@ -37,11 +29,19 @@ const StyledButton = styled.button`
   }
 `;
 
+type ButtonPropsType = {
+  children?: React.ReactNode;
+  className?: string;
+  disabled?: boolean;
+  title?: string;
+  handleClick: () => void;
+};
+
 const Button = ({
-  title,
-  disabled,
   children,
   className,
+  disabled,
+  title,
   handleClick,
 }: ButtonPropsType) => {
   return (

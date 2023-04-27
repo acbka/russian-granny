@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components/macro";
-import { selectDishes } from "api/selectors";
-import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import Button from "components/Button";
-import { groupDishes } from "common/groupDishes";
-import Basket from "components/IconComponents/Basket";
-import MiniCard from "./MiniCard";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { groupDishes } from "../common/groupDishes";
+import { selectDishes } from "../api/selectors";
+import Button from "./Button";
+import Basket from "./IconComponents/Basket";
+import MiniCard from "./MiniCard";
 
 type WrapperPrpsType = {
   isHidden: boolean;
@@ -25,6 +25,7 @@ const Wrapper = styled.section<WrapperPrpsType>`
   cursor: pointer;
   transition: right 0.3s;
 `;
+
 const DishesBlock = styled.div`
   width: 160px;
   background: var(--color-main);
@@ -34,9 +35,11 @@ const DishesBlock = styled.div`
   text-align: center;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 `;
+
 const CardWrap = styled(MiniCard)`
   cursor: pointer;
 `;
+
 const StyledParagraph = styled.p`
   color: #fff;
   font-size: 1.2rem;
@@ -48,9 +51,11 @@ const StyledParagraph = styled.p`
   text-orientation: upright;
   margin-top: 10px;
 `;
+
 const StyledLink = styled(Link)`
   color: #fff;
 `;
+
 const StyledButton = styled(Button)`
   display: flex;
   flex-direction: column;

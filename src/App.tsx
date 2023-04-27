@@ -5,11 +5,11 @@ import HomePage from "pages/HomePage";
 import DishesPage from "pages/dishesPage/DishesPage";
 import SetsPage from "pages/setsPage/SetsPage";
 import CartPage from "pages/CartPage";
-import ContactFormPage from "pages/ContactFormPage";
-import FinalPage from "pages/FinalPage";
-import ErrorPage from "pages/ErrorPage";
-import { getDishes } from "api/requests/getDishes";
-import { getSets } from "api/requests/getSets";
+import { getDishes } from "./api/requests/getDishes";
+import { getSets } from "./api/requests/getSets";
+import ContactFormPage from "./pages/ContactFormPage";
+import ErrorPage from "./pages/ErrorPage";
+import FinalPage from "./pages/FinalPage";
 
 function App() {
   const dispatch = useAppDispatch();

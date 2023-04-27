@@ -1,12 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import styled from "styled-components/macro";
-import { DishType } from "common/types";
+import { DishType } from "../common/types";
 import SearchIcon from "./IconComponents/SearchIcon";
-
-type SearchPropsType = {
-  dishes: DishType[];
-  setSearchDishes: (arg: DishType[]) => void;
-};
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,12 +11,13 @@ const Wrapper = styled.div`
   right: 150px;
   @media screen and (max-width: 850px) {
     position: relative;
-    top:0;
+    top: 0;
     right: 0;
     justify-content: center;
     width: 100%;
   }
 `;
+
 const StyledInput = styled.input`
   border: none;
   border-radius: 0;
@@ -33,6 +29,11 @@ const StyledInput = styled.input`
     width: 60%;
   }
 `;
+
+type SearchPropsType = {
+  dishes: DishType[];
+  setSearchDishes: (arg: DishType[]) => void;
+};
 
 const Search = ({ dishes, setSearchDishes }: SearchPropsType) => {
   const [value, setValue] = useState<string>("");
@@ -46,7 +47,7 @@ const Search = ({ dishes, setSearchDishes }: SearchPropsType) => {
     setValue(e.target.value);
     searchDish(e.target.value);
   };
- 
+
   const searchDish = (value: string) => {
     const filteredDishes = dishes.filter(
       (dish) =>

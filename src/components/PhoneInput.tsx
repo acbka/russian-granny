@@ -1,14 +1,7 @@
 import React, { ChangeEvent } from "react";
 import styled from "styled-components/macro";
 import InputMask from "react-input-mask";
-import { CommonInput } from "components/Input";
-
-type InputPropsType = {
-  label: string;
-  value: string;
-  isMust?: boolean;
-  handleChange: (arg: string) => void;
-};
+import { CommonInput } from "../components/Input";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -17,17 +10,26 @@ const Wrapper = styled.div`
   font-size: 1.25rem;
   margin-top: 1.5rem;
 `;
+
 const StyledPhoneInput = styled(InputMask)`
   ${CommonInput}
 `;
+
 const Sup = styled.sup`
   color: #ff0000;
 `;
 
+type InputPropsType = {
+  isMust?: boolean;
+  label: string;
+  value: string;
+  handleChange: (arg: string) => void;
+};
+
 const PhoneInput = ({
+  isMust = false,
   label,
   value,
-  isMust = false,
   handleChange,
 }: InputPropsType) => {
   const inputPhone = (e: ChangeEvent<HTMLInputElement>) => {

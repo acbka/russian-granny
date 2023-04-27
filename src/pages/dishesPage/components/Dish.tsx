@@ -1,19 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { DishType } from "common/types";
 import { useSelector } from "react-redux";
-import { selectDishes } from "api/selectors";
-import Button from "components/Button";
-import { categories } from "common/constants";
 import beef from "assets/beef.png";
 import pork from "assets/pork.png";
 import dairy from "assets/dairy.png";
-
-type DishPropsType = {
-  dish: DishType;
-  addDish: () => void;
-  removeDish: () => void;
-};
+import { DishType } from "../../../common/types";
+import { categories } from "../../../common/constants";
+import { selectDishes } from "../../../api/selectors";
+import Button from "../../../components/Button";
 
 type CardPropsType = {
   isShadow: boolean;
@@ -38,6 +32,7 @@ const Card = styled.div<CardPropsType>`
 const Image = styled.img`
   width: 100%;
 `;
+
 const Info = styled.ul`
   justify-self: start;
   list-style-type: none;
@@ -47,21 +42,25 @@ const Info = styled.ul`
     text-transform: capitalize;
   }
 `;
+
 const Title = styled.h4`
   font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: normal;
   padding-bottom: 0.625rem;
 `;
+
 const SubTitle = styled.h5`
   font-size: 1.2rem;
   font-weight: bold;
   padding-bottom: 0.625rem;
 `;
+
 const ButtonWrap = styled.div`
   text-align: center;
   padding-bottom: 1.875rem;
 `;
+
 const Overlay = styled.div`
   position: absolute;
   top: 0;
@@ -71,6 +70,7 @@ const Overlay = styled.div`
   z-index: 10;
   background: rgba(255, 255, 255, 0.6);
 `;
+
 const StyledImg = styled.img`
   border-radius: 50%;
   display: block;
@@ -81,11 +81,18 @@ const StyledImg = styled.img`
   background: #fff;
   border-radius: 50%;
 `;
+
 const Labels = styled.div`
   position: absolute;
   top: 2px;
   display: flex;
 `;
+
+type DishPropsType = {
+  dish: DishType;
+  addDish: () => void;
+  removeDish: () => void;
+};
 
 const Dish = ({ dish, addDish, removeDish }: DishPropsType) => {
   const dishes = useSelector(selectDishes);

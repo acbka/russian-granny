@@ -1,12 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components/macro";
-import Header from "components/Header";
-import Footer from "components/Footer";
-
-type LayoutPropsType = {
-  title?: string;
-  children?: ReactNode;
-};
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,6 +12,7 @@ const Wrapper = styled.div`
   padding-top: 110px;
   font-size: 1.1rem;
 `;
+
 const Title = styled.h1`
   text-align: center;
   font-size: 3rem;
@@ -24,6 +20,11 @@ const Title = styled.h1`
   color: var(--color-main);
   letter-spacing: 0.25rem;
 `;
+
+type LayoutPropsType = {
+  children?: ReactNode;
+  title?: string;
+};
 
 const Layout = ({ title, children }: LayoutPropsType) => {
   return (

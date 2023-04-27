@@ -1,17 +1,18 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-import Header from "components/Header";
 import backgroundImage from "assets/background.jpeg";
 import pelmeni from "assets/pelmeni.jpeg";
 import food from "assets/food.jpeg";
 import zakaz from "assets/zakaz.jpg";
-import Footer from "components/Footer";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const Wrapper = styled.main`
   margin-top: 110px;
   font-size: 1.1rem;
 `;
+
 const MainSection = styled.section`
   padding: 100px 50px 20px 50px;
   background: center right url(${backgroundImage});
@@ -20,11 +21,13 @@ const MainSection = styled.section`
     background: bottom right url(${backgroundImage});
   }
 `;
+
 const MainTitle = styled.h1`
   color: var(--color-main);
   font-size: 3rem;
   text-align: center;
 `;
+
 const SubTitle = styled.h3`
   width: 60%;
   font-size: 1.8rem;
@@ -37,6 +40,7 @@ const SubTitle = styled.h3`
     margin: 3.125rem 0;
   }
 `;
+
 const Discount = styled.div`
   display: flex;
   flex-direction: column;
@@ -51,6 +55,7 @@ const Discount = styled.div`
   font-size: 1.1rem;
   line-height: 1.5rem;
 `;
+
 const Section = styled.section`
   display: grid;
   align-items: center;
@@ -64,6 +69,7 @@ const Section = styled.section`
     grid-gap: 50px 0;
   }
 `;
+
 const ImgWrap = styled.figure`
   grid-area: image;
   & > img {
@@ -72,11 +78,13 @@ const ImgWrap = styled.figure`
     height: auto;
   }
 `;
+
 const Title = styled.h2`
   grid-area: title;
   font-size: 2.5rem;
   text-align: center;
 `;
+
 const Info = styled.div`
   grid-area: text;
   display: flex;
@@ -89,10 +97,12 @@ const Info = styled.div`
     line-height: 1.5rem;
   }
 `;
+
 const Paragraph = styled.p`
   margin: 20px 0;
   line-height: 1.5rem;
 `;
+
 const Paralax = styled.section`
   background: url(${zakaz}) center top/cover no-repeat fixed;
   padding: 60px;
@@ -115,6 +125,7 @@ const Paralax = styled.section`
     }
   }
 `;
+
 const InfoSection = styled(Section)`
   grid-template-areas: "title image" "text image";
   grid-template-columns: 1.5fr 1fr;
@@ -124,6 +135,7 @@ const InfoSection = styled(Section)`
     grid-gap: 50px 0;
   }
 `;
+
 const PaymentSection = styled.section`
   display: flex;
   flex-direction: column;

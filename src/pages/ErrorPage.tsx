@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   background: #f5f5f5;
   padding-top: 110px;
 `;
+
 const WarningWrap = styled.section`
   display: flex;
   flex-direction: column;
@@ -20,6 +21,7 @@ const WarningWrap = styled.section`
   line-height: 3rem;
   padding: 3rem 0;
 `;
+
 const Warning = styled.h1`
   color: var(--color-main);
   font-size: 6rem;

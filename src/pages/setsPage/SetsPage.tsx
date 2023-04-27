@@ -1,14 +1,15 @@
 import React, { Suspense, useEffect } from "react";
 import styled from "styled-components/macro";
-import { selectDishes, selectSets } from "api/selectors";
-import { useSelector, useDispatch } from "react-redux";
-import { updateDishes } from "api/slises/dishesSlice";
-import { updateSets } from "api/slises/setsSlice";
 import { useLocation } from "react-router";
-import Layout from "components/Layout";
-import { SetType } from "common/types";
-import Spinner from "components/Spinner";
-const Set = React.lazy(() => import("./Set"));
+import { useSelector, useDispatch } from "react-redux";
+import { selectDishes, selectSets } from "../../api/selectors";
+import { updateDishes } from "../../api/slises/dishesSlice";
+import { updateSets } from "../../api/slises/setsSlice";
+import Layout from "../../components/Layout";
+import { SetType } from "../../common/types";
+import Spinner from "../../components/Spinner";
+
+const Set = React.lazy(() => import("./components/Set"));
 
 const Main = styled.main`
   display: flex;

@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
-import { selectDishes, selectSets } from "api/selectors";
-import { useAppDispatch } from "api/store";
-import { updateDishes } from "api/slises/dishesSlice";
-import { useSelector } from "react-redux";
 import { useParams, useLocation } from "react-router";
-import Dish from "./Dish";
-import { DishType } from "common/types";
-import { categories } from "common/constants";
-import Layout from "components/Layout";
-import SideCart from "components/SideCart";
-import Search from "components/Search";
-import { updateSets } from "api/slises/setsSlice";
-
-type Params = {
-  category: string;
-};
+import { useSelector } from "react-redux";
+import { DishType } from "../../common/types";
+import { categories } from "../../common/constants";
+import { useAppDispatch } from "../../api/store";
+import { selectDishes, selectSets } from "../../api/selectors";
+import { updateDishes } from "../../api/slises/dishesSlice";
+import { updateSets } from "../../api/slises/setsSlice";
+import Layout from "../../components/Layout";
+import Search from "../../components/Search";
+import SideCart from "../../components/SideCart";
+import Dish from "./components/Dish";
 
 const TitleWrap = styled.div`
   display: flex;
@@ -25,12 +21,14 @@ const TitleWrap = styled.div`
     align-items: center;
   }
 `;
+
 const Title = styled.h1`
   text-align: center;
   font-size: 3rem;
   color: var(--color-main);
   letter-spacing: 0.25rem;
 `;
+
 const Main = styled.main`
   display: flex;
   flex-wrap: wrap;
@@ -38,6 +36,10 @@ const Main = styled.main`
   max-width: 1140px;
   padding: 20px 0 40px;
 `;
+
+type Params = {
+  category: string;
+};
 
 const DishesPage = () => {
   const dispatch = useAppDispatch();

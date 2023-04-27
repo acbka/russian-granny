@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
-import granny from "assets/granny.png";
 import { Link } from "react-router-dom";
+import granny from "assets/granny.png";
 import NavBar from "./navbar/NavBar";
 
 const Wrapper = styled.div`
@@ -17,18 +17,21 @@ const Wrapper = styled.div`
   background: #fff;
   z-index: 101;
 `;
+
 const Logo = styled(Link)`
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
+
 const LogoImg = styled.img`
   display: block;
   height: 100px;
   width: auto;
   margin-right: 20px;
 `;
+
 const Title = styled.p`
   color: var(--color-main);
   font-size: 1.8rem;

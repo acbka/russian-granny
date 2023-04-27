@@ -8,6 +8,7 @@ const PayPal = () => {
     "client-id": "test",
     currency: "NZD",
   };
+  
   const paypalbuttonTransactionProps: PayPalButtonsComponentOptions = {
     style: { layout: "vertical" },
     createOrder(data, actions) {

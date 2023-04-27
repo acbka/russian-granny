@@ -1,11 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
-
-type DropDownMenuItemPropsType = {
-  category: string;
-  setIsMenuOpen: () => void;
-};
+import { Link } from "react-router-dom";
 
 const LinkWrap = styled.div`
   padding: 10px 20px;
@@ -17,11 +12,15 @@ const StyledLink = styled(Link)`
   font-weight: 500;
 `;
 
+type DropDownMenuItemPropsType = {
+  category: string;
+  setIsMenuOpen: () => void;
+};
+
 const DropDownMenuItem = ({
   category,
   setIsMenuOpen,
 }: DropDownMenuItemPropsType) => {
-  
   return (
     <LinkWrap onClick={setIsMenuOpen}>
       <StyledLink to={`/dishes/${category}`}>{category}</StyledLink>

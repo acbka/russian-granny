@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { selectOrder } from "api/selectors";
-import { useSelector } from "react-redux";
-import { categories } from "common/constants";
-import { DishType } from "common/types";
-import Header from "components/Header";
-import Footer from "components/Footer";
 import { useLocation, useHistory } from "react-router-dom";
-import Spinner from "components/Spinner";
+import { useSelector } from "react-redux";
+import { selectOrder } from "../api/selectors";
+import { categories } from "../common/constants";
+import { DishType } from "../common/types";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Spinner from "../components/Spinner";
 
 const Wrapper = styled.div`
   display: flex;
@@ -20,27 +20,32 @@ const Wrapper = styled.div`
   background: #f5f5f5;
   padding-top: 110px;
 `;
+
 const Wrap = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 40px 0;
 `;
+
 const TitleWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 `;
+
 const Title = styled.h1`
   color: var(--color-main);
   font-size: 3rem;
   padding-bottom: 1rem;
 `;
+
 const TitleText = styled.p`
   font-size: 1.25rem;
   padding-bottom: 0.75rem;
 `;
+
 const SubTitle = styled.h2`
   font-size: 2rem;
   padding-bottom: 0.75rem;
@@ -48,6 +53,7 @@ const SubTitle = styled.h2`
   padding-top: 1rem;
   text-align: center;
 `;
+
 const List = styled.ul`
   list-style: none;
   & > li {
@@ -55,6 +61,7 @@ const List = styled.ul`
     line-height: 1.75rem;
   }
 `;
+
 const Payment = styled.h3`
   font-size: 1.25rem;
   padding-top: 1rem;

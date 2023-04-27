@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import Layout from "components/Layout";
-import Input from "components/Input";
-import { initialUser } from "common/constants";
-import RadioInput from "components/RadioInput";
-import Button from "components/Button";
 import { useHistory, useLocation } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserInOrder } from "api/slises/orderSlice";
-import { selectOrder } from "api/selectors";
-import PayPal from "components/PayPal";
-import PhoneInput from "components/PhoneInput";
+import { setUserInOrder } from "../api/slises/orderSlice";
+import { selectOrder } from "../api/selectors";
+import { initialUser } from "../common/constants";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import Layout from "../components/Layout";
+import PayPal from "../components/PayPal";
+import PhoneInput from "../components/PhoneInput";
+import RadioInput from "../components/RadioInput";
 
 const Wrap = styled.section`
   display: flex;
@@ -18,10 +18,12 @@ const Wrap = styled.section`
   align-items: center;
   justify-content: space-between;
 `;
+
 const ButtonWrap = styled(Button)`
   margin: 25px 0;
   width: 220px;
 `;
+
 const Paragraph = styled.p`
   font-size: 0.9rem;
   color: #ff0000;

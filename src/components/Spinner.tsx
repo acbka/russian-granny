@@ -15,6 +15,7 @@ const Loader = styled.div`
     }
   }
 `;
+
 const Face = styled.div`
   position: absolute;
   border-radius: 50%;
@@ -39,6 +40,7 @@ const Face = styled.div`
     animation-direction: reverse;
   }
 `;
+
 const Circle = styled.div`
   position: absolute;
   width: 50%;

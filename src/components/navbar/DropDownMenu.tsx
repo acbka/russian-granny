@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { categories } from "common/constants";
+import { categories } from "../../common/constants";
 import DropDownMenuItem from "./DropDownMenuItem";
-
-type DropDownMenuPropsType = {
-  setIsMenuOpen: () => void;
-};
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,6 +15,10 @@ const Wrapper = styled.div`
   background-color: #fff;
   z-index: 115;
 `;
+
+type DropDownMenuPropsType = {
+  setIsMenuOpen: () => void;
+};
 
 const DropDownMenu = ({ setIsMenuOpen }: DropDownMenuPropsType) => {
   const menuItems = Object.keys(categories).map((item, index) => (

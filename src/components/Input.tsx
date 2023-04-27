@@ -1,18 +1,6 @@
 import React, { ChangeEvent } from "react";
 import styled, { css } from "styled-components/macro";
 
-type InputPropsType = {
-  type: string;
-  name?: string;
-  label: string;
-  value?: string;
-  minDate?: string;
-  maxDate?: string;
-  placeholder?: string;
-  isMust?: boolean;
-  handleChange: (arg: string) => void;
-};
-
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -20,6 +8,7 @@ const Wrapper = styled.div`
   font-size: 1.25rem;
   margin-top: 1.5rem;
 `;
+
 export const CommonInput = css`
   min-width: 25rem;
   height: 2.5rem;
@@ -33,22 +22,36 @@ export const CommonInput = css`
     min-width: 18rem;
   }
 `;
+
 const StyledInput = styled.input`
   ${CommonInput}
 `;
+
 const Sup = styled.sup`
   color: #ff0000;
 `;
 
+type InputPropsType = {
+  isMust?: boolean;
+  label: string;
+  maxDate?: string;
+  minDate?: string;
+  name?: string;
+  placeholder?: string;
+  type: string;
+  value?: string;
+  handleChange: (arg: string) => void;
+};
+
 const Input = ({
+  isMust = false,
   label,
+  maxDate,
+  minDate,
+  name,
+  placeholder,
   type,
   value,
-  name,
-  minDate,
-  maxDate,
-  placeholder,
-  isMust = false,
   handleChange,
 }: InputPropsType) => {
   const inputData = (e: ChangeEvent<HTMLInputElement>) => {

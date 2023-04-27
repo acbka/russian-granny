@@ -1,11 +1,11 @@
 import React, { useState, useRef, MutableRefObject } from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
-import Basket from "components/IconComponents/Basket";
-import { categories } from "common/constants";
-import DropDownMenuItem from "./DropDownMenuItem";
-import Burger from "components/IconComponents/Burger";
+import { categories } from "../../common/constants";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
+import DropDownMenuItem from "./DropDownMenuItem";
+import Basket from "../IconComponents/Basket";
+import Burger from "../IconComponents/Burger";
 
 const Wrapper = styled.nav`
   display: flex;
@@ -21,12 +21,14 @@ const Wrapper = styled.nav`
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
   z-index: 115;
 `;
+
 const MenuItem = styled(Link)`
   padding: 10px;
   color: var(--color-main);
   font-size: 1.2rem;
   font-weight: 500;
 `;
+
 const MenuBasket = styled.span`
   display: flex;
   align-items: center;

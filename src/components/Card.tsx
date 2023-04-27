@@ -3,12 +3,6 @@ import styled from "styled-components/macro";
 import { DishType } from "common/types";
 import { categories } from "common/constants";
 
-type CardPropsType = {
-  dishes: DishType[];
-  handleClick?: () => void;
-  className?: string;
-};
-
 type CardWrapPropsType = {
   color: string;
 };
@@ -26,6 +20,7 @@ const Wrapper = styled.div<CardWrapPropsType>`
   margin: 15px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 `;
+
 const Title = styled.h3<CardWrapPropsType>`
   font-weight: 400;
   font-size: 1.375rem;
@@ -33,17 +28,25 @@ const Title = styled.h3<CardWrapPropsType>`
   margin: 25px 0;
   border-bottom: 2px solid ${(props) => props.color};
 `;
+
 const Name = styled.h4`
   font-weight: 400;
   margin: 20px 0 35px 0;
 `;
+
 const StyledImg = styled.img`
   display: block;
   width: 100%;
   height: auto;
 `;
 
-const Card = ({ dishes, handleClick, className }: CardPropsType) => {
+type CardPropsType = {
+  className?: string;
+  dishes: DishType[];
+  handleClick?: () => void;
+};
+
+const Card = ({ className, dishes, handleClick }: CardPropsType) => {
   const category = dishes[0].category;
   const list = dishes.map((item, index) => (
     <div key={index}>

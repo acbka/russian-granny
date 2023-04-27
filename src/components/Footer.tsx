@@ -26,16 +26,19 @@ const Wrapper = styled.footer`
     flex-direction: column;
   }
 `;
+
 const LogoText = styled.div`
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
 `;
+
 const LogoImg = styled.img`
   display: block;
   height: auto;
   width: 100px;
 `;
+
 const Contacts = styled.div`
   display: flex;
   flex-direction: column;

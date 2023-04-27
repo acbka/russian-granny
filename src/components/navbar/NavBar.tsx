@@ -1,24 +1,27 @@
 import React, { useState, useEffect, useRef, MutableRefObject } from "react";
 import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
-import DropDownMenu from "./DropDownMenu";
-import Basket from "components/IconComponents/Basket";
-import BurgerMenu from "./BurgerMenu";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
+import BurgerMenu from "./BurgerMenu";
+import DropDownMenu from "./DropDownMenu";
+import Basket from "../IconComponents/Basket";
 
 const Nav = styled.nav`
   display: flex;
   align-items: center;
 `;
+
 const Item = css`
   padding: 15px;
   color: var(--color-main);
   font-size: 1.2rem;
   font-weight: 500;
 `;
+
 const MenuItem = styled(Link)`
   ${Item}
 `;
+
 const DropDownMenuItem = styled.span`
   ${Item}
   position: relative;
@@ -37,6 +40,7 @@ const DropDownMenuItem = styled.span`
   }
   cursor: pointer;
 `;
+
 const MenuBasket = styled.span`
   display: flex;
   align-items: center;

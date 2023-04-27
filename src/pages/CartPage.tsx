@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import styled from "styled-components/macro";
-import { selectDishes } from "api/selectors";
-import { setDishesInOrder } from "api/slises/orderSlice";
-import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router";
-import { groupDishes } from "common/groupDishes";
-import Layout from "components/Layout";
-import Card from "components/Card";
-import Button from "components/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { selectDishes } from "../api/selectors";
+import { setDishesInOrder } from "../api/slises/orderSlice";
+import { groupDishes } from "../common/groupDishes";
+import Layout from "../components/Layout";
+import Card from "../components/Card";
+import Button from "../components/Button";
 
 const Wrapper = styled.main`
   display: flex;
@@ -16,18 +16,22 @@ const Wrapper = styled.main`
   align-items: center;
   padding: 20px 0 40px;
 `;
+
 const DishesPage = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 `;
+
 const CardWrap = styled(Card)`
   cursor: pointer;
 `;
+
 const ButtonWrap = styled(Button)`
   margin-top: 25px;
   width: 220px;
 `;
+
 const Title = styled.p`
   font-size: 1.3rem;
   text-align: center;
