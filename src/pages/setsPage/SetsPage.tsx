@@ -7,6 +7,7 @@ import { updateDishes } from "../../api/slises/dishesSlice";
 import { updateSets } from "../../api/slises/setsSlice";
 import Layout from "../../components/Layout";
 import { SetType } from "../../common/types";
+import SideCart from "../../components/SideCart";
 import Spinner from "../../components/Spinner";
 
 const Set = React.lazy(() => import("./components/Set"));
@@ -62,6 +63,7 @@ const SetsPage = () => {
       <Suspense fallback={<Spinner />}>
         <Main>{setsList}</Main>
       </Suspense>
+      <SideCart />
     </Layout>
   );
 };
