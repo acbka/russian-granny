@@ -26,9 +26,10 @@ const StyledImg = styled.img`
   width: 65px;
   padding: 5px;
   height: auto;
+  transition: transform 0.3s ease;
   cursor: pointer;
   &:hover {
-    padding: 0;
+    transform: scale(1.2);
   }
 `;
 

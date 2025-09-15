@@ -27,6 +27,7 @@ const Title = styled.h1`
   font-size: 3rem;
   color: var(--color-main);
   letter-spacing: 0.25rem;
+  text-transform: capitalize;
 `;
 
 const Main = styled.main`
@@ -95,7 +96,7 @@ const DishesPage = () => {
   return (
     <Layout>
       <TitleWrap>
-        <Title>{category.charAt(0).toUpperCase() + category.slice(1)}</Title>
+        <Title>{category}</Title>
         {Boolean(dishes.length) && (
           <Search
             dishes={dishes.filter(

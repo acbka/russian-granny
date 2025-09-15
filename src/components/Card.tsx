@@ -38,6 +38,10 @@ const StyledImg = styled.img`
   display: block;
   width: 100%;
   height: auto;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 type CardPropsType = {
