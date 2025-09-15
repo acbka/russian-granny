@@ -37,6 +37,7 @@ const LogoImg = styled.img`
   display: block;
   height: auto;
   width: 100px;
+  cursor: pointer;
 `;
 
 const Contacts = styled.div`
@@ -58,7 +59,7 @@ const Footer = () => {
   return (
     <Wrapper>
       <LogoText>Russian Granny</LogoText>
-      <LogoImg src={granny} alt="logo" />
+      <LogoImg src={granny} alt="logo" onClick={() => window.scrollTo(0, 0)} />
       <Contacts>
         <h2>Contacts</h2>
         <p>46 Queen St, Auckland</p>

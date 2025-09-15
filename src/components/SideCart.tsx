@@ -62,6 +62,7 @@ const StyledParagraph = styled.p`
 
 const StyledLink = styled(Link)`
   color: #fff;
+  font-size: 0.9rem;
 `;
 
 const SideCart = () => {
@@ -92,7 +93,7 @@ const SideCart = () => {
         <DishesBlock>
           {dishesList}
           {dishesInOrder.length >= 8 && (
-            <StyledLink to={"/cart"}>Continue</StyledLink>
+            <StyledLink to={"/cart"}>Checkout</StyledLink>
           )}
         </DishesBlock>
       </Wrapper>

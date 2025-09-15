@@ -38,6 +38,7 @@ const ContactFormPage = () => {
   const order = useSelector(selectOrder);
   const { pathname } = useLocation();
   const emailPattern =
+    // eslint-disable-next-line
     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
 
   useEffect(() => {
