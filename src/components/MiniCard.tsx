@@ -8,27 +8,39 @@ type CardWrapPropsType = {
 };
 
 const Wrapper = styled.div<CardWrapPropsType>`
-  height: 60px;
+  background-color: ${(props) => props.color};
+  font-size: 0.9rem;
+  padding-top: 8px;
+  text-transform: capitalize;
+`;
+
+const Category = styled.div`
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: ${(props) => props.color};
 `;
 
 const StyledImg = styled.img`
   display: block;
-  width: 60px;
+  width: 65px;
+  padding: 5px;
   height: auto;
+  cursor: pointer;
+  &:hover {
+    padding: 0;
+  }
 `;
 
 type CardPropsType = {
   dishes: DishType[];
   handleClick?: () => void;
-  className?: string;
 };
 
-const MiniCard = ({ dishes, handleClick, className }: CardPropsType) => {
+const MiniCard = ({ dishes, handleClick }: CardPropsType) => {
   const category = dishes[0].category;
+  console.log(category);
+  console.log("ggggg");
   const list = dishes.map((item, index) => (
     <div key={index}>
       <figure>
@@ -38,12 +50,9 @@ const MiniCard = ({ dishes, handleClick, className }: CardPropsType) => {
   ));
 
   return (
-    <Wrapper
-      color={categories[category].color}
-      onClick={handleClick}
-      className={className}
-    >
-      {list}
+    <Wrapper color={categories[category].color}>
+      <div>{category}</div>
+      <Category onClick={handleClick}>{list}</Category>
     </Wrapper>
   );
 };

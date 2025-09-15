@@ -22,7 +22,6 @@ const Wrapper = styled.section<WrapperPrpsType>`
   top: 120px;
   right: ${(props) => (props.isHidden ? "-160px" : 0)};
   z-index: 20;
-  cursor: pointer;
   transition: right 0.3s;
 `;
 
@@ -34,10 +33,6 @@ const DishesBlock = styled.div`
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-`;
-
-const CardWrap = styled(MiniCard)`
-  cursor: pointer;
 `;
 
 const StyledParagraph = styled.p`
@@ -78,7 +73,7 @@ const SideCart = () => {
   const [isHidden, setIsHidden] = useState(true);
 
   const dishesList = dishesByCategories.map((item, index) => (
-    <CardWrap
+    <MiniCard
       key={index}
       dishes={item}
       handleClick={() => {
