@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useAppDispatch } from "api/store";
 import HomePage from "pages/HomePage";
 import DishesPage from "pages/dishesPage/DishesPage";
@@ -19,32 +19,15 @@ function App() {
 
   return (
     <HashRouter>
-      <Switch>
-        <Route path="/dishes/:category">
-          <DishesPage />
-        </Route>
-        <Route path="/sets">
-          <SetsPage />
-        </Route>
-        <Route path="/cart">
-          <CartPage />
-        </Route>
-        <Route path="/form">
-          <ContactFormPage />
-        </Route>
-        <Route path="/final">
-          <FinalPage />
-        </Route>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route path="/404">
-          <ErrorPage />
-        </Route>
-        <Route>
-          <ErrorPage />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/dishes/:category" element={<DishesPage />} />
+        <Route path="/sets" element={<SetsPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/form" element={<ContactFormPage />} />
+        <Route path="/final" element={<FinalPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/404" element={<ErrorPage />} />
+      </Routes>
     </HashRouter>
   );
 }

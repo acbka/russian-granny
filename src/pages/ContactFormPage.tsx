@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { useHistory, useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserInOrder } from "../api/slises/orderSlice";
 import { selectOrder } from "../api/selectors";
@@ -33,7 +33,7 @@ const ContactFormPage = () => {
   const [user, setUser] = useState(initialUser);
   const [minDate, setminDate] = useState("");
   const [maxDate, setmaxDate] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const order = useSelector(selectOrder);
   const { pathname } = useLocation();
@@ -81,11 +81,11 @@ const ContactFormPage = () => {
       Boolean(user.date.value)
     ) {
       dispatch(setUserInOrder(user));
-      history.push("./final");
+      navigate("./final");
     }
   };
 
-  if (!order.dishes.length) history.push("/404");
+  if (!order.dishes.length) navigate("/404");
 
   return (
     <Layout title="Contact Details">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectOrder } from "../api/selectors";
 import { categories } from "../common/constants";
@@ -71,7 +71,7 @@ const FinalPage = () => {
   const order = useSelector(selectOrder);
   const [dishesByCategory, setDishesByCategory] = useState<DishType[][]>([]);
   const { pathname } = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -86,7 +86,7 @@ const FinalPage = () => {
     setDishesByCategory(dishesArray);
   }, [order.dishes]);
 
-  if (!order.dishes.length) history.push("/404");
+  if (!order.dishes.length) navigate("/404");
 
   return (
     <Wrapper>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components/macro";
-import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { groupDishes } from "../common/groupDishes";
 import { selectDishes } from "../api/selectors";
@@ -35,6 +34,20 @@ const DishesBlock = styled.div`
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 `;
 
+const StyledButton = styled(Button)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  height: 150px;
+  background: var(--color-main);
+  border: 3px solid var(--color-main);
+  border-right: none;
+  border-radius: 15px 0 0 15px;
+  padding: 10px;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+`;
+
 const StyledParagraph = styled.p`
   color: #fff;
   font-size: 1.2rem;
@@ -51,23 +64,9 @@ const StyledLink = styled(Link)`
   color: #fff;
 `;
 
-const StyledButton = styled(Button)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50px;
-  height: 150px;
-  background: var(--color-main);
-  border: 3px solid var(--color-main);
-  border-right: none;
-  border-radius: 15px 0 0 15px;
-  padding: 10px;
-  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-`;
-
 const SideCart = () => {
   const dishes = useSelector(selectDishes);
-  const history = useHistory();
+  const navigate = useNavigate();
   const dishesInOrder = dishes.filter((dish) => dish.selected);
   const dishesByCategories = groupDishes(dishesInOrder);
   const [isHidden, setIsHidden] = useState(true);
@@ -77,7 +76,7 @@ const SideCart = () => {
       key={index}
       dishes={item}
       handleClick={() => {
-        history.push(`/dishes/${item[0].category}`);
+        navigate(`/dishes/${item[0].category}`);
         setIsHidden(true);
       }}
     />

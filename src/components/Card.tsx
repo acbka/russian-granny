@@ -45,12 +45,11 @@ const StyledImg = styled.img`
 `;
 
 type CardPropsType = {
-  className?: string;
   dishes: DishType[];
   handleClick?: () => void;
 };
 
-const Card = ({ className, dishes, handleClick }: CardPropsType) => {
+const Card = ({ dishes, handleClick }: CardPropsType) => {
   const category = dishes[0].category;
   const list = dishes.map((item, index) => (
     <div key={index}>
@@ -62,11 +61,7 @@ const Card = ({ className, dishes, handleClick }: CardPropsType) => {
   ));
 
   return (
-    <Wrapper
-      color={categories[category].color}
-      onClick={handleClick}
-      className={className}
-    >
+    <Wrapper color={categories[category].color} onClick={handleClick}>
       <Title color={categories[category].color}>{category}</Title>
       {list}
     </Wrapper>

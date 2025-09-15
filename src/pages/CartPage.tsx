@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components/macro";
-import { useHistory, useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectDishes } from "../api/selectors";
 import { setDishesInOrder } from "../api/slises/orderSlice";
@@ -40,7 +40,7 @@ const Title = styled.p`
 const CartPage = () => {
   const dishes = useSelector(selectDishes);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const dishesInOrder = dishes.filter((dish) => dish.selected);
   const dishesByCategories = groupDishes(dishesInOrder);
   const { pathname } = useLocation();
@@ -51,14 +51,14 @@ const CartPage = () => {
 
   const createOrder = () => {
     dispatch(setDishesInOrder(dishesInOrder));
-    history.push("/form");
+    navigate("/form");
   };
 
   const dishesList = dishesByCategories.map((item, index) => (
     <CardWrap
       key={index}
       dishes={item}
-      handleClick={() => history.push(`/dishes/${item[0].category}`)}
+      handleClick={() => navigate(`/dishes/${item[0].category}`)}
     />
   ));
 
