@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "assets/background.jpeg";
 import pelmeni from "assets/pelmeni.jpeg";
 import food from "assets/food.jpeg";
 import zakaz from "assets/zakaz.jpg";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Button from "components/Button";
 
 const Wrapper = styled.main`
   margin-top: 110px;
@@ -41,7 +42,7 @@ const SubTitle = styled.h3`
   }
 `;
 
-const Discount = styled.div`
+const DiscountButton = styled(Button)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,6 +55,7 @@ const Discount = styled.div`
   color: #fff;
   font-size: 1.1rem;
   line-height: 1.5rem;
+  white-space: pre-line;
 `;
 
 const Section = styled.section`
@@ -149,6 +151,8 @@ const PaymentSection = styled.section`
 `;
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Header />
@@ -158,10 +162,10 @@ const HomePage = () => {
           The best delicious homemade cooking service with free delivery in
           Auckland
         </SubTitle>
-        <Discount>
-          <p>$10 discount</p>
-          <p>for the first order</p>
-        </Discount>
+        <DiscountButton
+          title={"$10 discount \n for the first order"}
+          handleClick={() => navigate("dishes/mains")}
+        ></DiscountButton>
       </MainSection>
       <Section>
         <ImgWrap>

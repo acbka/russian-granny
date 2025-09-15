@@ -27,7 +27,7 @@ const CardWrap = styled(Card)`
   cursor: pointer;
 `;
 
-const ButtonWrap = styled(Button)`
+const StyledButton = styled(Button)`
   margin-top: 25px;
   width: 220px;
 `;
@@ -73,7 +73,7 @@ const CartPage = () => {
       )}
       <Wrapper>
         <DishesSection>{dishesList}</DishesSection>
-        <ButtonWrap
+        <StyledButton
           title="Processed to checkout"
           disabled={dishesInOrder.length < 8}
           handleClick={createOrder}
