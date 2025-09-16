@@ -1,6 +1,5 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import styled from "styled-components/macro";
-import { useLocation } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { selectDishes, selectSets } from "../../api/selectors";
 import { updateDishes } from "../../api/slises/dishesSlice";
@@ -24,11 +23,6 @@ const SetsPage = () => {
   const dispatch = useDispatch();
   const sets = useSelector(selectSets);
   const dishes = useSelector(selectDishes);
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   const addSetToOrder = (set: SetType) => {
     dishes.forEach((dish) =>

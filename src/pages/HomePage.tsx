@@ -157,10 +157,10 @@ const HomePage = () => {
     <Wrapper>
       <Header />
       <MainSection>
-        <MainTitle>Delicious Russian food delivery</MainTitle>
+        <MainTitle>Authentic Homemade Russian Meals</MainTitle>
         <SubTitle>
-          The best delicious homemade cooking service with free delivery in
-          Auckland
+          Enjoy the best homemade cooking - fresh, delicious, and delivered free
+          in Auckland
         </SubTitle>
         <DiscountButton
           title={"$10 discount \n for the first order"}
@@ -171,42 +171,38 @@ const HomePage = () => {
         <ImgWrap>
           <img src={pelmeni} alt="pelmeni" />
         </ImgWrap>
-        <Title>Have a rest! We will take over looking after your food.</Title>
+        <Title>Relax! We’ll handle the cooking</Title>
         <Info>
           <Paragraph>
-            Imagine your beloved Russian grandmother came to your place and
-            prepared tasty and varied home-made food for the whole family for
-            the week ahead. You no longer need to stand by the hot stove and
-            cook! You just have to take the dish that you want and warm it up!
+            Picture this: your Russian grandma visiting and filling your fridge
+            with wholesome, homemade meals for the entire week. No more stress,
+            no more standing over a hot stove — just heat, serve, and enjoy.
           </Paragraph>
           <Paragraph>
-            Our company has been operating since the beginning of 2016, but we
-            are not new to this business. Our chefs are professionals who can
-            cook more than one hundred delicious dishes. Our head-chef carefully
-            monitors their preparation, and pays special attention to the
-            quality and freshness of the products.
+            We’ve been bringing delicious Russian food to Auckland since 2016.
+            Our chefs know over a hundred traditional recipes, and our head chef
+            personally makes sure every dish is fresh, high-quality, and full of
+            flavour.
           </Paragraph>
         </Info>
       </Section>
       <Paralax>
         <Info>
-          <Title>How can meals be stored, and for how long?</Title>
+          <Title>How should meals be stored, and for how long?</Title>
           <Paragraph>
-            We deliver fresh dishes, and the packaging and storage of meals we
-            use allows the dishes to remain fresh and tasty in the refrigerator
-            for up to a week.
+            We deliver all dishes fresh. Thanks to our packaging and storage
+            methods, meals stay tasty in your fridge for up to <b>7 days</b> .
           </Paragraph>
           <Paragraph>
-            You should follow simple rules so that the dishes do not deteriorate
-            prematurely:
+            To keep them fresh, just follow a few simple rules:
           </Paragraph>
           <ul>
-            <li>Use only dry and clean appliances</li>
-            <li>Close containers tightly</li>
+            <li>Always use clean, dry utensils</li>
+            <li>Close containers tightly after use</li>
             <li>
-              Store containers in the refrigerator (between +3 - +5 degrees)
+              Store meals in the refrigerator at <b>+3°C</b> to <b> +5°C</b>
             </li>
-            <li>Reheat meals in portions as needed.</li>
+            <li>Reheat only the portions you plan to eat</li>
           </ul>
         </Info>
       </Paralax>
@@ -214,8 +210,9 @@ const HomePage = () => {
         <Title>Order information</Title>
         <Info>
           <Paragraph>
-            The order costs $79.99 and includes 8 dishes with a total weight of
-            8 kg:
+            For <b>$79.99</b> , you’ll receive{" "}
+            <b>8 delicious homemade dishes </b> with a total weight of{" "}
+            <b>8 kg</b> :
           </Paragraph>
           <li>
             <span>2 </span>
@@ -238,13 +235,12 @@ const HomePage = () => {
             <Link to="/dishes/desserts">dessert</Link> <span>1 kg</span>{" "}
           </li>
           <Paragraph>
-            This volume of food is enough for one person for approximately 4-5
-            days.
+            This meal set is enough to feed one person for 4–5 days.
           </Paragraph>
           <Paragraph>
-            <span>We prepare some </span>
+            <span> To make it easier, we’ve also prepared ready-made </span>
             <Link to="/sets">dish sets</Link>{" "}
-            <span>to help you make a choice.</span>
+            <span>so you can choose without the hassle.</span>
           </Paragraph>
         </Info>
         <ImgWrap>
@@ -252,23 +248,22 @@ const HomePage = () => {
         </ImgWrap>
       </InfoSection>
       <PaymentSection>
-        <Title>Payment and Delivery</Title>
+        <Title>Payment & Delivery</Title>
         <Paragraph>
-          We work for you daily from Monday to Sunday. Ordering food from us you
-          will no longer have to go to the shops, spend time preparing dishes,
-          and you will also forget about a lot of dirty dishes. We will be happy
-          to do it for you.
+          We work for you <b>7 days a week, Monday to Sunday</b>. With us, you
+          no longer need to go shopping, spend hours cooking, or wash piles of
+          dirty dishes. We’ll happily take care of it for you.
         </Paragraph>
         <Paragraph>
-          Our products are delivered in disposable, recyclable plastic
-          containers.
+          All meals are delivered in <b>disposable, recyclable containers</b>,
+          keeping your food fresh and convenient.
         </Paragraph>
         <Paragraph>
-          Deliveries are made in the evening from 6 pm to 10 pm.
+          🚚 <b>Delivery time</b>: every evening from <b>6 pm to 10 pm</b>.
         </Paragraph>
         <Paragraph>
-          You can pay for the order on our website using a bank card, PayPal or
-          in cash to a courier.
+          💳 <b>Payment methods</b>: pay securely on our website with a bank
+          card or PayPal, or simply pay cash to the courier at delivery.
         </Paragraph>
       </PaymentSection>
       <Footer />

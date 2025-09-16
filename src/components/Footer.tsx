@@ -59,7 +59,17 @@ const Footer = () => {
   return (
     <Wrapper>
       <LogoText>Russian Granny</LogoText>
-      <LogoImg src={granny} alt="logo" onClick={() => window.scrollTo(0, 0)} />
+      <LogoImg
+        src={granny}
+        alt="logo"
+        onClick={() =>
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          })
+        }
+      />
       <Contacts>
         <h2>Contacts</h2>
         <p>46 Queen St, Auckland</p>

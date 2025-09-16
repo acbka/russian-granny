@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
-import { useParams, useLocation } from "react-router";
+import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { DishType } from "../../common/types";
 import { categories } from "../../common/constants";
@@ -47,12 +47,7 @@ const DishesPage = () => {
   const dishes = useSelector(selectDishes);
   const sets = useSelector(selectSets);
   const { category } = useParams<Params>();
-  const { pathname } = useLocation();
   const [FilteredDishes, setFilteredDishes] = useState<DishType[]>([]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   useEffect(() => {
     setFilteredDishes(

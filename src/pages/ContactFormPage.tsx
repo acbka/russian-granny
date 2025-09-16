@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserInOrder } from "../api/slises/orderSlice";
 import { selectOrder } from "../api/selectors";
@@ -36,14 +36,9 @@ const ContactFormPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const order = useSelector(selectOrder);
-  const { pathname } = useLocation();
   const emailPattern =
     // eslint-disable-next-line
     /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   useEffect(() => {
     const today = +new Date();

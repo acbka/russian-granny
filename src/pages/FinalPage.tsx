@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectOrder } from "../api/selectors";
 import { categories } from "../common/constants";
@@ -70,12 +70,7 @@ const Payment = styled.h3`
 const FinalPage = () => {
   const order = useSelector(selectOrder);
   const [dishesByCategory, setDishesByCategory] = useState<DishType[][]>([]);
-  const { pathname } = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   useEffect(() => {
     const dishesArray = [];
