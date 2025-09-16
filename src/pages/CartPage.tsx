@@ -61,7 +61,7 @@ const CartPage = () => {
     <Layout title="Order">
       {dishesInOrder.length !== 8 && (
         <Title>
-          You should add {8 - dishesInOrder.length} more{" "}
+          Add {8 - dishesInOrder.length} more{" "}
           {8 - dishesInOrder.length === 1 ? "dish" : "dishes"} to complete the
           order
         </Title>

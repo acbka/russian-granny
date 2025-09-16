@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { DishType } from "common/types";
 import { categories } from "common/constants";
+import cross from "assets/cross.png";
 
 type CardWrapPropsType = {
   color: string;
@@ -9,15 +10,14 @@ type CardWrapPropsType = {
 
 const Wrapper = styled.div<CardWrapPropsType>`
   width: 190px;
-  height: 459px;
+  height: 460px;
   border-style: solid;
   border-width: 2px;
   border-radius: 7px;
   text-align: center;
-  margin: 10px;
   border-color: ${(props) => props.color};
-  padding: 0 15px;
-  margin: 15px;
+  padding: 0 24px;
+  margin: 16px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 `;
 
@@ -34,14 +34,28 @@ const Name = styled.h4`
   margin: 20px 0 35px 0;
 `;
 
+const Figure = styled.div`
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
 const StyledImg = styled.img`
   display: block;
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease;
-  &:hover {
-    transform: scale(1.1);
-  }
+`;
+
+const Cross = styled.img`
+  width: 25px;
+  height: auto;
+  position: absolute;
+  top: -15px;
+  right: -15px;
 `;
 
 type CardPropsType = {
@@ -53,9 +67,10 @@ const Card = ({ dishes, handleClick }: CardPropsType) => {
   const category = dishes[0].category;
   const list = dishes.map((item, index) => (
     <div key={index}>
-      <figure>
+      <Figure>
         <StyledImg src={item.pict} alt={item.name} />
-      </figure>
+        {item.name !== "none" ? <Cross src={cross} alt="cross" /> : null}
+      </Figure>
       <Name>{item.name} </Name>
     </div>
   ));
