@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useAppDispatch } from "api/store";
 import HomePage from "pages/HomePage";
 import DishesPage from "pages/dishesPage/DishesPage";
@@ -18,7 +18,7 @@ function App() {
   dispatch(getSets());
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/dishes/:category" element={<DishesPage />} />
         <Route path="/sets" element={<SetsPage />} />
@@ -28,7 +28,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/404" element={<ErrorPage />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
