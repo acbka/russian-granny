@@ -54,8 +54,8 @@ const Cross = styled.img`
   width: 25px;
   height: auto;
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: -19px;
+  right: -19px;
 `;
 
 type CardPropsType = {
