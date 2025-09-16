@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
-import { DishType } from "../../common/types";
-import { categories } from "../../common/constants";
-import { useAppDispatch } from "../../api/store";
-import { selectDishes, selectSets } from "../../api/selectors";
-import { updateDishes } from "../../api/slises/dishesSlice";
-import { updateSets } from "../../api/slises/setsSlice";
-import Layout from "../../components/Layout";
-import Search from "../../components/Search";
-import SideCart from "../../components/SideCart";
+import { DishType } from "common/types";
+import { useAppDispatch } from "api/store";
+import { selectDishes, selectSets } from "api/selectors";
+import {
+  addDish as addDishAction,
+  removeDish as removeDishAction,
+} from "utils/dishHandlers";
+import Layout from "components/Layout";
+import Search from "components/Search";
+import SideCart from "components/SideCart";
 import Dish from "./components/Dish";
 
 const TitleWrap = styled.div`
@@ -59,34 +60,10 @@ const DishesPage = () => {
     <Dish
       key={index}
       dish={item}
-      addDish={() => addDish(item)}
-      removeDish={() => removeDish(item)}
+      addDish={() => addDishAction(item, dishes, dispatch)}
+      removeDish={() => removeDishAction(item, sets, dispatch)}
     />
   ));
-
-  const addDish = (dish: DishType) => {
-    if (
-      dishes.filter((item) => item.selected && item.category === dish.category)
-        .length < categories[dish.category].count
-    ) {
-      const tempDish = { ...dish, selected: true };
-      dispatch(updateDishes(tempDish));
-    }
-  };
-
-  const removeDish = (dish: DishType) => {
-    const tempDish = { ...dish, selected: false };
-    dispatch(updateDishes(tempDish));
-    sets.forEach(
-      (set) =>
-        set.selected &&
-        set.dishesId.filter((item) =>
-          item === dish.id
-            ? dispatch(updateSets({ ...set, selected: false }))
-            : ""
-        )
-    );
-  };
 
   return (
     <Layout>

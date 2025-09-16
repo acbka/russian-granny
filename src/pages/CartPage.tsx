@@ -3,11 +3,11 @@ import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectDishes } from "../api/selectors";
-import { setDishesInOrder } from "../api/slises/orderSlice";
-import { groupDishes } from "../common/groupDishes";
-import Layout from "../components/Layout";
-import Card from "../components/Card";
-import Button from "../components/Button";
+import { setDishesInOrder } from "api/slises/orderSlice";
+import { groupDishes } from "utils/groupDishes";
+import Layout from "components/Layout";
+import Card from "components/Card";
+import Button from "components/Button";
 
 const Wrapper = styled.main`
   display: flex;

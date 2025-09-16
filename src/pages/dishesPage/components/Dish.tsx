@@ -4,10 +4,10 @@ import { useSelector } from "react-redux";
 import beef from "assets/beef.png";
 import pork from "assets/pork.png";
 import dairy from "assets/dairy.png";
-import { DishType } from "../../../common/types";
-import { categories } from "../../../common/constants";
-import { selectDishes } from "../../../api/selectors";
-import Button from "../../../components/Button";
+import { DishType } from "common/types";
+import { categories } from "common/constants";
+import { selectDishes } from "api/selectors";
+import Button from "components/Button";
 
 type CardPropsType = {
   isShadow: boolean;
