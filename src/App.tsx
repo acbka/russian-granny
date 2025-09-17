@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useAppDispatch } from "api/store";
 import HomePage from "pages/HomePage";
-import DishesPage from "pages/dishesPage/DishesPage";
+import DishesPage from "pages/DishesPage";
 import SetsPage from "pages/setsPage/SetsPage";
 import CartPage from "pages/CartPage";
 import { getDishes } from "./api/requests/getDishes";

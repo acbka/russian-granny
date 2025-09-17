@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { DishType } from "common/types";
 import { categories } from "common/constants";
+import cross from "assets/cross.png";
 
 type CardWrapPropsType = {
   color: string;
@@ -37,6 +38,10 @@ const Figure = styled.div`
   display: inline-block;
   position: relative;
   transition: transform 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const StyledImg = styled.img`
@@ -45,17 +50,34 @@ const StyledImg = styled.img`
   height: auto;
 `;
 
+const Cross = styled.img`
+  width: 25px;
+  height: auto;
+  position: absolute;
+  top: -19px;
+  right: -19px;
+`;
+
 type CardPropsType = {
   dishes: DishType[];
+  handleClick?: () => void;
+  handleRemove?: (dish: DishType) => void;
 };
 
-const Card = ({ dishes }: CardPropsType) => {
+const OrderCard = ({ dishes, handleClick, handleRemove }: CardPropsType) => {
   const category = dishes[0].category;
 
   const list = dishes.map((item, index) => (
     <div key={index}>
       <Figure>
-        <StyledImg src={item.pict} alt={item.name} />
+        <StyledImg src={item.pict} alt={item.name} onClick={handleClick} />
+        {item.name !== "none" ? (
+          <Cross
+            onClick={() => handleRemove && handleRemove(item)}
+            src={cross}
+            alt="cross"
+          />
+        ) : null}
       </Figure>
       <Name>{item.name} </Name>
     </div>
@@ -68,4 +90,4 @@ const Card = ({ dishes }: CardPropsType) => {
     </Wrapper>
   );
 };
-export default Card;
+export default OrderCard;

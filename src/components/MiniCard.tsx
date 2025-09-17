@@ -40,8 +40,7 @@ type CardPropsType = {
 
 const MiniCard = ({ dishes, handleClick }: CardPropsType) => {
   const category = dishes[0].category;
-  console.log(category);
-  console.log("ggggg");
+
   const list = dishes.map((item, index) => (
     <div key={index}>
       <figure>

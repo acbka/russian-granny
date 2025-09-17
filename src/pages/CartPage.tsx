@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectDishes } from "../api/selectors";
+import { selectDishes, selectSets } from "../api/selectors";
 import { setDishesInOrder } from "api/slises/orderSlice";
 import { groupDishes } from "utils/groupDishes";
 import Layout from "components/Layout";
-import Card from "components/Card";
+import OrderCard from "components/OrderCard";
 import Button from "components/Button";
+import { removeDish } from "utils/dishHandlers";
+import { DishType } from "common/types";
 
 const Wrapper = styled.main`
   display: flex;
@@ -23,7 +25,7 @@ const DishesSection = styled.div`
   justify-content: space-around;
 `;
 
-const CardWrap = styled(Card)`
+const CardWrap = styled(OrderCard)`
   cursor: pointer;
 `;
 
@@ -43,19 +45,25 @@ const CartPage = () => {
   const navigate = useNavigate();
   const dishesInOrder = dishes.filter((dish) => dish.selected);
   const dishesByCategories = groupDishes(dishesInOrder);
+  const sets = useSelector(selectSets);
 
   const createOrder = () => {
     dispatch(setDishesInOrder(dishesInOrder));
     navigate("/form");
   };
 
-  const dishesList = dishesByCategories.map((item, index) => (
-    <CardWrap
-      key={index}
-      dishes={item}
-      handleClick={() => navigate(`/dishes/${item[0].category}`)}
-    />
-  ));
+  const removeFromOrder = (dish: DishType) => removeDish(dish, sets, dispatch);
+
+  const dishesList = dishesByCategories.map((items, index) => {
+    return (
+      <CardWrap
+        key={index}
+        dishes={items}
+        handleClick={() => navigate(`/dishes/${items[0].category}`)}
+        handleRemove={removeFromOrder}
+      />
+    );
+  });
 
   return (
     <Layout title="Order">

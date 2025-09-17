@@ -12,7 +12,7 @@ import {
 import Layout from "components/Layout";
 import Search from "components/Search";
 import SideCart from "components/SideCart";
-import Dish from "./components/Dish";
+import Dish from "../components/Dish";
 
 const TitleWrap = styled.div`
   display: flex;
