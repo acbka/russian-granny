@@ -34,11 +34,11 @@ const DropDownMenuItem = styled.span`
     border-right: 0.4rem solid transparent;
     border-bottom: 0;
     border-left: 0.4rem solid transparent;
+    cursor: pointer;
   }
   & :hover {
     color: var(--color-second);
   }
-  cursor: pointer;
 `;
 
 const MenuBasket = styled.span`
@@ -58,6 +58,7 @@ const NavBar = () => {
     function handleResize() {
       setWindowSize(window.innerWidth);
     }
+    
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
